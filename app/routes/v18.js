@@ -81,31 +81,20 @@ router.post('/v18/claim-registration/personal-details/can-we-write-to-address', 
         if (safeAddress === 'Yes') {
           res.redirect('/v18/claim-registration/personal-details/contact-details');
       } else {
-          res.redirect('/v18/claim-registration/personal-details/find-an-address/search-alt');
+          res.redirect('/v18/claim-registration/personal-details/address-other');
       }
 });
 
-router.post('/v18/claim-registration/personal-details/find-an-address/search-alt', (req, res, next) => {
-      res.redirect('/v18/claim-registration/personal-details/find-an-address/confirm-alt');
-});
-
-router.post('/v18/claim-registration/personal-details/find-an-address/confirm-alt', (req, res, next) => {
-      res.redirect('/v18/claim-registration/personal-details/contact-details');
-});
-
 router.post('/v18/claim-registration/personal-details/address', (req, res, next) => {
-      res.redirect('/v18/claim-registration/personal-details/confirm-address');
-});
-
-router.post('/v18/claim-registration/personal-details/confirm-address', (req, res, next) => {
-      res.redirect('/v18/claim-registration/personal-details/can-we-write-to-address');
+        const safeAddress = req.session.data['safe-address'];
+          if (safeAddress === 'Yes') {
+            res.redirect('/v18/claim-registration/personal-details/contact-details');
+        } else {
+            res.redirect('/v18/claim-registration/personal-details/address-other');
+        }
 });
 
 router.post('/v18/claim-registration/personal-details/address-other', (req, res, next) => {
-        res.redirect('/v18/claim-registration/personal-details/confirm-address-other');
-});
-
-router.post('/v18/claim-registration/personal-details/confirm-address-other', (req, res, next) => {
         res.redirect('/v18/claim-registration/personal-details/contact-details');
 });
 

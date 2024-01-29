@@ -1,5 +1,5 @@
 {% block pageTitle %}
-What address should we use to contact you?
+Safe address
 {% endblock %}
 
 {% extends "apply-for-pip/includes/layout-signed-in-pip1.html" %}
@@ -19,24 +19,24 @@ What address should we use to contact you?
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-fieldset__heading">
-              What address should we use to contact you?
+              What address can we write to?
             </h1>
           </legend>
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="other-address-line-1">
-              Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
+              Address line 1 <span class="govuk-visually-hidden">Typically the building and street</span>
             </label>
             <input class="govuk-input" id="other-address-line-1" name="other-address-line-1" type="text"
-              autocomplete="address-line1">
+              autocomplete="other-address-line1">
           </div> <!-- govuk-form-group -->
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="other-address-line-2">
-              <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+              Address line 2 (optional)
             </label>
             <input class="govuk-input" id="other-address-line-2" name="other-address-line-2" type="text"
-              autocomplete="address-line2">
+              autocomplete="other-address-line2">
           </div> <!-- govuk-form-group -->
 
           <div class="govuk-form-group">
@@ -49,7 +49,7 @@ What address should we use to contact you?
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="other-address-county">
-              County
+              County (optional)
             </label>
             <input class="govuk-input govuk-input--width-10" id="other-address-county" name="other-address-county" type="text">
           </div> <!-- govuk-form-group -->
@@ -78,6 +78,8 @@ What address should we use to contact you?
       </div> <!-- govuk-form-group -->
 
       <input type="submit" class="govuk-button" value="Continue" id="submit">
+
+      <p class="govuk-body govuk-!-margin-bottom-0"><a href="find-an-address/search-alt" class="govuk-link">Find an address</a></p>
 
     </div> <!-- govuk-grid-column-two-thirds -->
   </div> <!-- govuk-grid-column-two-thirds -->

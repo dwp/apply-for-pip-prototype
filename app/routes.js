@@ -1,97 +1,63 @@
+const express = require('express')
+const router = express.Router()
 
-const govukPrototypeKit = require('govuk-prototype-kit')
-const router = govukPrototypeKit.requests.setupRouter()
-
-
-// Logging session data
-
-router.use((req, res, next) => {
-  const log = {
-    method: req.method,
-    url: req.originalUrl,
-    data: req.session.data
-  }
-  console.log(JSON.stringify(log, null, 2))
-
-next()
-})
-
-// GET SPRINT NAME - useful for relative templates
-router.use('/', (req, res, next) => {
-  res.locals.currentURL = req.originalUrl; //current screen
-  res.locals.prevURL = req.get('Referrer'); // previous screen
-
-console.log('folder : ' + res.locals.folder + ', subfolder : ' + res.locals.subfolder  );
-
-  next();
-});
 // ROUTES REDIRECT START
-const applyforpiplive = require('./routes/live-apply-for-pip.js')
-const poc = require('./routes/poc.js')
-const v01 = require('./routes/v0-1.js')
-const v02 = require('./routes/v0-2.js')
-const v1 = require('./routes/v1.js')
-const v1a = require('./routes/v1a.js')
-const v1b = require('./routes/v1b.js')
-const v1c = require('./routes/v1c.js')
-const v2 = require('./routes/v2.js')
-const v2idv = require('./routes/v2idv.js')
-const v2a = require('./routes/v2a.js')
-const v2b = require('./routes/v2b.js')
-const v3 = require('./routes/v3.js')
-const v3b = require('./routes/v3b.js')
-const v4 = require('./routes/v4.js')
-const v5 = require('./routes/v5.js')
-const v6 = require('./routes/v6.js')
-const v7 = require('./routes/v7.js')
-const v8 = require('./routes/v8.js')
-const v9 = require('./routes/v9.js')
-const v10 = require('./routes/v10.js')
-const v11 = require('./routes/v11.js')
-const v12 = require('./routes/v12.js')
+const applyforpiplive = require('./routes/live-apply-for-pip')
+const poc = require('./routes/poc')
+const v01 = require('./routes/v0-1')
+const v02 = require('./routes/v0-2')
+const v1 = require('./routes/v1')
+const v1a = require('./routes/v1a')
+const v1b = require('./routes/v1b')
+const v1c = require('./routes/v1c')
+const v2 = require('./routes/v2')
+const v2idv = require('./routes/v2idv')
+const v2a = require('./routes/v2a')
+const v2b = require('./routes/v2b')
+const v3 = require('./routes/v3')
+const v3b = require('./routes/v3b')
+const v4 = require('./routes/v4')
+const v5 = require('./routes/v5')
+const v6 = require('./routes/v6')
+const v7 = require('./routes/v7')
+const v8 = require('./routes/v8')
+const v9 = require('./routes/v9')
+const v10 = require('./routes/v10')
+const v11 = require('./routes/v11')
+const v12 = require('./routes/v12')
 // const v12v2 = require('./routes/v12v2')
-const v13 = require('./routes/v13.js')
-const v14 = require('./routes/v14.js')
-const v15 = require('./routes/v15.js')
-const v16 = require('./routes/v16.js')
-const v17 = require('./routes/v17.js')
-const v18 = require('./routes/v18.js')
-const v19 = require('./routes/v19.js')
-const v20 = require('./routes/v20.js')
-const v20v1 = require('./routes/v20v1.js')
-const v20v2 = require('./routes/v20v2.js')
-const v21 = require('./routes/v21.js')
-const v22 = require('./routes/v22.js')
-const v23 = require('./routes/v23.js')
-const v24 = require('./routes/v24.js')
-const v24v1 = require('./routes/v24v1.js')
-const v24v2 = require('./routes/v24v2.js')
-const expv11 = require('./routes/expv11.js')
-const mvp = require('./routes/mvp.js')
-const mvprev1 = require('./routes/mvp-rev-1.js')
-const p5rev1 = require('./routes/p5-rev-1.js')
-const p5v11 = require('./routes/p5-v11.js')
-const p5v12 = require('./routes/p5-v12.js')
-const p5v12v2 = require('./routes/p5-v12v2.js')
+const v13 = require('./routes/v13')
+const v14 = require('./routes/v14')
+const v15 = require('./routes/v15')
+const v16 = require('./routes/v16')
+const v17 = require('./routes/v17')
+const v18 = require('./routes/v18')
+const expv11 = require('./routes/expv11')
+const mvp = require('./routes/mvp')
+const mvprev1 = require('./routes/mvp-rev-1')
+const p5rev1 = require('./routes/p5-rev-1')
+const p5v11 = require('./routes/p5-v11')
+const p5v12 = require('./routes/p5-v12')
+const p5v12v2 = require('./routes/p5-v12v2')
 const pip2 = require('./routes/p5.js')
 const p5v10 = require('./routes/p5-v10.js')
 const mvpp5 = require('./routes/mvp-p5.js')
-const authRoutes = require('./routes/auth.js')
-const idvRoutes = require('./routes/idv.js')
-const pip1livev1 = require('./routes/live-pip1-v1-0.js')
-const pip2livev1 = require('./routes/live-pip2-v1-0.js')
-const pip1v1point1 = require('./routes/pip1-v1-1.js')
-const pip2v1point1 = require('./routes/pip2-v1-1.js')
-const alternativeTasklist = require('./routes/alternative-tasklist.js')
-const alternativeTasklistTwo = require('./routes/alternative-tasklist-1-1.js')
-const idVerification = require('./routes/id-verification.js')
-const addsupport = require('./routes/addsupport.js')
-const conditionQuestion = require('./routes/condition-question.js')
-const conditionQuestionv12v2 = require('./routes/condition-questionv12v2.js')
-const additionalSupportCondition = require('./routes/additional-support-conditon.js')
-const additionalSupportConditionv14 = require('./routes/additional-support-conditon-v14.js')
-const pipAppPart2 = require('./routes/pip2.js')
-const eligibility = require('./routes/eligibility.js')
+const authRoutes = require('./routes/auth')
+const idvRoutes = require('./routes/idv')
+const pip1livev1 = require('./routes/live-pip1-v1-0')
+const pip2livev1 = require('./routes/live-pip2-v1-0')
+const pip1v1point1 = require('./routes/pip1-v1-1')
+const pip2v1point1 = require('./routes/pip2-v1-1')
+const alternativeTasklist = require('./routes/alternative-tasklist')
+const alternativeTasklistTwo = require('./routes/alternative-tasklist-1-1')
+const idVerification = require('./routes/id-verification')
+const addsupport = require('./routes/addsupport')
+const conditionQuestion = require('./routes/condition-question')
+const conditionQuestionv12v2 = require('./routes/condition-questionv12v2')
+const additionalSupportCondition = require('./routes/additional-support-conditon')
+const additionalSupportConditionv14 = require('./routes/additional-support-conditon-v14')
+const pipAppPart2 = require('./routes/pip2')
+const eligibility = require('./routes/eligibility')
 
 // ROUTES REDIRECT END
 
@@ -126,16 +92,6 @@ v15(router);
 v16(router);
 v17(router);
 v18(router);
-v19(router);
-v20(router);
-v20v1(router);
-v20v2(router);
-v21(router);
-v22(router);
-v23(router);
-v24(router);
-v24v1(router);
-v24v2(router);
 expv11(router);
 mvp(router);
 mvprev1(router);
