@@ -1,0 +1,32 @@
+{% set pageTitle = "How to take a photo of your evidence" %}
+
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+  {% include "apply-for-pip/includes/phase-banner.html" %}
+  {% include "apply-for-pip/includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<form id="form" method="post" action="#">
+    <div class="govuk-form-group">
+      <h1 class="govuk-heading-l">How to take a photo of your evidence</h1>
+
+      <p>Make sure:
+        <ul class="govuk-list govuk-list--bullet">
+          <li>You're in a well lit place</li>
+          <li>all of the document is in the image</li>
+          <li>you take the photo from above and not at an angle</li>
+          <li>this photo is not blurred</li>
+        </ul>
+
+    </div><!-- govuk-form-group -->
+
+    <input type="submit" class="govuk-button" value="Continue to upload" id="submit">
+</form>
+  </div><!-- govuk-grid-column-two-thirds -->
+</div><!-- govuk-grid-row -->
+{% endblock %}
