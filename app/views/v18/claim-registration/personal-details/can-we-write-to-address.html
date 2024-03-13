@@ -1,5 +1,5 @@
 {% block pageTitle %}
-Address
+Is this the address we should use to contact you?
 {% endblock %}
 
 {% extends "apply-for-pip/includes/layout-signed-in-pip1.html" %}
@@ -19,11 +19,12 @@ Address
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-heading-xl">
-              Can we write to you at this address?
+              Is this the address we should use to contact you?
             </h1>
           </legend>
+          <p>You will receive your claim decision by post.</p>
           <div class="govuk-inset-text" style="margin-top: 0px;">
-              1 Washington Street, Worcester, WR1 1NL
+              {{ data['select-an-address'] }}
           </div>
           <div class="govuk-radios govuk-radios--inline">
             <div class="govuk-radios__item">

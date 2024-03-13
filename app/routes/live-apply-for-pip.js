@@ -518,59 +518,21 @@ router.post('/apply-for-pip/claim-registration/personal-details/nino', (req, res
 });
 
 router.post('/apply-for-pip/claim-registration/personal-details/date-of-birth', (req, res, next) => {
-        res.redirect('/apply-for-pip/claim-registration/personal-details/find-an-address/search');
-});
+        res.redirect('/apply-for-pip/claim-registration/personal-details/address');
+})
 
-router.post('/apply-for-pip/claim-registration/personal-details/find-an-address/search', (req, res, next) => {
-        res.redirect('/apply-for-pip/claim-registration/personal-details/find-an-address/select');
-});
-
-router.post('/apply-for-pip/claim-registration/personal-details/find-an-address/select', (req, res, next) => {
-        res.redirect('/apply-for-pip/claim-registration/personal-details/find-an-address/confirm');
-});
-
-router.post('/apply-for-pip/claim-registration/personal-details/find-an-address/confirm', (req, res, next) => {
-        res.redirect('/apply-for-pip/claim-registration/personal-details/can-we-write-to-address');
-});
-
-router.post('/apply-for-pip/claim-registration/personal-details/can-we-write-to-address', (req, res, next) => {
+router.post('/apply-for-pip/claim-registration/personal-details/address', (req, res, next) => {
         const safeAddress = req.session.data['safe-address'];
           if (safeAddress === 'Yes') {
             res.redirect('/apply-for-pip/claim-registration/personal-details/contact-details');
         } else {
-            res.redirect('/apply-for-pip/claim-registration/personal-details/find-an-address/search-alt');
+            res.redirect('/apply-for-pip/claim-registration/personal-details/address-other');
         }
 });
 
-// Manual address entry
-router.post('/apply-for-pip/claim-registration/personal-details/address', (req, res, next) => {
-        res.redirect('/apply-for-pip/claim-registration/personal-details/confirm-address');
-});
-
-router.post('/apply-for-pip/claim-registration/personal-details/confirm-address', (req, res, next) => {
-        res.redirect('/apply-for-pip/claim-registration/personal-details/can-we-write-to-address');
-});
-
-
-
-router.post('/apply-for-pip/claim-registration/personal-details/find-an-address/search-alt', (req, res, next) => {
-        res.redirect('/apply-for-pip/claim-registration/personal-details/find-an-address/confirm-alt');
-});
-
-router.post('/apply-for-pip/claim-registration/personal-details/find-an-address/confirm-alt', (req, res, next) => {
-        res.redirect('/apply-for-pip/claim-registration/personal-details/contact-details');
-});
-
-
-
-// Manual address entry
 router.post('/apply-for-pip/claim-registration/personal-details/address-other', (req, res, next) => {
-        res.redirect('/apply-for-pip/claim-registration/personal-details/confirm-address-other');
-});
-
-router.post('/apply-for-pip/claim-registration/personal-details/confirm-address-other', (req, res, next) => {
         res.redirect('/apply-for-pip/claim-registration/personal-details/contact-details');
-});
+})
 
 
 router.post('/apply-for-pip/claim-registration/personal-details/contact-details', (req, res, next) => {
