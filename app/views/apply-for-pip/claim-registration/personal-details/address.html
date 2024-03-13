@@ -24,7 +24,7 @@ Address
           </legend>
           <div class="govuk-form-group">
             <label class="govuk-label" for="address-line-1">
-              Address line 1 <span class="govuk-visually-hidden">Typically the building and street</span>
+              Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
             </label>
             <input class="govuk-input" id="address-line-1" name="address-line-1" type="text"
               autocomplete="address-line1">
@@ -32,7 +32,7 @@ Address
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="other-address-line-2">
-              Address line 2 (optional)
+              <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
             </label>
             <input class="govuk-input" id="address-line-2" name="address-line-2" type="text"
               autocomplete="address-line2">
@@ -48,7 +48,7 @@ Address
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="address-county">
-              County (optional)
+              County 
             </label>
             <input class="govuk-input govuk-input--width-10" id="address-county" name="address-county" type="text">
           </div> <!-- govuk-form-group -->
@@ -73,13 +73,36 @@ Address
             </select>
           </div> <!-- govuk-form-group -->
 
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                  Can we write to you at this address?
+                </h1>
+              </legend>
+              <div class="govuk-radios govuk-radios--inline">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="safe-address-1" name="safe-address" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="safe-address-1">
+                    Yes
+                  </label>
+                </div> <!-- govuk-radios__item -->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="safe-address-2" name="safe-address" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="safe-address-2">
+                    No
+                  </label>
+                </div> <!-- govuk-radios__item -->
+              </div> <!-- govuk-radios govuk-radios--inline -->
+            </fieldset>
+          </div> <!-- govuk-form-group -->
+
         </fieldset>
       </div> <!-- govuk-form-group -->
 
 
       <input type="submit" class="govuk-button" value="Continue" id="submit">
 
-      <p class="govuk-body govuk-!-margin-bottom-0"><a href="find-an-address/search" class="govuk-link">Find an address</a></p>
       </div>
 
     </div> <!-- govuk-grid-column-two-thirds -->
