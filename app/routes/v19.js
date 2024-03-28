@@ -541,14 +541,14 @@ router.post('/v19/health-form/supporting-evidence/supporting-evidence-uploaded-2
 
 // ONLINE IDENTIFICTAION
 
-// router.post('/v19/oidv/check-identity', (req, res, next) => {
-//       const checkIdentity = req.session.data['checkIdentity'];
-//         if (checkIdentity === 'Yes') {
-//           res.redirect('https://v19-idv.herokuapp.com/zero-confidence/v1/identity/check-identity');
-//       } else {
-//           res.redirect('/v19/oidv/check-identity-call');
-//       }
-// });
+router.post('/v19/oidv/check-identity', (req, res, next) => {
+      const checkIdentity = req.session.data['checkIdentity'];
+        if (checkIdentity === 'Yes') {
+          res.redirect('https://v19-idv.herokuapp.com/zero-confidence/v1/identity/check-identity');
+      } else {
+          res.redirect('/v19/oidv/check-identity-call');
+      }
+});
 
 
 }
