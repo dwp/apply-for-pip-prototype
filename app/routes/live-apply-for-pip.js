@@ -1024,14 +1024,10 @@ router.post('/apply-for-pip/health-form/supporting-evidence/intro', (req, res, n
 router.post('/apply-for-pip/health-form/supporting-evidence/supporting-evidence', (req, res, next) => {
       const question = req.session.data['question'];
         if (question === 'yes') {
-          res.redirect('/apply-for-pip/health-form/supporting-evidence/taking-a-photo');
+          res.redirect('/apply-for-pip/health-form/supporting-evidence/supporting-evidence-upload-1');
       } else {
           res.redirect('/apply-for-pip/health-form/declaration');
       }
-});
-
-router.post('/apply-for-pip/health-form/supporting-evidence/taking-a-photo', (req, res, next) => {
-    res.redirect('/apply-for-pip/health-form/supporting-evidence/supporting-evidence-upload-1');
 });
 
 router.post('/apply-for-pip/health-form/supporting-evidence/supporting-evidence-uploaded-1', (req, res, next) => {
