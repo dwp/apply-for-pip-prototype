@@ -30,28 +30,41 @@
           </legend>
           <br><br>
 
+          <p>Your file must be:
+          <ul class="govuk-list govuk-list--bullet">
+            <li>a PDF, JPEG, JPG, PNG, DOCX, DOC, or DOT</li>
+            <li>smaller than 10MB</li>
+          </ul>
+          </p>
+
           <div class="govuk-form-group">
-            <label class="govuk-label" for="supporting-evidence-file-2">
+            <label class="govuk-label" for="supporting-evidence-file-1">
               Upload a file
             </label>
-            <input class="govuk-file-upload" id="supporting-evidence-file-2" name="supporting-evidence-file-2" type="file">
+            <input class="govuk-file-upload" id="supporting-evidence-file-1" name="supporting-evidence-file-1" type="file">
           </div>
         </fieldset>
 
-        <p>Your file must be:
-        <ul class="govuk-list govuk-list--bullet">
-          <li>a PDF, JPEG, JPG, PNG, DOCX, DOC, or DOT</li>
-          <li>smaller than 10MB</li>
-        </ul>
-        </p>
 
         <button class="govuk-button" data-module="govuk-button" data-prevent-double-click="true" >
           Upload and continue
         </button>
 
-        <div class="govuk-inset-text">
-          <p>If you're having problems uploading your files you can <a href="/v20/health-form/supporting-evidence/evidence-by-post">send your evidence by post</a>.</p>
-        </div>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              If you have problems uploading your files
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>If a file is bigger than 10MB, reduce the file size if you can and try again.</p>
+            <p>If you cannot upload your files you can post photocopies of your documents to DWP instead. Evidence received by post will be considered as part of your PIP claim.</p>
+            <p>Write your name and National Insurance number on each piece of evidence.</p>
+            <p>Post your evidence to:</p>
+            <p>FREEPOST DWP PIP 1</p>
+            <p>You do not need a stamp. Do not use recorded delivery or special delivery.</p>
+          </div>
+        </details>
       </form>
 
     </div>{# /govuk-grid-column-two-thirds #}

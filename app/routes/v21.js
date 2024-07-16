@@ -265,7 +265,7 @@ module.exports = function (router) {
             if (eligChoice === 'Check I am eligible for PIP') {
               res.redirect('/v21/eligibility/over-16');
           } else {
-              res.redirect('/v21/eligibility/postcode-check-1')
+              res.redirect('/v21/eligibility/postcode-check')
           }
   });
 
@@ -514,7 +514,7 @@ router.post('/v21/claim-registration/additional-support/check-answers-1', (req, 
 
 
 router.post('/v21/claim-registration/personal-details/name', (req, res, next) => {
-        res.redirect('/v21/claim-registration/personal-details/nino');
+        res.redirect('/v21/claim-registration/personal-details/date-of-birth');
 });
 
 router.post('/v21/claim-registration/personal-details/nino', (req, res, next) => {
