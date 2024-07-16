@@ -36,6 +36,7 @@ const v19 = require('./routes/v19')
 const v20 = require('./routes/v20')
 const v20v1 = require('./routes/v20v1')
 const v20v2 = require('./routes/v20v2')
+const v21 = require('./routes/v21')
 const expv11 = require('./routes/expv11')
 const mvp = require('./routes/mvp')
 const mvprev1 = require('./routes/mvp-rev-1')
@@ -100,6 +101,7 @@ v19(router);
 v20(router);
 v20v1(router);
 v20v2(router);
+v21(router);
 expv11(router);
 mvp(router);
 mvprev1(router);
