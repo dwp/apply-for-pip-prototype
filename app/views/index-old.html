@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
@@ -8,10 +8,11 @@ GOV.UK Prototype Kit
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-l">Apply for Personal Independent Payment digital service</h1>
 
 
         <div class="govuk-tabs" data-module="govuk-tabs">
-            <h1 class="govuk-heading-l">Apply for Personal Independent Payment digital service</h1>
+            <h2 class="govuk-tabs__title">Contents</h2>
             <ul class="govuk-tabs__list">
                 <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
                     <a class="govuk-tabs__tab" href="#prototype">
@@ -484,6 +485,6 @@ GOV.UK Prototype Kit
     </div> <!-- govuk-grid-column-full -->
 </div> <!-- govuk-grid-row -->
 
-
+<script src="/public/javascripts/application.js"></script>
 
 {% endblock %}
