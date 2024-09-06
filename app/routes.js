@@ -3,27 +3,27 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 
-// Logging session data  
-  
-router.use((req, res, next) => {    
-  const log = {  
-    method: req.method,  
-    url: req.originalUrl,  
-    data: req.session.data  
-  }  
-  console.log(JSON.stringify(log, null, 2))  
- 
-next()  
-})  
+// Logging session data
 
-// GET SPRINT NAME - useful for relative templates  
-router.use('/', (req, res, next) => {  
-  res.locals.currentURL = req.originalUrl; //current screen  
+router.use((req, res, next) => {
+  const log = {
+    method: req.method,
+    url: req.originalUrl,
+    data: req.session.data
+  }
+  console.log(JSON.stringify(log, null, 2))
+
+next()
+})
+
+// GET SPRINT NAME - useful for relative templates
+router.use('/', (req, res, next) => {
+  res.locals.currentURL = req.originalUrl; //current screen
   res.locals.prevURL = req.get('Referrer'); // previous screen
 
 console.log('folder : ' + res.locals.folder + ', subfolder : ' + res.locals.subfolder  );
 
-  next();  
+  next();
 });
 // ROUTES REDIRECT START
 const applyforpiplive = require('./routes/live-apply-for-pip.js')
@@ -61,6 +61,7 @@ const v20 = require('./routes/v20.js')
 const v20v1 = require('./routes/v20v1.js')
 const v20v2 = require('./routes/v20v2.js')
 const v21 = require('./routes/v21.js')
+const v22 = require('./routes/v22.js')
 const expv11 = require('./routes/expv11.js')
 const mvp = require('./routes/mvp.js')
 const mvprev1 = require('./routes/mvp-rev-1.js')
@@ -126,6 +127,7 @@ v20(router);
 v20v1(router);
 v20v2(router);
 v21(router);
+v22(router);
 expv11(router);
 mvp(router);
 mvprev1(router);
