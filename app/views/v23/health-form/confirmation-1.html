@@ -1,0 +1,48 @@
+{% set pageTitle = "Information sent" %}
+
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+  {% include "apply-for-pip/includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Stage 2 submitted
+      </h1>
+      <div class="govuk-panel__body">
+        You must confirm your identity 
+      </div>
+    </div>
+
+
+    <p class="govuk-body">We have received your stage 2 form. We have sent a confirmation email to <strong>jeff.bridges@gmail.com</strong>.</p>
+
+    <p><a href="#">Download Jeff Bridges completed form (PDF)</a></p>
+
+    <p>You will not be able to download your completed form after you leave this page.</p>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+          We cannot process your claim until you confirm your identity.
+        </strong>
+      </div>
+
+      <p>You need to confirm your identity as soon as possible. We check everyone's identity to protect from fraud.</p>
+
+    <a href="../oidv/confirm-your-identity" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Confirm your identity</a>
+
+    <p>You can <a href="sign-out">sign out</a> and return later to confirm your identity or to upload more evidence.</p>
+
+
+  </div>
+</div>
+{% endblock %}
