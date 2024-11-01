@@ -1,0 +1,67 @@
+{% set pageTitle = "We need to check your identity" %}
+
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+  {% include "apply-for-pip/includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="#">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-heading-xl">Have you confirmed your identity?</h1>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            We cannot assess your application until you confirm your identity.
+          </strong>
+        </div>
+
+        <p>If you have confirmed your identity over the phone, you do not need to confirm your identity again.</p>
+
+          <h2 class="govuk-heading-m">What do you want to do?</h2>
+
+        <fieldset class="govuk-fieldset" aria-describedby=identity-hint>
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          </legend>
+
+          <div class="govuk-radios govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="check-identity-1" name="check-identity" type="radio" value="no-confirmed">
+              <label class="govuk-label govuk-radios__label" for="check-identity-1">
+                Confirm your identity
+              </label>
+
+            </div> <!-- govuk-radios__item -->
+            <div class="govuk-radios govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="check-identity-2" name="check-identity" type="radio" value="yes-confirmed">
+                <label class="govuk-label govuk-radios__label" for="check-identity-2">
+                  Upload supporting evidence
+                </label>
+
+              </div> <!-- govuk-radios__item -->
+        </div> <!-- govuk-radios govuk-radios -->
+
+      </fieldset>
+
+    </div> <!-- govuk-form-group -->
+
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+  </div>{# /govuk-grid-column-two-thirds #}
+</div>{# /govuk-grid-row #}
+
+</form>
+
+{% endblock %}
