@@ -1018,7 +1018,7 @@ router.post('/v23/health-form/additional-information/details', (req, res, next) 
 });
 
 router.post('/v23/health-form/supporting-evidence/intro', (req, res, next) => {
-    res.redirect('/v23/health-form/declaration');
+    res.redirect('/v23/health-form/supporting-evidence/supporting-evidence');
 });
 
 router.post('/v23/health-form/supporting-evidence/supporting-evidence', (req, res, next) => {
