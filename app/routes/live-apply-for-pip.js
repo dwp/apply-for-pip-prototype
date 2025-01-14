@@ -359,18 +359,26 @@ module.exports = function (router) {
   router.post('/apply-for-pip/eligibility/required', (req, res, next) => {
           const required = req.session.data['required'];
             if (required === 'Yes') {
-              res.redirect('/apply-for-pip/eligibility/apply-online');
+              res.redirect('/apply-for-pip/eligibility/nino');
           } else {
               res.redirect('/apply-for-pip/eligibility/required-end');
           }
   });
 
+  router.post('/apply-for-pip/eligibility/nino', (req, res, next) => {
+          res.redirect('/apply-for-pip/eligibility/email');
+  });
+
+  router.post('/apply-for-pip/eligibility/email', (req, res, next) => {
+          res.redirect('/apply-for-pip/eligibility/apply-online');
+  });
+
   router.post('/apply-for-pip/eligibility/apply-online', (req, res, next) => {
-          res.redirect('/apply-for-pip/verify/register/register-start');
+          res.redirect('/apply-for-pip/registration/register-start');
   });
 
 
-// PIP VERIFY
+  // REGISTRATION (DWP APPLY - DTH)
 
 router.post('/apply-for-pip/verify/complete-registration', (req, res, next) => {
         res.redirect('/apply-for-pip/verify/enter-details');
@@ -399,42 +407,53 @@ router.post('/apply-for-pip/verify/create-password', (req, res, next) => {
 
 // PIP REGISTER
 
-router.post('/apply-for-pip/verify/register/register-start', (req, res, next) => {
-        res.redirect('/apply-for-pip/verify/register/email');
+router.post('/apply-for-pip/registration/register-start', (req, res, next) => {
+        res.redirect('/apply-for-pip/registration/email');
 });
 
-router.post('/apply-for-pip/verify/register/email', (req, res, next) => {
-        res.redirect('/apply-for-pip/verify/register/code-email');
+router.post('/apply-for-pip/registration/email', (req, res, next) => {
+        res.redirect('/apply-for-pip/registration/code-email');
 });
 
-router.post('/apply-for-pip/verify/register/code-email', (req, res, next) => {
-        res.redirect('/apply-for-pip/verify/register/create-password');
+router.post('/apply-for-pip/registration/code-email', (req, res, next) => {
+        res.redirect('/apply-for-pip/registration/create-password');
 });
 
-router.post('/apply-for-pip/verify/register/create-password', (req, res, next) => {
-        res.redirect('/apply-for-pip/verify/register/mobile');
+router.post('/apply-for-pip/registration/create-password', (req, res, next) => {
+        res.redirect('/apply-for-pip/registration/mobile');
 });
 
-router.post('/apply-for-pip/verify/register/mobile', (req, res, next) => {
-        res.redirect('/apply-for-pip/verify/register/code-text');
+router.post('/apply-for-pip/registration/mobile', (req, res, next) => {
+        res.redirect('/apply-for-pip/registration/code-text');
 });
 
-router.post('/apply-for-pip/verify/register/code-text', (req, res, next) => {
-        res.redirect('/apply-for-pip/verify/register/successful');
+router.post('/apply-for-pip/registration/code-text', (req, res, next) => {
+        res.redirect('/apply-for-pip/registration/successful');
 });
 
-router.post('/apply-for-pip/verify/register/successful', (req, res, next) => {
-        res.redirect('/apply-for-pip/verify/sign-in/dth');
+router.post('/apply-for-pip/registration/successful', (req, res, next) => {
+        res.redirect('/apply-for-pip/registration/matching/sign-in');
 });
 
-router.post('/apply-for-pip/verify/sign-in/dth', (req, res, next) => {
-        res.redirect('/apply-for-pip/verify/sign-in/dth-code-text');
+router.post('/apply-for-pip/registration/matching/sign-in', (req, res, next) => {
+        res.redirect('/apply-for-pip/registration/matching/code-text');
 });
 
-router.post('/apply-for-pip/verify/sign-in/dth-code-text', (req, res, next) => {
-        res.redirect('/apply-for-pip/verify/signed-in');
+router.post('/apply-for-pip/registration/matching/code-text', (req, res, next) => {
+        res.redirect('/apply-for-pip/registration/matching/name');
 });
 
+router.post('/apply-for-pip/registration/matching/name', (req, res, next) => {
+      res.redirect('/apply-for-pip/registration/matching/date-of-birth');
+});
+
+router.post('/apply-for-pip/registration/matching/date-of-birth', (req, res, next) => {
+      res.redirect('/v21/eligibility/register/matching/postcode');
+});
+
+router.post('/apply-for-pip/registration/matching/postcode', (req, res, next) => {
+      res.redirect('/v21/eligibility/register/matching/signed-in');
+});
 
 // PIP SIGN-IN
 
