@@ -432,25 +432,34 @@
                 </a>
               {% endif %}
             </li>
+          </ul>
+        </li>
+            {# Additional information #}
+            <li>
+              <h2 class="app-task-list__section">
+                <span class="app-task-list__section-number">5. </span> Adjustments at an assessment
+              </h2>
+            <ul class="app-task-list__items govuk-!-margin-bottom-7">
+
 
               <li class="app-task-list__item">
                 {% if sectionStatus.adjustmentsatanassessment === "completed" %}
                   <a class="app-task-list__task-name " href="/v24/health-form/reasonable-adjustments/check">
-                    Adjustments at an assessment
+                    Adjustments
                     <span>
                       <strong class="govuk-tag app-task-list__task-completed" id="adjustmentsatanassessment">Completed</strong>
                     </span>
                   </a>
                 {% elif sectionStatus.adjustmentsatanassessment === "inprogress" %}
                   <a class="app-task-list__task-name " href="/v24/health-form/reasonable-adjustments/intro">
-                    Adjustments at an assessment
+                    Adjustments
                     <span>
                       <strong class="govuk-tag govuk-tag--blue app-task-list__task-completed" id="adjustmentsatanassessment">In progress</strong>
                     </span>
                   </a>
                 {% else %}
                   <a class="app-task-list__task-name " href="/v24/health-form/reasonable-adjustments/intro">
-                    Adjustments at an assessment
+                    Adjustments
                     <span>
                       <strong class="govuk-tag govuk-tag--grey app-task-list__task-completed" id="adjustmentsatanassessment">Not started</strong>
                     </span>
