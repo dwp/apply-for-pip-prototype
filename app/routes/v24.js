@@ -19,7 +19,7 @@ module.exports = function (router) {
 
   // Code for the list screen
 
-  router.get('/v23/health-form/task-list', (req, res, next) => {
+  router.get('/v24/health-form/task-list', (req, res, next) => {
 
     if (!req.session.sectionStatus){
       // console.log('no session');
@@ -40,6 +40,7 @@ module.exports = function (router) {
         planningandfollowingajourney: undefined,
         movingaround: undefined,
         additionalinformation: undefined,
+        adjustmentsatanassessment: undefined,
         supportingevidence: undefined,
         clearstatus: undefined,
       }
@@ -214,6 +215,18 @@ module.exports = function (router) {
       req.session.sectionStatus.additionalinformation = req.query.additionalinformation
     };
 
+    // adjustmentsatanassessment
+    if (req.query.adjustmentsatanassessment == 'completed') {
+      if (req.session.sectionStatus.adjustmentsatanassessment != 'completed') {
+        req.session.sectionCount = (req.session.sectionCount + 1);
+      }
+      req.session.sectionStatus.adjustmentsatanassessment = req.query.adjustmentsatanassessment
+    };
+    if (req.query.adjustmentsatanassessment == 'inprogress') {
+      req.session.sectionStatus.adjustmentsatanassessment = req.query.adjustmentsatanassessment
+    };
+
+
     // if (req.query.supportingevidence) {
     //   if (req.session.sectionStatus.supportingevidence == undefined) {
     //     req.session.sectionCount = (req.session.sectionCount + 1)
@@ -239,6 +252,7 @@ module.exports = function (router) {
       req.session.sectionStatus.planningandfollowingajourney = req.query.planningandfollowingajourney
       req.session.sectionStatus.movingaround = req.query.movingaround
       req.session.sectionStatus.additionalinformation = req.query.additionalinformation
+      req.session.sectionStatus.adjustmentsatanassessment = req.query.adjustmentsatanassessment
       if (!req.session.sectionCount){
         req.session.sectionCount = 0;
       }
@@ -246,7 +260,7 @@ module.exports = function (router) {
 
 
 
-    res.render('v23/health-form/task-list.html', {sectionStatus: req.session.sectionStatus, sectionCount: req.session.sectionCount});
+    res.render('v24/health-form/task-list.html', {sectionStatus: req.session.sectionStatus, sectionCount: req.session.sectionCount});
   });
 
 
@@ -256,411 +270,411 @@ module.exports = function (router) {
 // PIP ELIGIBILITY
 
 
-  router.post('/v23/eligibility/eligibility-intro', (req, res, next) => {
-          res.redirect('/v23/eligibility/eligibility-start');
+  router.post('/v24/eligibility/eligibility-intro', (req, res, next) => {
+          res.redirect('/v24/eligibility/eligibility-start');
   });
 
-  router.post('/v23/eligibility/eligibility-start', (req, res, next) => {
+  router.post('/v24/eligibility/eligibility-start', (req, res, next) => {
           const eligChoice = req.session.data['eligibility-choice'];
             if (eligChoice === 'Check I am eligible for PIP') {
-              res.redirect('/v23/eligibility/over-16');
+              res.redirect('/v24/eligibility/over-16');
           } else {
-              res.redirect('/v23/eligibility/postcode-check')
+              res.redirect('/v24/eligibility/postcode-check')
           }
   });
 
-  router.post('/v23/eligibility/over-16', (req, res, next) => {
+  router.post('/v24/eligibility/over-16', (req, res, next) => {
           const over16 = req.session.data['over-16'];
             if (over16 === 'Yes') {
-              res.redirect('/v23/eligibility/state-pension');
+              res.redirect('/v24/eligibility/state-pension');
           } else {
-              res.redirect('/v23/eligibility/dla-children');
+              res.redirect('/v24/eligibility/dla-children');
           }
   });
 
-  router.post('/v23/eligibility/dla-children', (req, res, next) => {
+  router.post('/v24/eligibility/dla-children', (req, res, next) => {
           const dlaChild = req.session.data['dla-child'];
             if (dlaChild === 'Yes') {
-              res.redirect('/v23/eligibility/dla-children-end');
+              res.redirect('/v24/eligibility/dla-children-end');
           } else {
-              res.redirect('/v23/eligibility/over-16-end');
+              res.redirect('/v24/eligibility/over-16-end');
           }
   });
 
-  router.post('/v23/eligibility/state-pension', (req, res, next) => {
+  router.post('/v24/eligibility/state-pension', (req, res, next) => {
           const statePension = req.session.data['state-pension-age'];
             if (statePension === 'Yes') {
-              res.redirect('/v23/eligibility/everyday-tasks');
+              res.redirect('/v24/eligibility/everyday-tasks');
           } else {
-              res.redirect('/v23/eligibility/state-pension-end');
+              res.redirect('/v24/eligibility/state-pension-end');
           }
   });
 
-  router.post('/v23/eligibility/everyday-tasks', (req, res, next) => {
+  router.post('/v24/eligibility/everyday-tasks', (req, res, next) => {
           const everydayTasks = req.session.data['everyday-tasks'];
             if (everydayTasks === 'Yes') {
-              res.redirect('/v23/eligibility/difficulty-end');
+              res.redirect('/v24/eligibility/difficulty-end');
           } else if (everydayTasks === 'No') {
-              res.redirect('/v23/eligibility/difficulty-length');
+              res.redirect('/v24/eligibility/difficulty-length');
           } else {
-              res.redirect('/v23/eligibility/eligibility-end');
+              res.redirect('/v24/eligibility/eligibility-end');
           }
   });
 
 
-  router.post('/v23/eligibility/difficulty-length', (req, res, next) => {
+  router.post('/v24/eligibility/difficulty-length', (req, res, next) => {
           const difficultyLength = req.session.data['difficulty-length'];
             if (difficultyLength === 'No') {
-              res.redirect('/v23/eligibility/difficulty-end');
+              res.redirect('/v24/eligibility/difficulty-end');
           } else {
-              res.redirect('/v23/eligibility/eligibility-end');
+              res.redirect('/v24/eligibility/eligibility-end');
           }
   });
 
 
-  router.post('/v23/eligibility/difficulty-end', (req, res, next) => {
-          res.redirect('/v23/eligibility/postcode-check');
+  router.post('/v24/eligibility/difficulty-end', (req, res, next) => {
+          res.redirect('/v24/eligibility/postcode-check');
   });
 
-  router.post('/v23/eligibility/eligibility-end', (req, res, next) => {
-          res.redirect('/v23/eligibility/postcode-check');
+  router.post('/v24/eligibility/eligibility-end', (req, res, next) => {
+          res.redirect('/v24/eligibility/postcode-check');
   });
 
 // DIGITAL CHECK
 
-  router.post('/v23/eligibility/postcode-check', (req, res, next) => {
-          res.redirect('/v23/eligibility/claimant');
+  router.post('/v24/eligibility/postcode-check', (req, res, next) => {
+          res.redirect('/v24/eligibility/claimant');
   });
 
-  router.post('/v23/eligibility/claimant', (req, res, next) => {
+  router.post('/v24/eligibility/claimant', (req, res, next) => {
           const claimant = req.session.data['claimant'];
             if (claimant === 'I am claiming for myself') {
-              res.redirect('/v23/eligibility/already-receiving');
+              res.redirect('/v24/eligibility/already-receiving');
           } else if (claimant === 'I am claiming for someone else') {
-              res.redirect('/v23/eligibility/claimant-end');
+              res.redirect('/v24/eligibility/claimant-end');
           } else {
-              res.redirect('/v23/eligibility/claimant-helping')
+              res.redirect('/v24/eligibility/claimant-helping')
           }
   });
 
-  router.post('/v23/eligibility/claimant-helping', (req, res, next) => {
-          res.redirect('/v23/eligibility/already-receiving');
+  router.post('/v24/eligibility/claimant-helping', (req, res, next) => {
+          res.redirect('/v24/eligibility/already-receiving');
   });
 
-  router.post('/v23/eligibility/already-receiving', (req, res, next) => {
+  router.post('/v24/eligibility/already-receiving', (req, res, next) => {
           const receiving = req.session.data['receiving'];
             if (receiving === 'No') {
-              res.redirect('/v23/eligibility/required');
+              res.redirect('/v24/eligibility/required');
           } else {
-              res.redirect('/v23/eligibility/already-receiving-end');
+              res.redirect('/v24/eligibility/already-receiving-end');
           }
   });
 
-  router.post('/v23/eligibility/required', (req, res, next) => {
+  router.post('/v24/eligibility/required', (req, res, next) => {
           const required = req.session.data['required'];
             if (required === 'Yes') {
-              res.redirect('/v23/eligibility/apply-online');
+              res.redirect('/v24/eligibility/apply-online');
           } else {
-              res.redirect('/v23/eligibility/required-end');
+              res.redirect('/v24/eligibility/required-end');
           }
   });
 
-  router.post('/v23/eligibility/apply-online', (req, res, next) => {
-          res.redirect('/v23/verify/register/register-start');
+  router.post('/v24/eligibility/apply-online', (req, res, next) => {
+          res.redirect('/v24/verify/register/register-start');
   });
 
 
 // PIP VERIFY
 
-router.post('/v23/verify/complete-registration', (req, res, next) => {
-        res.redirect('/v23/verify/enter-details');
+router.post('/v24/verify/complete-registration', (req, res, next) => {
+        res.redirect('/v24/verify/enter-details');
 });
 
-router.post('/v23/verify/complete-registration', (req, res, next) => {
-        res.redirect('/v23/verify/enter-details');
+router.post('/v24/verify/complete-registration', (req, res, next) => {
+        res.redirect('/v24/verify/enter-details');
 });
 
-router.post('/v23/verify/enter-details', (req, res, next) => {
-        res.redirect('/v23/verify/code-text');
+router.post('/v24/verify/enter-details', (req, res, next) => {
+        res.redirect('/v24/verify/code-text');
 });
 
-router.post('/v23/verify/code-text', (req, res, next) => {
-        res.redirect('/v23/verify/code-email');
+router.post('/v24/verify/code-text', (req, res, next) => {
+        res.redirect('/v24/verify/code-email');
 });
 
-router.post('/v23/verify/code-email', (req, res, next) => {
-        res.redirect('/v23/verify/create-password');
+router.post('/v24/verify/code-email', (req, res, next) => {
+        res.redirect('/v24/verify/create-password');
 });
 
-router.post('/v23/verify/create-password', (req, res, next) => {
-        res.redirect('/v23/verify/signed-in');
+router.post('/v24/verify/create-password', (req, res, next) => {
+        res.redirect('/v24/verify/signed-in');
 });
 
 
 // PIP REGISTER
 
-router.post('/v23/verify/register/register-start', (req, res, next) => {
-        res.redirect('/v23/verify/register/email');
+router.post('/v24/verify/register/register-start', (req, res, next) => {
+        res.redirect('/v24/verify/register/email');
 });
 
-router.post('/v23/verify/register/email', (req, res, next) => {
-        res.redirect('/v23/verify/register/code-email');
+router.post('/v24/verify/register/email', (req, res, next) => {
+        res.redirect('/v24/verify/register/code-email');
 });
 
-router.post('/v23/verify/register/code-email', (req, res, next) => {
-        res.redirect('/v23/verify/register/create-password');
+router.post('/v24/verify/register/code-email', (req, res, next) => {
+        res.redirect('/v24/verify/register/create-password');
 });
 
-router.post('/v23/verify/register/create-password', (req, res, next) => {
-        res.redirect('/v23/verify/register/mobile');
+router.post('/v24/verify/register/create-password', (req, res, next) => {
+        res.redirect('/v24/verify/register/mobile');
 });
 
-router.post('/v23/verify/register/mobile', (req, res, next) => {
-        res.redirect('/v23/verify/register/code-text');
+router.post('/v24/verify/register/mobile', (req, res, next) => {
+        res.redirect('/v24/verify/register/code-text');
 });
 
-router.post('/v23/verify/register/code-text', (req, res, next) => {
-        res.redirect('/v23/verify/register/successful');
+router.post('/v24/verify/register/code-text', (req, res, next) => {
+        res.redirect('/v24/verify/register/successful');
 });
 
-router.post('/v23/verify/register/successful', (req, res, next) => {
-        res.redirect('/v23/verify/sign-in/dth');
+router.post('/v24/verify/register/successful', (req, res, next) => {
+        res.redirect('/v24/verify/sign-in/dth');
 });
 
-router.post('/v23/verify/sign-in/dth', (req, res, next) => {
-        res.redirect('/v23/verify/sign-in/dth-code-text');
+router.post('/v24/verify/sign-in/dth', (req, res, next) => {
+        res.redirect('/v24/verify/sign-in/dth-code-text');
 });
 
-router.post('/v23/verify/sign-in/dth-code-text', (req, res, next) => {
-        res.redirect('/v23/verify/signed-in');
+router.post('/v24/verify/sign-in/dth-code-text', (req, res, next) => {
+        res.redirect('/v24/verify/signed-in');
 });
 
 
 // PIP SIGN-IN
 
-router.post('/v23/verify/your-details', (req, res, next) => {
-        res.redirect('/v23/verify/sign-in/password');
+router.post('/v24/verify/your-details', (req, res, next) => {
+        res.redirect('/v24/verify/sign-in/password');
 });
 
-router.post('/v23/verify/sign-in/password', (req, res, next) => {
-        res.redirect('/v23/verify/sign-in/security-code');
+router.post('/v24/verify/sign-in/password', (req, res, next) => {
+        res.redirect('/v24/verify/sign-in/security-code');
 });
 
-router.post('/v23/verify/forgot-password', (req, res, next) => {
-        res.redirect('/v23/verify/enter-details');
+router.post('/v24/verify/forgot-password', (req, res, next) => {
+        res.redirect('/v24/verify/enter-details');
 });
 
-router.post('/v23/verify/sign-in/security-code', (req, res, next) => {
+router.post('/v24/verify/sign-in/security-code', (req, res, next) => {
         const codechoice = req.session.data['code-choice'];
           if (codechoice === 'Send me a text message') {
-            res.redirect('/v23/verify/sign-in/code-text');
+            res.redirect('/v24/verify/sign-in/code-text');
         } else {
-            res.redirect('/v23/verify/sign-in/code-email');
+            res.redirect('/v24/verify/sign-in/code-email');
         }
 });
 
-router.post('/v23/verify/sign-in/code-text', (req, res, next) => {
-        res.redirect('/v23/verify/signed-in');
+router.post('/v24/verify/sign-in/code-text', (req, res, next) => {
+        res.redirect('/v24/verify/signed-in');
 });
 
-router.post('/v23/verify/sign-in/code-email', (req, res, next) => {
-        res.redirect('/v23/verify/signed-in');
+router.post('/v24/verify/sign-in/code-email', (req, res, next) => {
+        res.redirect('/v24/verify/signed-in');
 });
 
-router.post('/v23/verify/signed-in', (req, res, next) => {
-        res.redirect('/v23/oidv/check-identity');
+router.post('/v24/verify/signed-in', (req, res, next) => {
+        res.redirect('/v24/oidv/check-identity');
 });
 
 
 // PIP1 CLAIM-REGISTRATION
 
-router.post('/v23/claim-registration/start', (req, res, next) => {
-        res.redirect('/v23/claim-registration/additional-support/communicating');
+router.post('/v24/claim-registration/start', (req, res, next) => {
+        res.redirect('/v24/claim-registration/additional-support/communicating');
 });
 
-router.post('/v23/claim-registration/additional-support/communicating', (req, res, next) => {
-        res.redirect('/v23/claim-registration/additional-support/forms-letters');
+router.post('/v24/claim-registration/additional-support/communicating', (req, res, next) => {
+        res.redirect('/v24/claim-registration/additional-support/forms-letters');
 });
 
-router.post('/v23/claim-registration/additional-support/forms-letters', (req, res, next) => {
+router.post('/v24/claim-registration/additional-support/forms-letters', (req, res, next) => {
         const addSupport = req.session.data['add-support'];
           if (addSupport === 'Yes') {
-            res.redirect('/v23/claim-registration/additional-support/help');
+            res.redirect('/v24/claim-registration/additional-support/help');
         } else {
-            res.redirect('/v23/claim-registration/additional-support/check-answers-1');
+            res.redirect('/v24/claim-registration/additional-support/check-answers-1');
         }
 });
 
-router.post('/v23/claim-registration/additional-support/help', (req, res, next) => {
+router.post('/v24/claim-registration/additional-support/help', (req, res, next) => {
         const addsupportHelp = req.session.data['add-support-help'];
           if (addsupportHelp === 'Yes') {
-            res.redirect('/v23/claim-registration/additional-support/help-name');
+            res.redirect('/v24/claim-registration/additional-support/help-name');
         } else {
-            res.redirect('/v23/claim-registration/additional-support/check-answers-1');
+            res.redirect('/v24/claim-registration/additional-support/check-answers-1');
         }
 });
 
-router.post('/v23/claim-registration/additional-support/help-name', (req, res, next) => {
-        res.redirect('/v23/claim-registration/additional-support/check-answers-1');
+router.post('/v24/claim-registration/additional-support/help-name', (req, res, next) => {
+        res.redirect('/v24/claim-registration/additional-support/check-answers-1');
 });
 
-router.post('/v23/claim-registration/additional-support/check-answers-1', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/name');
+router.post('/v24/claim-registration/additional-support/check-answers-1', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/name');
 });
 
 
-router.post('/v23/claim-registration/personal-details/name', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/nino');
+router.post('/v24/claim-registration/personal-details/name', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/nino');
 });
 
-router.post('/v23/claim-registration/personal-details/nino', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/date-of-birth');
+router.post('/v24/claim-registration/personal-details/nino', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/date-of-birth');
 });
 
-router.post('/v23/claim-registration/personal-details/date-of-birth', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/address');
+router.post('/v24/claim-registration/personal-details/date-of-birth', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/address');
 })
 
-router.post('/v23/claim-registration/personal-details/address', (req, res, next) => {
+router.post('/v24/claim-registration/personal-details/address', (req, res, next) => {
         const safeAddress = req.session.data['safe-address'];
           if (safeAddress === 'Yes') {
-            res.redirect('/v23/claim-registration/personal-details/contact-details');
+            res.redirect('/v24/claim-registration/personal-details/contact-details');
         } else {
-            res.redirect('/v23/claim-registration/personal-details/address-other');
+            res.redirect('/v24/claim-registration/personal-details/address-other');
         }
 });
 
-router.post('/v23/claim-registration/personal-details/address-other', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/contact-details');
+router.post('/v24/claim-registration/personal-details/address-other', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/contact-details');
 })
 
 
-router.post('/v23/claim-registration/personal-details/contact-details', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/bank-account');
+router.post('/v24/claim-registration/personal-details/contact-details', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/bank-account');
 });
 
-router.post('/v23/claim-registration/personal-details/bank-account', (req, res, next) => {
+router.post('/v24/claim-registration/personal-details/bank-account', (req, res, next) => {
         const yourAccount = req.session.data['your-account'];
           if (yourAccount === 'Yes') {
-            res.redirect('/v23/claim-registration/personal-details/bank-account-details');
+            res.redirect('/v24/claim-registration/personal-details/bank-account-details');
         } else {
-            res.redirect('/v23/claim-registration/personal-details/continue-without-bank-details');
+            res.redirect('/v24/claim-registration/personal-details/continue-without-bank-details');
         }
 });
 
-router.post('/v23/claim-registration/personal-details/continue-without-bank-details', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/alt-formats');
+router.post('/v24/claim-registration/personal-details/continue-without-bank-details', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/alt-formats');
 });
 
-router.post('/v23/claim-registration/personal-details/bank-account-details', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/alt-formats');
+router.post('/v24/claim-registration/personal-details/bank-account-details', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/alt-formats');
 });
 
-router.post('/v23/claim-registration/personal-details/alt-formats', (req, res, next) => {
+router.post('/v24/claim-registration/personal-details/alt-formats', (req, res, next) => {
         const communicationFormat = req.session.data['communication-format'];
           if (communicationFormat === 'Yes') {
-            res.redirect('/v23/claim-registration/personal-details/alt-formats/type');
+            res.redirect('/v24/claim-registration/personal-details/alt-formats/type');
         } else {
-            res.redirect('/v23/claim-registration/personal-details/check-answers-2');
+            res.redirect('/v24/claim-registration/personal-details/check-answers-2');
         }
 });
 
 
-router.post('/v23/claim-registration/personal-details/alt-formats/type', (req, res, next) => {
+router.post('/v24/claim-registration/personal-details/alt-formats/type', (req, res, next) => {
     const communicationType = req.session.data['communication-type'];
       if (communicationType === 'Braille') {
-      res.redirect('/v23/claim-registration/personal-details/alt-formats/braille');
+      res.redirect('/v24/claim-registration/personal-details/alt-formats/braille');
   } else if (communicationType === 'Sign language') {
-      res.redirect('/v23/claim-registration/personal-details/alt-formats/sign-language');
+      res.redirect('/v24/claim-registration/personal-details/alt-formats/sign-language');
   } else if (communicationType === 'Audio') {
-      res.redirect('/v23/claim-registration/personal-details/alt-formats/audio');
+      res.redirect('/v24/claim-registration/personal-details/alt-formats/audio');
   } else {
-      res.redirect('/v23/claim-registration/personal-details/alt-formats/paper-other');
+      res.redirect('/v24/claim-registration/personal-details/alt-formats/paper-other');
   }
 });
 
-router.post('/v23/claim-registration/personal-details/alt-formats/braille', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/check-answers-2');
+router.post('/v24/claim-registration/personal-details/alt-formats/braille', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/check-answers-2');
 });
 
-router.post('/v23/claim-registration/personal-details/alt-formats/sign-language', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/check-answers-2');
+router.post('/v24/claim-registration/personal-details/alt-formats/sign-language', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/check-answers-2');
 });
 
-router.post('/v23/claim-registration/personal-details/alt-formats/audio', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/check-answers-2');
+router.post('/v24/claim-registration/personal-details/alt-formats/audio', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/check-answers-2');
 });
 
-router.post('/v23/claim-registration/personal-details/alt-formats/paper-other', (req, res, next) => {
+router.post('/v24/claim-registration/personal-details/alt-formats/paper-other', (req, res, next) => {
     const otherFormat = req.session.data['other-format'];
       if (otherFormat === 'Coloured paper') {
-      res.redirect('/v23/claim-registration/personal-details/alt-formats/paper-coloured');
+      res.redirect('/v24/claim-registration/personal-details/alt-formats/paper-coloured');
   } else if (otherFormat === 'Custom font') {
-      res.redirect('/v23/claim-registration/personal-details/alt-formats/paper-custom-font');
+      res.redirect('/v24/claim-registration/personal-details/alt-formats/paper-custom-font');
   } else if (otherFormat === 'Accessible PDF') {
-      res.redirect('/v23/claim-registration/personal-details/alt-formats/other-pdf');
+      res.redirect('/v24/claim-registration/personal-details/alt-formats/other-pdf');
   } else if (otherFormat === 'Email') {
-      res.redirect('/v23/claim-registration/personal-details/alt-formats/other-email');
+      res.redirect('/v24/claim-registration/personal-details/alt-formats/other-email');
   } else if (otherFormat === 'Other') {
-      res.redirect('/v23/claim-registration/personal-details/alt-formats/other');
+      res.redirect('/v24/claim-registration/personal-details/alt-formats/other');
   } else {
-      res.redirect('/v23/claim-registration/personal-details/check-answers-2');
+      res.redirect('/v24/claim-registration/personal-details/check-answers-2');
   }
 });
 
-router.post('/v23/claim-registration/personal-details/alt-formats/paper-coloured', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/check-answers-2');
+router.post('/v24/claim-registration/personal-details/alt-formats/paper-coloured', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/check-answers-2');
 });
 
-router.post('/v23/claim-registration/personal-details/alt-formats/paper-custom-font', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/check-answers-2');
+router.post('/v24/claim-registration/personal-details/alt-formats/paper-custom-font', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/check-answers-2');
 });
 
-router.post('/v23/claim-registration/personal-details/alt-formats/other-pdf', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/check-answers-2');
+router.post('/v24/claim-registration/personal-details/alt-formats/other-pdf', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/check-answers-2');
 });
 
-router.post('/v23/claim-registration/personal-details/alt-formats/other-email', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/check-answers-2');
+router.post('/v24/claim-registration/personal-details/alt-formats/other-email', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/check-answers-2');
 });
 
-router.post('/v23/claim-registration/personal-details/alt-formats/other', (req, res, next) => {
-        res.redirect('/v23/claim-registration/personal-details/check-answers-2');
+router.post('/v24/claim-registration/personal-details/alt-formats/other', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/check-answers-2');
 });
 
-router.post('/v23/claim-registration/personal-details/check-answers-2', (req, res, next) => {
-        res.redirect('/v23/claim-registration/residency/nationality');
+router.post('/v24/claim-registration/personal-details/check-answers-2', (req, res, next) => {
+        res.redirect('/v24/claim-registration/residency/nationality');
 });
 
-router.post('/v23/claim-registration/residency/nationality', (req, res, next) => {
+router.post('/v24/claim-registration/residency/nationality', (req, res, next) => {
     const whereLive = req.session.data['nationality'];
       if (whereLive === 'A nationality of the European Economic Area (EEA) or Switzerland') {
-      res.redirect('/v23/claim-registration/residency/nationality-of-eaa-or-switzerland');
+      res.redirect('/v24/claim-registration/residency/nationality-of-eaa-or-switzerland');
   } else if (whereLive === 'Another nationality') {
-      res.redirect('/v23/claim-registration/residency/nationality-another');
+      res.redirect('/v24/claim-registration/residency/nationality-another');
   } else {
-      res.redirect('/v23/claim-registration/residency/living-in-gb');
+      res.redirect('/v24/claim-registration/residency/living-in-gb');
   }
 });
 
-router.post('/v23/claim-registration/residency/nationality-of-eaa-or-switzerland', (req, res, next) => {
-    res.redirect('/v23/claim-registration/residency/living-in-uk');
+router.post('/v24/claim-registration/residency/nationality-of-eaa-or-switzerland', (req, res, next) => {
+    res.redirect('/v24/claim-registration/residency/living-in-uk');
 });
 
-router.post('/v23/claim-registration/residency/living-in-uk', (req, res, next) => {
+router.post('/v24/claim-registration/residency/living-in-uk', (req, res, next) => {
     const livingUk = req.session.data['living-in-uk'];
     if (livingUk === 'No') {
-        res.redirect('/v23/claim-registration/residency/check-answers-3');
+        res.redirect('/v24/claim-registration/residency/check-answers-3');
     } else {
-        res.redirect('/v23/claim-registration/residency/living-in-gb');
+        res.redirect('/v24/claim-registration/residency/living-in-gb');
     }
 });
 
-router.post('/v23/claim-registration/residency/nationality-another', (req, res, next) => {
-    res.redirect('/v23/claim-registration/residency/living-in-gb');
+router.post('/v24/claim-registration/residency/nationality-another', (req, res, next) => {
+    res.redirect('/v24/claim-registration/residency/living-in-gb');
 });
 
-router.post('/v23/claim-registration/residency/living-in-gb', (req, res, next) => {
+router.post('/v24/claim-registration/residency/living-in-gb', (req, res, next) => {
     const nationality = req.session.data['nationality']
     const gb = req.session.data['gb']
 
@@ -669,395 +683,409 @@ router.post('/v23/claim-registration/residency/living-in-gb', (req, res, next) =
         nationality === 'A nationality of the European Economic Area (EEA) or Switzerland'
     ) {
         if (gb === 'No') {
-            res.redirect('/v23/claim-registration/residency/check-answers-3')
+            res.redirect('/v24/claim-registration/residency/check-answers-3')
         }
         if (gb === 'Yes' || gb === 'Not sure') {
-            res.redirect('/v23/claim-registration/residency/eaa')
+            res.redirect('/v24/claim-registration/residency/eaa')
         }
     } else if (nationality === 'Another nationality') {
-        res.redirect('/v23/claim-registration/residency/check-answers-3')
+        res.redirect('/v24/claim-registration/residency/check-answers-3')
     }
 })
 
-router.post('/v23/claim-registration/residency/eaa', (req, res, next) => {
-    res.redirect('/v23/claim-registration/residency/check-answers-3');
+router.post('/v24/claim-registration/residency/eaa', (req, res, next) => {
+    res.redirect('/v24/claim-registration/residency/check-answers-3');
 });
 
-router.post('/v23/claim-registration/residency/check-answers-3', (req, res, next) => {
-    res.redirect('/v23/claim-registration/your-health/hcps');
+router.post('/v24/claim-registration/residency/check-answers-3', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/hcps');
 });
 
-// router.post('/v23/claim-registration/your-health/condition', (req, res, next) => {
-//     res.redirect('/v23/claim-registration/your-health/hcps');
+// router.post('/v24/claim-registration/your-health/condition', (req, res, next) => {
+//     res.redirect('/v24/claim-registration/your-health/hcps');
 // });
 
-router.post('/v23/claim-registration/your-health/hcps', (req, res, next) => {
+router.post('/v24/claim-registration/your-health/hcps', (req, res, next) => {
     const healthHcps = req.session.data['health-hcps'];
     if (healthHcps === 'Yes') {
-        res.redirect('/v23/claim-registration/your-health/hcp');
+        res.redirect('/v24/claim-registration/your-health/hcp');
     } else {
-        res.redirect('/v23/claim-registration/your-health/consent');
+        res.redirect('/v24/claim-registration/your-health/consent');
     }
 });
 
-router.post('/v23/claim-registration/your-health/hcp', (req, res, next) => {
-    res.redirect('/v23/claim-registration/your-health/another');
+router.post('/v24/claim-registration/your-health/hcp', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/another');
 });
 
-router.post('/v23/claim-registration/your-health/another', (req, res, next) => {
+router.post('/v24/claim-registration/your-health/another', (req, res, next) => {
     const professional2 = req.session.data['professional2'];
     if (professional2 === 'Yes') {
-        res.redirect('/v23/claim-registration/your-health/hcp-2');
+        res.redirect('/v24/claim-registration/your-health/hcp-2');
     } else {
-        res.redirect('/v23/claim-registration/your-health/consent');
+        res.redirect('/v24/claim-registration/your-health/consent');
     }
 });
 
-router.post('/v23/claim-registration/your-health/hcp-2', (req, res, next) => {
-    res.redirect('/v23/claim-registration/your-health/another-2');
+router.post('/v24/claim-registration/your-health/hcp-2', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/another-2');
 });
 
-router.post('/v23/claim-registration/your-health/another-2', (req, res, next) => {
-    res.redirect('/v23/claim-registration/your-health/consent');
+router.post('/v24/claim-registration/your-health/another-2', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/consent');
 });
 
-router.post('/v23/claim-registration/your-health/consent', (req, res, next) => {
-    res.redirect('/v23/claim-registration/your-health/in-hospital');
+router.post('/v24/claim-registration/your-health/consent', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/in-hospital');
 });
 
-router.post('/v23/claim-registration/your-health/in-hospital', (req, res, next) => {
+router.post('/v24/claim-registration/your-health/in-hospital', (req, res, next) => {
     const inHospital = req.session.data['hospital'];
     if (inHospital === 'Hospital') {
-        res.redirect('/v23/claim-registration/your-health/hospital-address');
+        res.redirect('/v24/claim-registration/your-health/hospital-address');
     } else if (inHospital === 'Hospice') {
-        res.redirect('/v23/claim-registration/your-health/hospice-address');
+        res.redirect('/v24/claim-registration/your-health/hospice-address');
     } else if (inHospital === 'Care or nursing home') {
-        res.redirect('/v23/claim-registration/your-health/accommodation-address');
+        res.redirect('/v24/claim-registration/your-health/accommodation-address');
     } else if (inHospital === 'Other') {
-          res.redirect('/v23/claim-registration/your-health/accommodation-address');
+          res.redirect('/v24/claim-registration/your-health/accommodation-address');
     } else {
-        res.redirect('/v23/claim-registration/your-health/check-answers-4');
+        res.redirect('/v24/claim-registration/your-health/check-answers-4');
     }
 });
 
-router.post('/v23/claim-registration/your-health/hospital-address', (req, res, next) => {
-    res.redirect('/v23/claim-registration/your-health/hospital-admission');
+router.post('/v24/claim-registration/your-health/hospital-address', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/hospital-admission');
 });
 
-router.post('/v23/claim-registration/your-health/hospital-admission', (req, res, next) => {
-    res.redirect('/v23/claim-registration/your-health/check-answers-4');
+router.post('/v24/claim-registration/your-health/hospital-admission', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/check-answers-4');
 });
 
-router.post('/v23/claim-registration/your-health/hospice-address', (req, res, next) => {
-    res.redirect('/v23/claim-registration/your-health/hospice-admission');
+router.post('/v24/claim-registration/your-health/hospice-address', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/hospice-admission');
 });
 
-router.post('/v23/claim-registration/your-health/hospice-admission', (req, res, next) => {
-    res.redirect('/v23/claim-registration/your-health/check-answers-4');
+router.post('/v24/claim-registration/your-health/hospice-admission', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/check-answers-4');
 });
 
-router.post('/v23/claim-registration/your-health/accommodation-address', (req, res, next) => {
-    res.redirect('/v23/claim-registration/your-health/accommodation-admission');
+router.post('/v24/claim-registration/your-health/accommodation-address', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/accommodation-admission');
 });
 
-router.post('/v23/claim-registration/your-health/accommodation-admission', (req, res, next) => {
-    res.redirect('/v23/claim-registration/your-health/check-answers-4');
+router.post('/v24/claim-registration/your-health/accommodation-admission', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/check-answers-4');
 });
 
-router.post('/v23/claim-registration/your-health/check-answers-4', (req, res, next) => {
-    res.redirect('/v23/claim-registration/motability-scheme');
+router.post('/v24/claim-registration/your-health/check-answers-4', (req, res, next) => {
+    res.redirect('/v24/claim-registration/motability-scheme');
 });
 
-router.post('/v23/claim-registration/motability-scheme', (req, res, next) => {
-    res.redirect('/v23/claim-registration/ready-to-submit');
+router.post('/v24/claim-registration/motability-scheme', (req, res, next) => {
+    res.redirect('/v24/claim-registration/ready-to-submit');
 });
 
-router.post('/v23/claim-registration/ready-to-submit', (req, res, next) => {
-    res.redirect('/v23/claim-registration/confirmation');
+router.post('/v24/claim-registration/ready-to-submit', (req, res, next) => {
+    res.redirect('/v24/claim-registration/confirmation');
 });
 
 
 // PIP2 HEALTH INFORMATION GATHER
 
-router.post('/v23/health-form/about-your-health/condition', (req, res, next) => {
-    res.redirect('/v23/health-form/about-your-health/condition-details');
+router.post('/v24/health-form/about-your-health/condition', (req, res, next) => {
+    res.redirect('/v24/health-form/about-your-health/condition-details');
 });
 
-router.post('/v23/health-form/about-your-health/condition-details', (req, res, next) => {
-    res.redirect('/v23/health-form/about-your-health/another');
+router.post('/v24/health-form/about-your-health/condition-details', (req, res, next) => {
+    res.redirect('/v24/health-form/about-your-health/another');
 });
 
-router.post('/v23/health-form/about-your-health/another', (req, res, next) => {
+router.post('/v24/health-form/about-your-health/another', (req, res, next) => {
         const condition2 = req.session.data['condition2'];
           if (condition2 === 'Yes') {
-            res.redirect('/v23/health-form/about-your-health/condition2');
+            res.redirect('/v24/health-form/about-your-health/condition2');
         } else {
-            res.redirect('/v23/health-form/about-your-health/check');
+            res.redirect('/v24/health-form/about-your-health/check');
         }
 });
 
-router.post('/v23/health-form/about-your-health/condition2', (req, res, next) => {
-    res.redirect('/v23/health-form/about-your-health/condition-details-2');
+router.post('/v24/health-form/about-your-health/condition2', (req, res, next) => {
+    res.redirect('/v24/health-form/about-your-health/condition-details-2');
 });
 
-router.post('/v23/health-form/about-your-health/condition-details-2', (req, res, next) => {
-    res.redirect('/v23/health-form/about-your-health/another-2');
+router.post('/v24/health-form/about-your-health/condition-details-2', (req, res, next) => {
+    res.redirect('/v24/health-form/about-your-health/another-2');
 });
 
-router.post('/v23/health-form/about-your-health/another-2', (req, res, next) => {
-    res.redirect('/v23/health-form/about-your-health/check');
+router.post('/v24/health-form/about-your-health/another-2', (req, res, next) => {
+    res.redirect('/v24/health-form/about-your-health/check');
 });
 
 
-router.post('/v23/health-form/about-your-health-professionals/introduction', (req, res, next) => {
-    res.redirect('/v23/health-form/about-your-health-professionals/health-professional-question');
+router.post('/v24/health-form/about-your-health-professionals/introduction', (req, res, next) => {
+    res.redirect('/v24/health-form/about-your-health-professionals/health-professional-question');
 });
 
-router.post('/v23/health-form/about-your-health-professionals/health-professional-question', (req, res, next) => {
+router.post('/v24/health-form/about-your-health-professionals/health-professional-question', (req, res, next) => {
         const question = req.session.data['question'];
           if (question === 'Yes') {
-            res.redirect('/v23/health-form/about-your-health-professionals/health-professional');
+            res.redirect('/v24/health-form/about-your-health-professionals/health-professional');
         } else {
-            res.redirect('/v23/health-form/about-your-health-professionals/check');
+            res.redirect('/v24/health-form/about-your-health-professionals/check');
         }
 });
 
-router.post('/v23/health-form/about-your-health-professionals/health-professional', (req, res, next) => {
-    res.redirect('/v23/health-form/about-your-health-professionals/check');
+router.post('/v24/health-form/about-your-health-professionals/health-professional', (req, res, next) => {
+    res.redirect('/v24/health-form/about-your-health-professionals/check');
 });
 
-router.post('/v23/health-form/preparing-food/intro', (req, res, next) => {
+router.post('/v24/health-form/preparing-food/intro', (req, res, next) => {
       const preparingfoodQuestion = req.session.data['preparingfood-question'];
         if (preparingfoodQuestion === 'Yes') {
-          res.redirect('/v23/health-form/preparing-food/details');
+          res.redirect('/v24/health-form/preparing-food/details');
       } else {
-          res.redirect('/v23/health-form/preparing-food/check');
+          res.redirect('/v24/health-form/preparing-food/check');
       }
 });
 
-router.post('/v23/health-form/preparing-food/details', (req, res, next) => {
-    res.redirect('/v23/health-form/preparing-food/check');
+router.post('/v24/health-form/preparing-food/details', (req, res, next) => {
+    res.redirect('/v24/health-form/preparing-food/check');
 });
 
-router.post('/v23/health-form/eating-and-drinking/intro', (req, res, next) => {
+router.post('/v24/health-form/eating-and-drinking/intro', (req, res, next) => {
       const eatinganddrinkingQuestion = req.session.data['eatinganddrinking-question'];
         if (eatinganddrinkingQuestion === 'Yes') {
-          res.redirect('/v23/health-form/eating-and-drinking/feeding-tube');
+          res.redirect('/v24/health-form/eating-and-drinking/feeding-tube');
       } else {
-          res.redirect('/v23/health-form/eating-and-drinking/check');
+          res.redirect('/v24/health-form/eating-and-drinking/check');
       }
 });
 
-router.post('/v23/health-form/eating-and-drinking/feeding-tube', (req, res, next) => {
-    res.redirect('/v23/health-form/eating-and-drinking/details');
+router.post('/v24/health-form/eating-and-drinking/feeding-tube', (req, res, next) => {
+    res.redirect('/v24/health-form/eating-and-drinking/details');
 });
 
-router.post('/v23/health-form/eating-and-drinking/details', (req, res, next) => {
-    res.redirect('/v23/health-form/eating-and-drinking/check');
+router.post('/v24/health-form/eating-and-drinking/details', (req, res, next) => {
+    res.redirect('/v24/health-form/eating-and-drinking/check');
 });
 
-router.post('/v23/health-form/managing-treatments/intro', (req, res, next) => {
+router.post('/v24/health-form/managing-treatments/intro', (req, res, next) => {
       const managingtreatmentsQuestion = req.session.data['managingtreatments-question'];
         if (managingtreatmentsQuestion === 'Yes') {
-          res.redirect('/v23/health-form/managing-treatments/details');
+          res.redirect('/v24/health-form/managing-treatments/details');
       } else {
-          res.redirect('/v23/health-form/managing-treatments/check');
+          res.redirect('/v24/health-form/managing-treatments/check');
       }
 });
 
-router.post('/v23/health-form/managing-treatments/details', (req, res, next) => {
-    res.redirect('/v23/health-form/managing-treatments/therapies');
+router.post('/v24/health-form/managing-treatments/details', (req, res, next) => {
+    res.redirect('/v24/health-form/managing-treatments/therapies');
 });
 
-router.post('/v23/health-form/managing-treatments/therapies', (req, res, next) => {
-    res.redirect('/v23/health-form/managing-treatments/check');
+router.post('/v24/health-form/managing-treatments/therapies', (req, res, next) => {
+    res.redirect('/v24/health-form/managing-treatments/check');
 });
 
-router.post('/v23/health-form/washing-and-bathing/intro', (req, res, next) => {
+router.post('/v24/health-form/washing-and-bathing/intro', (req, res, next) => {
       const washingandbathingQuestion = req.session.data['washingandbathing-question'];
         if (washingandbathingQuestion === 'Yes') {
-          res.redirect('/v23/health-form/washing-and-bathing/details');
+          res.redirect('/v24/health-form/washing-and-bathing/details');
       } else {
-          res.redirect('/v23/health-form/washing-and-bathing/check');
+          res.redirect('/v24/health-form/washing-and-bathing/check');
       }
 });
 
-router.post('/v23/health-form/washing-and-bathing/details', (req, res, next) => {
-    res.redirect('/v23/health-form/washing-and-bathing/check');
+router.post('/v24/health-form/washing-and-bathing/details', (req, res, next) => {
+    res.redirect('/v24/health-form/washing-and-bathing/check');
 });
 
-router.post('/v23/health-form/managing-toilet-needs/intro', (req, res, next) => {
+router.post('/v24/health-form/managing-toilet-needs/intro', (req, res, next) => {
       const managingtoiletneedsQuestion = req.session.data['managingtoiletneeds-question'];
         if (managingtoiletneedsQuestion === 'Yes') {
-          res.redirect('/v23/health-form/managing-toilet-needs/details');
+          res.redirect('/v24/health-form/managing-toilet-needs/details');
       } else {
-          res.redirect('/v23/health-form/managing-toilet-needs/check');
+          res.redirect('/v24/health-form/managing-toilet-needs/check');
       }
 });
 
-router.post('/v23/health-form/managing-toilet-needs/details', (req, res, next) => {
-    res.redirect('/v23/health-form/managing-toilet-needs/check');
+router.post('/v24/health-form/managing-toilet-needs/details', (req, res, next) => {
+    res.redirect('/v24/health-form/managing-toilet-needs/check');
 });
 
-router.post('/v23/health-form/dressing-and-undressing/intro', (req, res, next) => {
+router.post('/v24/health-form/dressing-and-undressing/intro', (req, res, next) => {
       const dressingandundressingQuestion = req.session.data['dressingandundressing-question'];
         if (dressingandundressingQuestion === 'Yes') {
-          res.redirect('/v23/health-form/dressing-and-undressing/details');
+          res.redirect('/v24/health-form/dressing-and-undressing/details');
       } else {
-          res.redirect('/v23/health-form/dressing-and-undressing/check');
+          res.redirect('/v24/health-form/dressing-and-undressing/check');
       }
 });
 
-router.post('/v23/health-form/dressing-and-undressing/details', (req, res, next) => {
-    res.redirect('/v23/health-form/dressing-and-undressing/check');
+router.post('/v24/health-form/dressing-and-undressing/details', (req, res, next) => {
+    res.redirect('/v24/health-form/dressing-and-undressing/check');
 });
 
-router.post('/v23/health-form/talking-and-listening/intro', (req, res, next) => {
+router.post('/v24/health-form/talking-and-listening/intro', (req, res, next) => {
       const talkingandlisteningQuestion = req.session.data['talkingandlistening-question'];
         if (talkingandlisteningQuestion === 'Yes') {
-          res.redirect('/v23/health-form/talking-and-listening/details');
+          res.redirect('/v24/health-form/talking-and-listening/details');
       } else {
-          res.redirect('/v23/health-form/talking-and-listening/check');
+          res.redirect('/v24/health-form/talking-and-listening/check');
       }
 });
 
-router.post('/v23/health-form/talking-and-listening/details', (req, res, next) => {
-    res.redirect('/v23/health-form/talking-and-listening/check');
+router.post('/v24/health-form/talking-and-listening/details', (req, res, next) => {
+    res.redirect('/v24/health-form/talking-and-listening/check');
 });
 
-router.post('/v23/health-form/reading/intro', (req, res, next) => {
+router.post('/v24/health-form/reading/intro', (req, res, next) => {
       const readingQuestion = req.session.data['reading-question'];
         if (readingQuestion === 'Yes') {
-          res.redirect('/v23/health-form/reading/details');
+          res.redirect('/v24/health-form/reading/details');
       } else {
-          res.redirect('/v23/health-form/reading/check');
+          res.redirect('/v24/health-form/reading/check');
       }
 });
 
-router.post('/v23/health-form/reading/details', (req, res, next) => {
-    res.redirect('/v23/health-form/reading/check');
+router.post('/v24/health-form/reading/details', (req, res, next) => {
+    res.redirect('/v24/health-form/reading/check');
 });
 
-router.post('/v23/health-form/mixing-with-other-people/intro', (req, res, next) => {
+router.post('/v24/health-form/mixing-with-other-people/intro', (req, res, next) => {
       const mixingwithotherpeopleQuestion = req.session.data['mixingwithotherpeople-question'];
         if (mixingwithotherpeopleQuestion === 'Yes') {
-          res.redirect('/v23/health-form/mixing-with-other-people/details');
+          res.redirect('/v24/health-form/mixing-with-other-people/details');
       } else {
-          res.redirect('/v23/health-form/mixing-with-other-people/check');
+          res.redirect('/v24/health-form/mixing-with-other-people/check');
       }
 });
 
-router.post('/v23/health-form/mixing-with-other-people/details', (req, res, next) => {
-    res.redirect('/v23/health-form/mixing-with-other-people/check');
+router.post('/v24/health-form/mixing-with-other-people/details', (req, res, next) => {
+    res.redirect('/v24/health-form/mixing-with-other-people/check');
 });
 
-router.post('/v23/health-form/managing-money/intro', (req, res, next) => {
+router.post('/v24/health-form/managing-money/intro', (req, res, next) => {
       const managingmoneyQuestion = req.session.data['managingmoney-question'];
         if (managingmoneyQuestion === 'Yes') {
-          res.redirect('/v23/health-form/managing-money/details');
+          res.redirect('/v24/health-form/managing-money/details');
       } else {
-          res.redirect('/v23/health-form/managing-money/check');
+          res.redirect('/v24/health-form/managing-money/check');
       }
 });
 
-router.post('/v23/health-form/managing-money/details', (req, res, next) => {
-    res.redirect('/v23/health-form/managing-money/check');
+router.post('/v24/health-form/managing-money/details', (req, res, next) => {
+    res.redirect('/v24/health-form/managing-money/check');
 });
 
-router.post('/v23/health-form/planning-and-following-a-journey/intro', (req, res, next) => {
+router.post('/v24/health-form/planning-and-following-a-journey/intro', (req, res, next) => {
       const planningandfollowingajourneyQuestion = req.session.data['planningandfollowingajourney-question'];
         if (planningandfollowingajourneyQuestion === 'Yes') {
-          res.redirect('/v23/health-form/planning-and-following-a-journey/details');
+          res.redirect('/v24/health-form/planning-and-following-a-journey/details');
       } else {
-          res.redirect('/v23/health-form/planning-and-following-a-journey/check');
+          res.redirect('/v24/health-form/planning-and-following-a-journey/check');
       }
 });
 
-router.post('/v23/health-form/planning-and-following-a-journey/details', (req, res, next) => {
-    res.redirect('/v23/health-form/planning-and-following-a-journey/check');
+router.post('/v24/health-form/planning-and-following-a-journey/details', (req, res, next) => {
+    res.redirect('/v24/health-form/planning-and-following-a-journey/check');
 });
 
-router.post('/v23/health-form/moving-around/intro', (req, res, next) => {
+router.post('/v24/health-form/moving-around/intro', (req, res, next) => {
       const movingaroundQuestion = req.session.data['movingaround-question'];
         if (movingaroundQuestion === 'Yes') {
-          res.redirect('/v23/health-form/moving-around/info');
+          res.redirect('/v24/health-form/moving-around/info');
       } else {
-          res.redirect('/v23/health-form/moving-around/check');
+          res.redirect('/v24/health-form/moving-around/check');
       }
 });
 
-router.post('/v23/health-form/moving-around/info', (req, res, next) => {
+router.post('/v24/health-form/moving-around/info', (req, res, next) => {
       const movingaroundInfo = req.session.data['movingaround-info'];
         if (movingaroundInfo === 'It varies') {
-          res.redirect('/v23/health-form/moving-around/varies');
+          res.redirect('/v24/health-form/moving-around/varies');
       } else {
-          res.redirect('/v23/health-form/moving-around/details');
+          res.redirect('/v24/health-form/moving-around/details');
       }
 });
 
-router.post('/v23/health-form/moving-around/varies', (req, res, next) => {
-    res.redirect('/v23/health-form/moving-around/details');
+router.post('/v24/health-form/moving-around/varies', (req, res, next) => {
+    res.redirect('/v24/health-form/moving-around/details');
 });
 
 
-router.post('/v23/health-form/moving-around/details', (req, res, next) => {
-    res.redirect('/v23/health-form/moving-around/check');
+router.post('/v24/health-form/moving-around/details', (req, res, next) => {
+    res.redirect('/v24/health-form/moving-around/check');
 });
 
-router.post('/v23/health-form/additional-information/intro', (req, res, next) => {
+router.post('/v24/health-form/additional-information/intro', (req, res, next) => {
       const additionalinformationQuestion = req.session.data['additionalinformation-question'];
         if (additionalinformationQuestion === 'Yes') {
-          res.redirect('/v23/health-form/additional-information/details');
+          res.redirect('/v24/health-form/additional-information/details');
       } else {
-          res.redirect('/v23/health-form/additional-information/check');
+          res.redirect('/v24/health-form/additional-information/check');
       }
 });
 
-router.post('/v23/health-form/additional-information/details', (req, res, next) => {
-    res.redirect('/v23/health-form/additional-information/check');
+router.post('/v24/health-form/additional-information/details', (req, res, next) => {
+    res.redirect('/v24/health-form/additional-information/check');
 });
 
-router.post('/v23/health-form/supporting-evidence/intro', (req, res, next) => {
-    res.redirect('/v23/health-form/supporting-evidence/supporting-evidence');
+router.post('/v24/health-form/reasonable-adjustments/intro', (req, res, next) => {
+      const adjustmentsatanassessmentQuestion = req.session.data['adjustmentsatanassessment-question'];
+        if (adjustmentsatanassessmentQuestion === 'Yes') {
+          res.redirect('/v24/health-form/reasonable-adjustments/details');
+      } else {
+          res.redirect('/v24/health-form/reasonable-adjustments/check');
+      }
 });
 
-router.post('/v23/health-form/supporting-evidence/supporting-evidence', (req, res, next) => {
+router.post('/v24/health-form/reasonable-adjustments/details', (req, res, next) => {
+    res.redirect('/v24/health-form/reasonable-adjustments/check');
+});
+
+
+router.post('/v24/health-form/supporting-evidence/intro', (req, res, next) => {
+    res.redirect('/v24/health-form/supporting-evidence/supporting-evidence');
+});
+
+router.post('/v24/health-form/supporting-evidence/supporting-evidence', (req, res, next) => {
       const question = req.session.data['question'];
         if (question === 'yes') {
-          res.redirect('/v23/health-form/supporting-evidence/supporting-evidence-upload-1');
+          res.redirect('/v24/health-form/supporting-evidence/supporting-evidence-upload-1');
       } else {
-          res.redirect('/v23/health-form/declaration');
+          res.redirect('/v24/health-form/declaration');
       }
 });
 
-router.post('/v23/health-form/supporting-evidence/supporting-evidence-uploaded-1', (req, res, next) => {
+router.post('/v24/health-form/supporting-evidence/supporting-evidence-uploaded-1', (req, res, next) => {
       const question = req.session.data['question'];
         if (question === 'yes') {
-          res.redirect('/v23/health-form/supporting-evidence/supporting-evidence-upload-2');
+          res.redirect('/v24/health-form/supporting-evidence/supporting-evidence-upload-2');
       } else {
-          res.redirect('/v23/health-form/declaration');
+          res.redirect('/v24/health-form/declaration');
       }
 });
 
-router.post('/v23/health-form/supporting-evidence/supporting-evidence-uploaded-2', (req, res, next) => {
-    res.redirect('/v23/health-form/declaration');
+router.post('/v24/health-form/supporting-evidence/supporting-evidence-uploaded-2', (req, res, next) => {
+    res.redirect('/v24/health-form/declaration');
 });
 
 // ONLINE IDENTIFICTAION
 
-router.post('/v23/oidv/check-identity', (req, res, next) => {
+router.post('/v24/oidv/check-identity', (req, res, next) => {
     const checkIdentity = req.session.data['check-identity'];
     if (checkIdentity === 'no-confirmed') {
-        res.redirect('/v23/oidv/confirm-your-identity');
+        res.redirect('/v24/oidv/confirm-your-identity');
     } else if (checkIdentity === 'yes-confirmed') {
-        res.redirect('/v23/health-form/supporting-evidence/supporting-evidence');
+        res.redirect('/v24/health-form/supporting-evidence/supporting-evidence');
     } else {
         res.redirect('https://prototype-dth.herokuapp.com/idv/hmrciv/confirm-your-identity-start');
     }
 });
 
-router.post('/v23/oidv/confirm-your-identity', (req, res, next) => {
-    res.redirect('/v23/oidv/identity-confirmed');
+router.post('/v24/oidv/confirm-your-identity', (req, res, next) => {
+    res.redirect('/v24/oidv/identity-confirmed');
 });
 
 
