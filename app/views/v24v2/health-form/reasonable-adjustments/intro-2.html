@@ -1,0 +1,90 @@
+{% extends "layout-live-pip2-v1-0.html" %}
+
+{% extends "v24/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+  {% include "v24/includes/phase-banner.html" %}
+  {% include "v24/includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="#" method="post" novalidate>
+
+      <h1 class="govuk-heading-l">Adjustments at an assessment<h1>
+
+      <p>You might need to attend a health assessment if we need more information from you.</p>
+
+      <p>If you think you will have difficulty accessing an assessment you can ask for adjustments or tell us about your access needs.</p>
+
+
+
+      {{ govukCheckboxes({
+        name: "countries",
+        fieldset: {
+          legend: {
+            text: "Do you need any adjustments?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "Select all adjustments that apply"
+        },
+        items: [
+          {
+            value: "no",
+            text: "No, I do not need any adjustments"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "step",
+            text: "Step-free access, a ramp, lift or ground floor appointment"
+          },
+          {
+            value: "doorway",
+            text: "Wide doorway"
+          },
+          {
+            value: "quiet",
+            text: "Quiet space"
+          },
+          {
+            value: "interpreter",
+            text: "British Sign Language interpreter"
+          },
+          {
+            value: "parking",
+            text: "Car parking faciilities due to mobility issues"
+          },
+          {
+            value: "toilet",
+            text: "Accessible toilet"
+          },
+          {
+            value: "other",
+            text: "Other",
+            behaviour: "exclusive"
+          }
+        ]
+      }) }}
+
+      <div class="moj-button-action">
+        {{ govukButton({
+          text: 'Save and continue'
+        }) }}
+      </div>
+
+      </form>
+
+      {% include "./_return-link.html" %}
+
+  </div>{# /govuk-grid-column-two-thirds #}
+</div>{# /govuk-grid-row #}
+
+{% endblock %}

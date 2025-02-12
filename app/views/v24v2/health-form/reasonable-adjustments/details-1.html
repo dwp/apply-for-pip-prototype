@@ -1,0 +1,85 @@
+{% extends "layout-live-pip2-v1-0.html" %}
+
+{% extends "v24/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+  {% include "v24/includes/phase-banner.html" %}
+  {% include "v24/includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="#" method="post" novalidate>
+
+      {{ govukCheckboxes({
+        name: "countries",
+        fieldset: {
+          legend: {
+            text: "Tell us about your access needs or adjustments",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all adjustments that apply"
+        },
+        items: [
+          {
+            value: "step",
+            text: "Step-free access, a ramp, lift or ground floor appointment"
+          },
+          {
+            value: "doorway",
+            text: "Wide doorway"
+          },
+          {
+            value: "quiet",
+            text: "Quiet space"
+          },
+          {
+            value: "interpreter",
+            text: "British Sign Language interpreter"
+          },
+          {
+            value: "parking",
+            text: "Car parking faciilities due to mobility issues"
+          },
+          {
+            value: "toilet",
+            text: "Accessible toilet"
+          },
+          {
+            value: "other",
+            text: "Other",
+            behaviour: "exclusive"
+          }
+        ]
+      }) }}
+
+      {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "What are your other access needs or adjustments?"
+  }
+}) }}
+
+      <div class="moj-button-action">
+        {{ govukButton({
+          text: 'Save and continue'
+        }) }}
+      </div>
+
+      </form>
+
+      {% include "./_return-link.html" %}
+
+  </div>{# /govuk-grid-column-two-thirds #}
+</div>{# /govuk-grid-row #}
+
+{% endblock %}
