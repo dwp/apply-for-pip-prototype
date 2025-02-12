@@ -524,7 +524,7 @@ router.post('/v24/claim-registration/additional-support/check-answers-1', (req, 
 
 
 router.post('/v24/claim-registration/personal-details/name', (req, res, next) => {
-        res.redirect('/v24/claim-registration/personal-details/nino');
+        res.redirect('/v24/claim-registration/personal-details/date-of-birth');
 });
 
 router.post('/v24/claim-registration/personal-details/nino', (req, res, next) => {
@@ -550,7 +550,7 @@ router.post('/v24/claim-registration/personal-details/address-other', (req, res,
 
 
 router.post('/v24/claim-registration/personal-details/contact-details', (req, res, next) => {
-        res.redirect('/v24/claim-registration/personal-details/bank-account');
+        res.redirect('/v24/claim-registration/personal-details/alt-formats');
 });
 
 router.post('/v24/claim-registration/personal-details/bank-account', (req, res, next) => {
@@ -643,7 +643,7 @@ router.post('/v24/claim-registration/personal-details/alt-formats/other', (req, 
 });
 
 router.post('/v24/claim-registration/personal-details/check-answers-2', (req, res, next) => {
-        res.redirect('/v24/claim-registration/residency/nationality');
+        res.redirect('/v24/claim-registration/ready-to-submit');
 });
 
 router.post('/v24/claim-registration/residency/nationality', (req, res, next) => {
