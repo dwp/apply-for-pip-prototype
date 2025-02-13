@@ -14,21 +14,102 @@
 
     <form action="#" method="post" novalidate>
 
-      {{ govukTextarea({
-        name: "adjustmentsatanassessment-details",
-        id: "adjustmentsatanassessment-details",
-        rows: "6",
-        value: data['adjustmentsatanassessment-details'],
+      {% set emailHtml %}
+      {{ govukInput({
+        id: "contact-by-email",
+        name: "contactByEmail",
+        type: "email",
+        autocomplete: "email",
+        spellcheck: false,
+        classes: "govuk-!-width-one-third",
         label: {
-          text: "Tell us about your access needs or adjustments",
-          isPageHeading: true,
-          classes: "govuk-label--l"
+          text: "Email address"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set phoneHtml %}
+      {{ govukInput({
+        id: "contact-by-phone",
+        name: "contactByPhone",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "Phone number"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set textHtml %}
+      {{ govukInput({
+        id: "contact-by-text",
+        name: "contactByText",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "Tell us about any other acess needs or adjustments"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukCheckboxes({
+        name: "contact",
+        fieldset: {
+          legend: {
+            text: "Do you need any adjustments?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
         },
         hint: {
-          html: '
-          <!-- <p>Tell us anything else you think we should know about how your health condition or disability affects you, that you have not mentioned already.</p> -->
-          '
-        }
+          text: "Select all adjustments that are relevant to you"
+        },
+        items: [
+          {
+            value: "no",
+            text: "No, I do not need any adjustments"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "step-free",
+            text: "Step-free access, a ramp, lift or ground floor appointment"
+          },
+          {
+            value: "doorway",
+            text: "Wide doorway"
+          },
+          {
+            value: "quite",
+            text: "Quiet space"
+          },
+          {
+            value: "hearing",
+            text: "Hearing or induction loop"
+          },
+          {
+            value: "interpretere",
+            text: "British Sign Language interpreter"
+          },
+          {
+            value: "parking",
+            text: "Car parking faciilities due to mobility issues"
+          },
+          {
+            value: "toilet",
+            text: "Accessible toilet"
+          },
+          {
+            value: "other",
+            text: "Other",
+            conditional: {
+              html: textHtml
+            }
+          }
+        ]
       }) }}
 
       <div class="moj-button-action">
