@@ -529,7 +529,7 @@ router.post('/apply-for-pip/claim-registration/additional-support/check-answers-
 
 
 router.post('/apply-for-pip/claim-registration/personal-details/name', (req, res, next) => {
-        res.redirect('/apply-for-pip/claim-registration/personal-details/nino');
+        res.redirect('/apply-for-pip/claim-registration/personal-details/date-of-birth');
 });
 
 router.post('/apply-for-pip/claim-registration/personal-details/nino', (req, res, next) => {

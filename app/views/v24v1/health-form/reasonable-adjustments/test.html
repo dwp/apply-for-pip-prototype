@@ -109,7 +109,13 @@
   ]
 }) }}
 
-<a href="/apply-for-pip/health-form/task-list" class="govuk-back-link">Back to list</a>
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Save and continue"
+}) }}
+
+<a href="/v24v2/health-form/task-list" class="govuk-back-link">Back to list</a>
 
 
 {% endblock %}

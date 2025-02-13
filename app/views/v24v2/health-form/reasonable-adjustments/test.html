@@ -6,9 +6,6 @@
 {% endblock %}
 
 
-
-
-
 {% block content %}
 
 {% set emailHtml %}
@@ -109,7 +106,14 @@
   ]
 }) }}
 
-<a href="/apply-for-pip/health-form/task-list" class="govuk-back-link">Back to list</a>
+      <div class="moj-button-action">
+        {{ govukButton({
+          text: 'Save and continue'
+        }) }}
+      </div>
 
+    </form>
+
+    {% include "./_return-link.html" %}
 
 {% endblock %}

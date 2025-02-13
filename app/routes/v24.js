@@ -550,7 +550,7 @@ router.post('/v24/claim-registration/personal-details/address-other', (req, res,
 
 
 router.post('/v24/claim-registration/personal-details/contact-details', (req, res, next) => {
-        res.redirect('/v24/claim-registration/personal-details/alt-formats');
+        res.redirect('/v24/claim-registration/personal-details/bank-account');
 });
 
 router.post('/v24/claim-registration/personal-details/bank-account', (req, res, next) => {
@@ -643,8 +643,13 @@ router.post('/v24/claim-registration/personal-details/alt-formats/other', (req, 
 });
 
 router.post('/v24/claim-registration/personal-details/check-answers-2', (req, res, next) => {
-        res.redirect('/v24/claim-registration/ready-to-submit');
+        res.redirect('/v24/claim-registration/nationality-questions');
 });
+
+router.post('/v24/claim-registration/nationality-questions', (req, res, next) => {
+        res.redirect('/v24/claim-registration/residency/check-answers-3');
+});
+
 
 router.post('/v24/claim-registration/residency/nationality', (req, res, next) => {
     const whereLive = req.session.data['nationality'];
@@ -698,7 +703,7 @@ router.post('/v24/claim-registration/residency/eaa', (req, res, next) => {
 });
 
 router.post('/v24/claim-registration/residency/check-answers-3', (req, res, next) => {
-    res.redirect('/v24/claim-registration/your-health/hcps');
+    res.redirect('/v24/claim-registration/healthcare-professionals');
 });
 
 // router.post('/v24/claim-registration/your-health/condition', (req, res, next) => {
@@ -727,8 +732,8 @@ router.post('/v24/claim-registration/your-health/another', (req, res, next) => {
     }
 });
 
-router.post('/v24/claim-registration/your-health/hcp-2', (req, res, next) => {
-    res.redirect('/v24/claim-registration/your-health/another-2');
+router.post('/v24/claim-registration/healthcare-professionals', (req, res, next) => {
+    res.redirect('/v24/claim-registration/your-health/check-answers-4');
 });
 
 router.post('/v24/claim-registration/your-health/another-2', (req, res, next) => {
