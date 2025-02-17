@@ -528,11 +528,15 @@ router.post('/v24/claim-registration/personal-details/name', (req, res, next) =>
 });
 
 router.post('/v24/claim-registration/personal-details/nino', (req, res, next) => {
-        res.redirect('/v24/claim-registration/personal-details/date-of-birth');
+        res.redirect('/v24/claim-registration/personal-details');
+});
+
+router.post('/v24/claim-registration/personal-details', (req, res, next) => {
+        res.redirect('/v24/claim-registration/personal-details/check-answers-2');
 });
 
 router.post('/v24/claim-registration/personal-details/date-of-birth', (req, res, next) => {
-        res.redirect('/v24/claim-registration/personal-details/address');
+        res.redirect('/v24/claim-registration/personal-details');
 })
 
 router.post('/v24/claim-registration/personal-details/address', (req, res, next) => {
