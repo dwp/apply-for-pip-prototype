@@ -532,7 +532,7 @@ router.post('/v24/claim-registration/personal-details/nino', (req, res, next) =>
 });
 
 router.post('/v24/claim-registration/personal-details', (req, res, next) => {
-        res.redirect('/v24/claim-registration/personal-details/check-answers-2');
+        res.redirect('/v24/claim-registration/personal-details/alt-formats');
 });
 
 router.post('/v24/claim-registration/personal-details/date-of-birth', (req, res, next) => {
