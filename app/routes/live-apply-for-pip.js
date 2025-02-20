@@ -448,11 +448,11 @@ router.post('/apply-for-pip/registration/matching/name', (req, res, next) => {
 });
 
 router.post('/apply-for-pip/registration/matching/date-of-birth', (req, res, next) => {
-      res.redirect('/v21/eligibility/register/matching/postcode');
+      res.redirect('/apply-for-pip/registration/matching/postcode');
 });
 
 router.post('/apply-for-pip/registration/matching/postcode', (req, res, next) => {
-      res.redirect('/v21/eligibility/register/matching/signed-in');
+      res.redirect('/apply-for-pip/registration/matching/signed-in');
 });
 
 // PIP SIGN-IN
@@ -486,7 +486,7 @@ router.post('/apply-for-pip/verify/sign-in/code-email', (req, res, next) => {
         res.redirect('/apply-for-pip/verify/signed-in');
 });
 
-router.post('/apply-for-pip/verify/signed-in', (req, res, next) => {
+router.post('/apply-for-pip/registration/matching/signed-in', (req, res, next) => {
         res.redirect('/apply-for-pip/claim-registration/start');
 });
 
