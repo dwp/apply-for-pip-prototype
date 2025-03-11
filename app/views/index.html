@@ -13,30 +13,86 @@ GOV.UK Prototype Kit
             <main class="govuk-main-wrapper">
               <div class="govuk-grid-row">
 
-                <h1 class="govuk-heading-xl">Apply for PIP Prototypes</h1>
+                <h1 class="govuk-heading-xl">What we're working on</h1>
 
-                <div class="govuk-grid-column-one-third">
-                  <h2 class="govuk-heading-m">Archive</h2>
-                  <p class="govuk-body">Prototypes created from January 2021 until June 2023</p>
-                  <a href="index-old" class="govuk-button govuk-button">View</a>
+                <!-- <div class="govuk-grid-column-two-thirds"> -->
+
+                <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                  <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                      Important
+                    </h2>
+                  </div>
+                  <div class="govuk-notification-banner__content">
+                    <p class="govuk-notification-banner__heading">
+                      For a close representation of live
+                      <a class="govuk-notification-banner__link" href="https://pip-end-to-end-84bc0caed567.herokuapp.com/start" rel="noreferrer noopener" target="_blank">view the end-to-end PIP journey (opens in new tab)</a>.
+                    </p>
+                  </div>
                 </div>
 
-                <div class="govuk-grid-column-one-third">
-                    <h2 class="govuk-heading-m">Latest work</h2>
-                    <p class="govuk-body">Prototypes from July 2023 until present day</p>
-                    <a href="index-work" class="govuk-button govuk-button">View</a>
+                <!-- <div class="govuk-grid-column-two-thirds"> -->
+
+                <hr>
+                <br>
+
+                  <h2 class="govuk-heading-l">Name of project - Date - Prototype version</h2>
+                  <strong class="govuk-tag govuk-tag--green">Status</strong>
+                  <br><br>
+                  <p>Problem statement or overview of the work</p>
+                  <h3 class="govuk-heading-s">Design decisions</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>1.0</li>
+                    <li>2.0</li>
+                    <li>3.0</li>
+                    <li>4.0</li>
+                  </ul>
+
+                  <div class="govuk-inset-text">
+                    <a href="https://dwpdigital.atlassian.net/wiki/spaces/HPDU/pages/133657072733/Design+decision+template" class="govuk-link" rel="noreferrer noopener" target="_blank">View the design documentation (opens in new tab)</a> for a detailed explanation about the design decisions.
                   </div>
 
-                  <div class="govuk-grid-column-one-third">
-                    <h2 class="govuk-heading-m">End to End Journey (WIP)</h2>
-                    <p class="govuk-body">Prototype showing the end to end PIP Apply journey</p>
-                    <a href="apply-for-pip/govuk/how-to-claim" class="govuk-button govuk-button">View</a>
+                  <a href="/research" class="govuk-button govuk-button">View</a>
+
+                  <hr>
+                  <br>
+
+                  <h2 class="govuk-heading-l">Reasonable adjustments capture - February 2025 - v24</h2>
+                  <strong class="govuk-tag govuk-tag--red">Deprioritised</strong>
+                  <br><br>
+                  <p>Some claimants need to attend an in person health assessment. These claimants are sent a letter with their scheduled appointment and asked if they require any reasonable adjustments. Some claimants requiring reasonable adjustments will need to have their appointment rescheduled if the scheduled location cannot accommodate. This costs the department time and money. This is a legal requirement.</p>
+                  <h3 class="govuk-heading-s">Design decisions</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Task list screen - 'Adjustments at an assessment' as it’s own section.</li>
+                    <li>Intro screen - Provide users with a list of examples as to why they might need a reasonable adjustment.</li>
+                    <li>Reasonable Adjustments screen - Provide users with checkbox options and ‘Other’ to provide more details.</li>
+                    <li>Language requirement screen - This was a requirement from FAS and wasn’t tested with users who would need this. This could be worked into the reasonable adjustments but would need to be test with users who require a translator.</li>
+                  </ul>
+
+                  <div class="govuk-inset-text">
+                    <a href="https://dwpdigital.atlassian.net/wiki/spaces/HPDU/pages/133832606234/Reasonable+adjustments+capture" class="govuk-link" rel="noreferrer noopener" target="_blank">View the design documentation (opens in new tab)</a> for a detailed explanation about the design decisions.
                   </div>
+
+                  <a href="/research" class="govuk-button govuk-button">View</a>
+
+                  <hr>
+                  <br>
+
+                  <h2 class="govuk-heading-l">Archive</h2>
+
+                  <p>
+                    <a href="/index-work-1">View work from July 2023 to March 2025</a>.
+                  </p>
+
+                  <p>
+                    <a href="/index-old">View work from February 2023 to July 2023</a>.
+                  </p>
+
+
+                </div>
+
               </div>
-            </main>
           </div>
-
-
 
     </div> <!-- govuk-grid-column-full -->
 </div> <!-- govuk-grid-row -->
