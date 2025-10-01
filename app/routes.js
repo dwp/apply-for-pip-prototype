@@ -1,7 +1,4 @@
-
 const govukPrototypeKit = require('govuk-prototype-kit')
-const { join } = require('node:path')
-const express = require('express')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Logging session data
