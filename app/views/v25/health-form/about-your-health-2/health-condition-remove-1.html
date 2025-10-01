@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Remove
+{% endblock %}
+
+{% block header %}
+ {% include "explore-header-global-nav-multi.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="health-condition-summary" method="post">
+
+
+
+
+
+<!------------H1 LEGEND------------>
+  {% set dynamicHeader %}
+  <h2 class="govuk-heading-xl govuk-!-margin-bottom-0">Are you sure you want to remove condition {{ data["health-condition-list-1"]}}?
+      </h2>
+      {% endset %}
+<!------------Legend--------------->
+
+        {{ govukRadios({
+          idPrefix: "health-condition-remove-1",
+          name: "health-condition-remove-1",
+          fieldset: {
+            legend: {
+              html: dynamicHeader,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          classes: "govuk-radios",
+          items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: (data["health-condition-remove-1"] == "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: (data["health-condition-remove-1"] == "No")
+          }
+          ]
+        }) }}
+
+
+
+
+
+        <button type="health-condition-summary" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+    </div>
+    </form>
+
+
+  </div>
+</div>
+{% endblock %}

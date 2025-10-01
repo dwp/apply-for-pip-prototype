@@ -1,0 +1,181 @@
+{% set pageTitle = "What health conditions or disabilities do you have?" %}
+
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+{% include "apply-for-pip/includes/phase-banner.html" %}
+{% include "apply-for-pip/includes/back-link.html" %}
+{% endblock %}
+
+{% block head %}
+{{super()}}
+
+<link rel="stylesheet" type="text/css" href="/public/images/accessible-autocomplete.min.css" />
+<script src="/public/javascripts/accessible-autocomplete2.min.js"></script>
+<style>
+  .autocomplete__option {
+    font-size: 19px;
+    line-height: 1.31579;
+    font-family: GDS Transport, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" novalidate>
+
+      {% call govukFieldset({
+      classes: 'moj-add-another__item',
+      legend: {
+      text: 'Search for your health condition or disability',
+      classes: "govuk-fieldset__legend--l",
+      isPageHeading: true
+      }
+      }) %}
+<br>
+       <p class="govuk-body">By condition or disability, we mean physical, sight, hearing or speech difficulties, learning, developmental or behavioural difficulties or mental health conditions.
+
+          <br><br>
+          Your condition does not need to be diagnosed by a health care professional.
+    
+        </p>
+
+      <p>You can add other conditions and disabilities later if you need to.</p>
+
+  
+      <!-- {{ govukInput({
+      id: 'condition-name-1',
+      name: 'condition-name-1',
+      label: {
+      html: 'Name of your condition or disability',
+      classes: 'govuk-!-font-weight-bold'
+      },
+      hint: {
+      text: "For example, kidney failure."
+      },
+      value: data["condition-name-1"]
+      }) }} -->
+
+
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s" style="margin-bottom: 0%;">
+          <h1 class="govuk-fieldset__heading">
+            Name of condition or disability
+          </h1>
+          <div class="govuk-hint">
+            For example, migraine
+          </div>
+        </legend>
+      </fieldset>
+
+
+
+
+
+        <label for="autocomplete-customTemplates"></label>
+        <div id="tt-customTemplates" class="autocomplete-wrapper"></div>
+
+
+  
+
+
+
+      <script type="text/javascript">
+        function customSuggest(query, syncResults) {
+          var results = [
+            // { endonym: 'Feet, Knees, Ankle', spelling: "Feed, ffeet, pheet", name: 'Legs' },
+
+            { endonym: "", spelling: "", name: 'Psoriasis' },
+            { endonym: 'Fibrositis, Fibromyalgia syndrome (FMS)', spelling: "Fibromialgia, Fibromyalsia, Fibromalgia", name: 'Fibromyalgia' },
+            { endonym: 'Uterine fibroids, myomas or leiomyomas, non-cancerous uterine growths', spelling: "Fibroides, Fybroids, Fibrods", name: 'Fibroids' },
+            { endonym: 'nerve tumours, Neurofibromatosis type 1 (NF1), NF2-related schwannomatosis / neurofibromatosis type 2, Schwannomatosis (SWN)', spelling: "Neurofibramatosis, Neurofibromatoses, Neurofibromitosis", name: 'Neurofibromatosis' },
+            { endonym: 'Degeneration of the spinal discs and joints, wear and tear of the spine', spelling: "Spondilosis, Spondylasis, Spondylosys", name: 'Spondylosis' },
+            { endonym: 'Connective tissue disorder, EDS', spelling: "Ehlers Danlos, Ehlers-Danlow, Ehlers-Daniels", name: 'Ehlers-Danlos syndrome' },
+            { endonym: 'Depersonalisation / derealisation, Dissociative Amnesia, Dissociative Identity Disorder (DID), Dissociative Fugue', spelling: "Disociative, Dissasociative, Dissociatve", name: 'Dissociative disorders' },
+            { endonym: 'Lung scarring disease, fibrotic lung disease, Interstitial lung disease (ILD)', spelling: "Idopathic, Idiopatic, Pulmanary, Pulminary", name: 'Idiopathic pulmonary fibrosis (IPF)' },
+            { endonym: 'Leaky heart valve, Mitral valve prolapse or stenosis, Heart valve disorder', spelling: "Mitro valve disease, Mitral valv disease, Mitralvale disease", name: 'Mitral Valve Disease' },
+            { endonym: 'Shoulder arthritis, Shoulder fracture, Labral tears', spelling: "", name: 'Other shoulder disorders' },
+            { endonym: 'Autoimmune liver disease, Bile duct damage liver condition, PBC liver disorder', spelling: "Primary billiary cirrhosis, Primary biliery cirrosis, Primary bilary cirohsis", name: 'Primary Biliary Cirrhosis (PBC)' },
+            { endonym: 'Iron overload disorder, Too much iron in blood, Genetic iron storage disease', spelling: "Hemochromatosis, Haemachromatosis, Haemochromotosis", name: 'Haemochromatosis' },
+            { endonym: 'Low iron levels, Tired all the time anaemia, Lack of iron in blood', spelling: "Anemia, Anemie, Anameia", name: 'Iron deficiency anaemia' },
+            { endonym: 'Red blood cell breakdown disorder, Unknown haemolytic anaemia, Rare blood destruction condition', spelling: "Hemolytic disorders, Haemolytik disorders, Haemolytic disordres", name: 'Haemolytic Disorders (Other/Type Not Known)' },
+            { endonym: 'Blistering skin disease, Autoimmune skin blisters, Skin blistering disorder', spelling: "Pemfigus vulgaris, Pemphigus vulgarius, Pemphagoid", name: 'Pemphigus Vulgaris / Pemphigoid' },
+            { endonym: 'Mouth ulcers and inflammation syndrome, Behcet’s syndrome, Rare inflammatory disorder', spelling: "Bechets disease, Behcets disease, Behcetts disease", name: 'Behçet’s Disease' },
+            { endonym: 'Sticky blood syndrome, APS blood clotting disorder, Antibody-related clotting condition', spelling: "Antiphospholipd syndrome, Antiphospholipid syndrom, Antiphospholipic syndrome", name: 'Antiphospholipid Syndrome' },
+            { endonym: 'Kidney inflammation disease, Glomeruli kidney damage, Nephritis kidney condition', spelling: "Glomerulonephritus, Glomeralonephritis, Glomerulonephrosis", name: 'Glomerulonephritis' },
+            { endonym: 'Kidney tubule inflammation, Interstitial kidney disease, Drug-induced kidney inflammation', spelling: "Interstital nephritis, Interstitial nepheritis, Interstitual nephritis", name: 'Interstitial Nephritis' },
+            { endonym: 'Overactive parathyroid glands, High calcium hormone disorder, Parathyroid hormone imbalance', spelling: "Hyperparathryoidism, Hyperparathyriodism, Hyperparathyrodism", name: 'Hyperparathyroidism' },
+            { endonym: 'Underactive parathyroid glands, Low calcium hormone disorder, Parathyroid deficiency', spelling: "Hypoparathryoidism, Hypoparathyriodism, Hypoparathyrodism", name: 'Hypoparathyroidism' },
+            { endonym: 'Low amniotic fluid in pregnancy, Too little fluid around baby, Amniotic fluid deficiency', spelling: "Oligohydramnios, Oligohydramnios, Oligohydraminos", name: 'Oligohydramnios' },
+            { endonym: 'Excess amniotic fluid, Too much fluid around baby, High amniotic fluid levels', spelling: "Polyhydramnios, Polyhydraminos, Polyhydramnious", name: 'Polyhydramnios' },
+            { endonym: 'PAN blood vessel inflammation, Vasculitis affecting organs, Artery inflammation disease', spelling: "Polyarteritis nodsa, Polyarteritus nodosa, Polyarteritis nodossa", name: 'Polyarteritis Nodosa' },
+            { endonym: 'Sugar diabetes, High blood sugar, Type 1 or Type 2 diabetes', spelling: "Diabetis, Diabities, Diabetees", name: 'Diabetes mellitus (insulin dependent)' },
+            { endonym: 'Neurological disoder, Neurological conditions, Brain and nervous system disorders, Brain and spine conditions', spelling: "Neuroligical disorder, Neorological disorde", name: 'Other or unspecified neurological disorders' }
+
+
+          ]
+          syncResults(query
+            ? results.filter(function (result) {
+              var resultContains = result.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+              var endonymContains = result.endonym.toLowerCase().indexOf(query.toLowerCase()) !== -1
+              var spellingContains = result.spelling.toLowerCase().indexOf(query.toLowerCase()) !== -1
+              return resultContains || endonymContains || spellingContains
+            })
+            : []
+          )
+        }
+
+        function inputValueTemplate(result) {
+          return result && result.name
+        }
+
+        function suggestionTemplate(result) {
+          return result && '<strong>' + result.name + '</strong>' +
+            ' (' + result.endonym + ')'
+        }
+
+        element = document.querySelector('#tt-customTemplates')
+        id = 'autocomplete-customTemplates'
+        accessibleAutocomplete({
+          element: element,
+          id: id,
+          name: "condition-name-1",
+          source: customSuggest,
+          templates: {
+            inputValue: inputValueTemplate,
+            suggestion: suggestionTemplate
+          }
+        })
+      </script>
+
+
+      <div class="govuk-grid-row govuk-!-padding-top-6">
+        <div class="govuk-grid-column-two-thirds">
+
+          <!-- <p><a href="health-condition-manual-1">I cannot find my condition or disability</a></p> -->
+
+       
+          {% endcall %}
+
+          {{ govukButton({
+          text: 'Save and continue'
+          }) }}
+
+    </form>
+
+    {% include "./_return-link.html" %}
+
+
+  </div>{# /govuk-grid-column-two-thirds #}
+</div>{# /govuk-grid-row #}
+
+{% endblock %}

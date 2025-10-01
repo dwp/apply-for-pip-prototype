@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Health conditions or disabilities
+{% endblock %}
+
+{% block header %}
+ {% include "explore-header-global-nav-multi.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="application-6-about-done" method="post">
+
+
+
+      {% include "agent-day-0-2-1/record-id.html" %}
+
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Check condition detials</h1>
+
+        <!-- <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="width: 50%">Condition or disability</th>
+              <td class="govuk-table__cell" style="width: 40%">Cystic fibrosis</td>
+              <td class="govuk-table__cell" style="width: 20%"><a href="health-condition-primary-search">Change</a></td>
+
+            </tr>
+
+          </tbody>
+        </table> -->
+
+
+
+        <table class="govuk-table govuk-!-margin-bottom-8">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width: 80%"></th>
+              <th scope="col" class="govuk-table__header" style="width: 10%"></th>
+              <th scope="col" class="govuk-table__header" style="width: 10%"></th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">(C1) {{ data["health-condition-list-1"]}}</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell"><a href="health-condition-list-1">Change</a></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">(C1) {{ data["health-condition-list-1-date"]}}</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell"><a href="health-condition-list-1">Change</a></td>
+            </tr>
+
+          </tbody>
+
+
+        </table>
+
+
+
+
+
+        <a href="health-condition-summary" type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </a>
+        &nbsp
+        <a href="health-condition-list-2" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add another condition or disability
+        </a>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    </form>
+
+
+  </div>
+</div>
+{% endblock %}

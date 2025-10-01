@@ -1,10 +1,10 @@
 
 const govukPrototypeKit = require('govuk-prototype-kit')
+const { join } = require('node:path')
+const express = require('express')
 const router = govukPrototypeKit.requests.setupRouter()
 
-
 // Logging session data
-
 router.use((req, res, next) => {
   const log = {
     method: req.method,
@@ -66,6 +66,11 @@ const v23 = require('./routes/v23.js')
 const v24 = require('./routes/v24.js')
 const v24v1 = require('./routes/v24v1.js')
 const v24v2 = require('./routes/v24v2.js')
+const v25 = require('./routes/v25.js')
+const v25v2 = require('./routes/v25v2.js')
+const v25v3 = require('./routes/v25v3.js')
+const v25v4 = require('./routes/v25v4.js')
+
 const expv11 = require('./routes/expv11.js')
 const mvp = require('./routes/mvp.js')
 const mvprev1 = require('./routes/mvp-rev-1.js')
@@ -92,6 +97,7 @@ const additionalSupportCondition = require('./routes/additional-support-conditon
 const additionalSupportConditionv14 = require('./routes/additional-support-conditon-v14.js')
 const pipAppPart2 = require('./routes/pip2.js')
 const eligibility = require('./routes/eligibility.js')
+
 
 // ROUTES REDIRECT END
 
@@ -136,6 +142,12 @@ v23(router);
 v24(router);
 v24v1(router);
 v24v2(router);
+v25(router);
+v25v2(router);
+v25v3(router);
+v25v4(router);
+
+
 expv11(router);
 mvp(router);
 mvprev1(router);

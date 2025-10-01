@@ -1,0 +1,53 @@
+{% set pageTitle = "What health conditions or disabilities do you have?" %}
+
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+{% include "apply-for-pip/includes/phase-banner.html" %}
+{% include "apply-for-pip/includes/back-link.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="condition-manual-1-v2-date" method="post" novalidate>
+
+
+      <!-- <p>By condition or disability, we mean physical, sight, hearing or speech difficulties, learning, developmental or
+        behavioural difficulties or mental health conditions.</p> -->
+
+      {{ govukInput({
+      id: 'condition-name-manual-1',
+      name: 'condition-name-manual-1',
+      label: {
+      html: 'Name of your condition or disability',
+      classes: 'govuk-fieldset__legend--l'
+      },
+      hint: {
+      text: "For example, kidney failure."
+      },
+      value: data["condition-name-manual-1"]
+      }) }}
+
+
+
+       
+
+          {{ govukButton({
+          text: 'Save and continue'
+          }) }}
+
+    </form>
+
+    {% include "./_return-link.html" %}
+
+
+  </div>{# /govuk-grid-column-two-thirds #}
+</div>{# /govuk-grid-row #}
+
+{% endblock %}

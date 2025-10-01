@@ -1,0 +1,55 @@
+{% set pageTitle = "What health conditions or disabilities do you have?" %}
+
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+{% include "apply-for-pip/includes/phase-banner.html" %}
+{% include "apply-for-pip/includes/back-link.html" %}
+{% endblock %}
+
+{% block head %}
+{{super()}}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" novalidate>
+
+   
+
+
+
+          {{ govukInput({
+          id: 'condition-date-1',
+          name: 'condition-date-1',
+          classes: "govuk-!-width-two-thirds",
+          label: {
+          html: 'When did this condition or disability approximately start?',
+          classes: 'govuk-fieldset__legend--l'
+          },
+          hint: {
+          text: "For example, about 14 months ago."
+          },
+          value: data["condition-date-1"]
+          }) }}
+
+
+          {{ govukButton({
+          text: 'Save and continue'
+          }) }}
+
+    </form>
+
+    {% include "./_return-link.html" %}
+
+
+  </div>{# /govuk-grid-column-two-thirds #}
+</div>{# /govuk-grid-row #}
+
+{% endblock %}

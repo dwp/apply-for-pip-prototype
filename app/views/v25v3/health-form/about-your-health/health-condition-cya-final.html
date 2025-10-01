@@ -1,0 +1,110 @@
+{% set pageTitle = "Check your answers: about your health" %}
+
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+{% include "apply-for-pip/includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      {% set conditionCount = 0 %}
+      {% if data["condition-name-1"] %}
+        {% set conditionCount = conditionCount + 1 %}
+      {% endif %}
+      {% if data["condition-name-2"] %}
+        {% set conditionCount = conditionCount + 1 %}
+      {% endif %}
+      {% if data["condition-name-3"] %}
+        {% set conditionCount = conditionCount + 1 %}
+      {% endif %}
+
+      You have added {{ conditionCount }}
+      {{ "conditions" if conditionCount > 1 else "condition"}}
+      or {{ "disabilities" if conditionCount > 1 else "disability"}}
+    </h1>
+
+    <div class="govuk-form-group">
+
+      {% if data["condition-name-1"] %}
+
+      <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            {{ data['condition-name-1'] | capitalize }}
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Change</a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Remove</a></li>
+            </ul>
+          </dd>
+        </div>
+
+        {% else %}
+        {% endif %}
+
+        {% if data["condition-name-2"] %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            {{ data['condition-name-2'] | capitalize }}
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Change</a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Remove</a></li>
+            </ul>
+          </dd>
+        </div>
+
+
+        {% else %}
+        {% endif %}
+
+        {% if data["condition-name-3"] %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+            {{ data['condition-name-3'] | capitalize }}
+          </dt>
+          <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Change</a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Remove</a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}
+        {% endif %}
+
+
+      </dl>
+
+    </div>
+
+
+
+    <a href="../task-list-complete-health-condition" class="govuk-button">Confirm and save</a> &nbsp;
+
+    {% if data["condition-name-3"] %}
+  
+    {% elif data["condition-name-2"] %}
+    <a href="health-condition-list-3.html" class="govuk-button  govuk-button--secondary">Add another condition or
+      disability</a>
+
+    {% elif data["condition-name-1"] %}
+    <a href="health-condition-list-2.html" class="govuk-button  govuk-button--secondary">Add another condition or
+      disability</a>
+
+    {% endif %}
+
+
+  </div>
+</div>
+
+{% endblock %}

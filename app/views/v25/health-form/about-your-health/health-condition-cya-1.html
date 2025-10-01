@@ -1,0 +1,62 @@
+{% set pageTitle = "Check your answers: about your health" %}
+
+{% extends "apply-for-pip/includes/layout-signed-in-pip2.html" %}
+
+{% block beforeContent %}
+  {% include "apply-for-pip/includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Check your answers: about your health</h1>
+
+          
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Condition or disibility name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['condition-name-1'] | capitalize }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="./health-condition-list-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Approximate start date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['condition-date-1'] | capitalize }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="./health-condition-list-1">Change<span class="govuk-visually-hidden"> start date</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  About this condition or disibility
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['condition-detail-1'] | capitalize }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="./health-condition-details-1">Change<span class="govuk-visually-hidden"> about this condition</span></a>
+                </dd>
+              </div>
+           
+            </dl>
+           
+
+
+    <p><a href="health-condition-final-cya" class="govuk-button">Confirm and save</a></p>
+
+    <!-- <p><a href="../task-list?aboutyourhealth=completed" class="govuk-button">Confirm and save</a></p> -->
+
+  </div><!-- govuk-grid-column-two-thirds -->
+</div><!-- govuk-grid-row -->
+{% endblock %}

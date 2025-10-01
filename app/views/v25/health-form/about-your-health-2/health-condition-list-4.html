@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Record the primary condition or disability
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block head %}
+  {{super()}}
+
+  <link rel="stylesheet" type="text/css" href="/public/images/accessible-autocomplete.min.css"/>
+  <script src="/public/javascripts/accessible-autocomplete2.min.js"></script>
+  <style>
+    .autocomplete__option {
+      font-size: 19px;
+      line-height: 1.31579;
+      font-family: GDS Transport,arial,sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="health-condition-cya-4" method="post">
+
+
+
+
+
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Record the primary condition or disability</h1>
+          <p class="govuk-body">This is the condition or disability that affects them most. You can add other conditions later.</p>
+
+
+
+          <label for="autocomplete-customTemplates"></label>
+          <div id="tt-customTemplates" class="autocomplete-wrapper"></div>
+
+
+
+
+<script type="text/javascript">
+  function customSuggest (query, syncResults) {
+    var results = [
+      // { endonym: 'Feet, Knees, Ankle', spelling: "Feed, ffeet, pheet", name: 'Legs' },
+
+      { endonym: 'Chronic skin disease, scaly skin rash, Dry, flaky skin condition', spelling: "Psorasis, Psorisis, Psoarisis", name: 'Psoriasis' },
+      { endonym: 'Fibrositis, Fibromyalgia syndrome (FMS)', spelling: "Fibromialgia, Fibromyalsia, Fibromalgia", name: 'Fibromyalgia' },
+      { endonym: 'Uterine fibroids, myomas or leiomyomas, non-cancerous uterine growths', spelling: "Fibroides, Fybroids, Fibrods", name: 'Fibroids' },
+      { endonym: 'nerve tumours, Neurofibromatosis type 1 (NF1), NF2-related schwannomatosis / neurofibromatosis type 2, Schwannomatosis (SWN)', spelling: "Neurofibramatosis, Neurofibromatoses, Neurofibromitosis", name: 'Neurofibromatosis' },
+      { endonym: 'Degeneration of the spinal discs and joints, wear and tear of the spine', spelling: "Spondilosis, Spondylasis, Spondylosys", name: 'Spondylosis' },
+      { endonym: 'Connective tissue disorder, EDS', spelling: "Ehlers Danlos, Ehlers-Danlow, Ehlers-Daniels", name: 'Ehlers-Danlos syndrome' },
+      { endonym: 'Depersonalisation / derealisation, Dissociative Amnesia, Dissociative Identity Disorder (DID), Dissociative Fugue', spelling: "Disociative, Dissasociative, Dissociatve", name: 'Dissociative disorders' },
+      { endonym: 'Lung scarring disease, fibrotic lung disease, Interstitial lung disease (ILD)', spelling: "Idopathic, Idiopatic, Pulmanary, Pulminary", name: 'Idiopathic pulmonary fibrosis (IPF)' },
+      { endonym: 'Leaky heart valve, Mitral valve prolapse or stenosis, Heart valve disorder', spelling: "Mitro valve disease, Mitral valv disease, Mitralvale disease", name: 'Mitral Valve Disease' },
+      { endonym: 'Shoulder arthritis, Shoulder fracture, Labral tears', spelling: "", name: 'Other shoulder disorders' },
+      { endonym: 'Autoimmune liver disease, Bile duct damage liver condition, PBC liver disorder', spelling: "Primary billiary cirrhosis, Primary biliery cirrosis, Primary bilary cirohsis", name: 'Primary Biliary Cirrhosis (PBC)' },
+      { endonym: 'Iron overload disorder, Too much iron in blood, Genetic iron storage disease', spelling: "Hemochromatosis, Haemachromatosis, Haemochromotosis", name: 'Haemochromatosis' },
+      { endonym: 'Low iron levels, Tired all the time anaemia, Lack of iron in blood', spelling: "Anemia, Anemie, Anameia", name: 'Iron deficiency anaemia' },
+      { endonym: 'Red blood cell breakdown disorder, Unknown haemolytic anaemia, Rare blood destruction condition', spelling: "Hemolytic disorders, Haemolytik disorders, Haemolytic disordres", name: 'Haemolytic Disorders (Other/Type Not Known)' },
+      { endonym: 'Blistering skin disease, Autoimmune skin blisters, Skin blistering disorder', spelling: "Pemfigus vulgaris, Pemphigus vulgarius, Pemphagoid", name: 'Pemphigus Vulgaris / Pemphigoid' },
+      { endonym: 'Mouth ulcers and inflammation syndrome, Behcet’s syndrome, Rare inflammatory disorder', spelling: "Bechets disease, Behcets disease, Behcetts disease", name: 'Behçet’s Disease' },
+      { endonym: 'Sticky blood syndrome, APS blood clotting disorder, Antibody-related clotting condition', spelling: "Antiphospholipd syndrome, Antiphospholipid syndrom, Antiphospholipic syndrome", name: 'Antiphospholipid Syndrome' },
+      { endonym: 'Kidney inflammation disease, Glomeruli kidney damage, Nephritis kidney condition', spelling: "Glomerulonephritus, Glomeralonephritis, Glomerulonephrosis", name: 'Glomerulonephritis' },
+      { endonym: 'Kidney tubule inflammation, Interstitial kidney disease, Drug-induced kidney inflammation', spelling: "Interstital nephritis, Interstitial nepheritis, Interstitual nephritis", name: 'Interstitial Nephritis' },
+      { endonym: 'Overactive parathyroid glands, High calcium hormone disorder, Parathyroid hormone imbalance', spelling: "Hyperparathryoidism, Hyperparathyriodism, Hyperparathyrodism", name: 'Hyperparathyroidism' },
+      { endonym: 'Underactive parathyroid glands, Low calcium hormone disorder, Parathyroid deficiency', spelling: "Hypoparathryoidism, Hypoparathyriodism, Hypoparathyrodism", name: 'Hypoparathyroidism' },
+      { endonym: 'Low amniotic fluid in pregnancy, Too little fluid around baby, Amniotic fluid deficiency', spelling: "Oligohydramnios, Oligohydramnios, Oligohydraminos", name: 'Oligohydramnios' },
+      { endonym: 'Excess amniotic fluid, Too much fluid around baby, High amniotic fluid levels', spelling: "Polyhydramnios, Polyhydraminos, Polyhydramnious", name: 'Polyhydramnios' },
+      { endonym: 'PAN blood vessel inflammation, Vasculitis affecting organs, Artery inflammation disease', spelling: "Polyarteritis nodsa, Polyarteritus nodosa, Polyarteritis nodossa", name: 'Polyarteritis Nodosa' },
+      { endonym: 'Sugar diabetes, High blood sugar, Type 1 or Type 2 diabetes', spelling: "Diabetis, Diabities, Diabetees", name: 'Diabetes mellitus (insulin dependent)' },
+      { endonym: 'Neurological disoder, Neurological conditions, Brain and nervous system disorders, Brain and spine conditions', spelling: "Neuroligical disorder, Neorological disorde", name: 'Other or unspecified neurological disorders' }
+
+
+    ]
+    syncResults(query
+      ? results.filter(function (result) {
+          var resultContains = result.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+          var endonymContains = result.endonym.toLowerCase().indexOf(query.toLowerCase()) !== -1
+          var spellingContains = result.spelling.toLowerCase().indexOf(query.toLowerCase()) !== -1
+          return resultContains || endonymContains || spellingContains
+        })
+      : []
+    )
+  }
+
+  function inputValueTemplate (result) {
+    return result && result.name
+  }
+
+  function suggestionTemplate (result) {
+    return result && '<strong>' + result.name + '</strong>' +
+      ' (' + result.endonym + ')'
+  }
+
+  element = document.querySelector('#tt-customTemplates')
+  id = 'autocomplete-customTemplates'
+    accessibleAutocomplete({
+      element: element,
+      id: id,
+      name: "health-condition-list-4",
+      source: customSuggest,
+      templates: {
+        inputValue: inputValueTemplate,
+        suggestion: suggestionTemplate
+      }
+    })
+</script>
+
+
+<div class="govuk-grid-row govuk-!-padding-top-8">
+  <div class="govuk-grid-column-two-thirds">
+
+<p class="govuk-body govuk-!-padding-bottom-4">
+  <a class="govuk-link govuk-link--no-visited-state" href="health-condition-advanced-search-cat2">I cannot find the condition</a>
+</p>
+
+
+{{ govukInput({
+  name: "health-condition-list-4-date",
+  id: "health-condition-list-4-date",
+  classes: "govuk-input--width-20",
+  label: {
+    text: "When did this thing start?",
+    classes: "govuk-label--m",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Something in there"
+  },
+  value: data["health-condition-list-4-date"]
+}) }}
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+</div>
+
+    </form>
+
+{% endblock %}
