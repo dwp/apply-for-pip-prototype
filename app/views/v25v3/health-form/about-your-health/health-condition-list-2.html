@@ -4,7 +4,6 @@
 
 {% block beforeContent %}
 {% include "apply-for-pip/includes/phase-banner.html" %}
-{% include "apply-for-pip/includes/back-link.html" %}
 {% endblock %}
 
 {% block head %}
@@ -12,6 +11,8 @@
 
 <link rel="stylesheet" type="text/css" href="/public/images/accessible-autocomplete.min.css" />
 <script src="/public/javascripts/accessible-autocomplete2.min.js"></script>
+<script src="/public/javascripts/fuse.js"></script>
+
 <style>
   .autocomplete__option {
     font-size: 19px;
@@ -31,16 +32,9 @@
   <div class="govuk-grid-column-two-thirds">
 
     <form method="post" novalidate>
-
-      {% call govukFieldset({
-      classes: 'moj-add-another__item',
-      legend: {
-      text: 'Your health condition or disability',
-      classes: "govuk-fieldset__legend--l",
-      isPageHeading: true
-      }
-      }) %}
-
+      <h1 class="govuk-heading-l">
+        Your health condition or disability
+      </h1>
 
       <p class="govuk-body">By condition or disability, we mean physical, sight, hearing or speech difficulties,
         learning, developmental or behavioural difficulties or mental health conditions.</p>
@@ -49,17 +43,13 @@
 
       <p class="govuk-body">You can add other conditions and disabilities later if you need to.</p>
 
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-fieldset__legend--s" for="my-autocomplete">
+          Name of condition or disability
+        </label>
+        <div id="my-autocomplete-container"></div>
+      </div>
 
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s" style="margin-bottom: 0%;">
-          <h1 class="govuk-fieldset__heading">
-            Name of condition or disability
-          </h1>
-        </legend>
-      </fieldset>
-
-        <label for="autocomplete-customTemplates"></label>
-        <div id="tt-customTemplates" class="autocomplete-wrapper"></div>
 
        <!-- Inline autocomplete with embedded conditions and generated misspellings -->
 <script type="text/javascript">
@@ -700,159 +690,45 @@
 "Cancer of the brain and spinal cord"
   ];
 
-  // ====== Utilities ======
-  function stripDiacritics(str) {
-    return (str || '')
-      .toString()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
-  }
-  function norm(str) {
-    return stripDiacritics(str)
-      .toLowerCase()
-      .replace(/\s+/g, ' ')
-      .trim();
-  }
-  function ukUsVariant(s) {
-    var t = s;
-    t = t.replace(/haem/gi, 'hem');
-    t = t.replace(/anaem/gi, 'anem');
-    t = t.replace(/oedem/gi, 'edem');
-    t = t.replace(/oesoph/gi, 'esoph');
-    t = t.replace(/foet/gi, 'fet');
-    t = t.replace(/leukaem/gi, 'leukem');
-    t = t.replace(/tumour/gi, 'tumor');
-    t = t.replace(/paedi/gi, 'pedi');
-    t = t.replace(/ç/g, 'c').replace(/Ç/g, 'C');
-    return t;
-  }
-  function punctuationLoose(s) {
-    var t = stripDiacritics(s);
-    t = t.replace(/[()]/g, ' ');
-    t = t.replace(/[’'"\/,–—\-]/g, ' ');
-    return t.replace(/\s+/g, ' ').trim();
-  }
-  function phoneticLoose(s) {
-    var t = stripDiacritics(s);
-    t = t.replace(/ph/gi, 'f');
-    t = t.replace(/ae/gi, 'e');
-    t = t.replace(/oe/gi, 'e');
-    t = t.replace(/([a-zA-Z])\1/g, '$1');
-    return t.replace(/\s+/g, ' ').trim();
-  }
-  function dropInternalVowel(s) {
-    var t = stripDiacritics(s);
-    var m = t.match(/^(.)[^aeiouAEIOU]*[aeiouAEIOU](.*)$/);
-    if (!m) return t;
-    return (m[1] + m[2]).replace(/\s+/g, ' ').trim();
-  }
-  function generateMisspellings(name) {
-    var original = norm(name);
-    var candidates = [];
-    function push(v) {
-      if (!v) return;
-      var clean = v.replace(/\s+/g, ' ').trim();
-      if (!clean || clean.length < 3) return;
-      var n = norm(clean);
-      if (!n || n === original) return;
-      if (candidates.some(function (c) { return norm(c) === n; })) return;
-      candidates.push(clean);
-    }
-    var v1 = ukUsVariant(name); push(v1);
-    if (candidates.length < 3) { var v2 = punctuationLoose(name); push(v2); }
-    if (candidates.length < 3) { var v3 = phoneticLoose(name);    push(v3); }
-    if (candidates.length < 3) { var v4 = dropInternalVowel(ukUsVariant(name)); push(v4); }
-    if (candidates.length < 3) { var v5 = dropInternalVowel(punctuationLoose(name)); push(v5); }
-    return candidates.slice(0, 3);
-  }
 
-  // ====== Prepare results with misspellings ======
-  var results = conditions.map(function (name) {
-    return { name: name, misspellings: generateMisspellings(name) };
+ const fuse = new Fuse(conditions, {
+    threshold: 0.3,
+    shouldSort: true,
   });
 
-  // ====== Source & templates ======
-  function customSuggest(query, syncResults) {
-    var q = norm(query || '');
-    if (!q) return syncResults([]);
-    var matches = results.filter(function (r) {
-      if (norm(r.name).indexOf(q) !== -1) return true;
-      return (r.misspellings || []).some(function (m) {
-        return norm(m).indexOf(q) !== -1;
-      });
-    });
-    syncResults(matches);
-  }
-  function inputValueTemplate(result) {
-    return result && result.name ? result.name : '';
-  }
-  function suggestionTemplate(result) {
-    return result && result.name ? result.name : '';
-  }
-
-  // ====== Mount the autocomplete ======
-  var element = document.querySelector('#tt-customTemplates');
-  var id = 'autocomplete-customTemplates';
-  
-    // --- Persist & prefill ---
-    var STORAGE_KEY = 'condition-name-2:lastValue';
-
-    function loadSaved() {
-      try { return localStorage.getItem(STORAGE_KEY) || ''; } catch (e) { return ''; }
-    }
-    function save(val) {
-      try { localStorage.setItem(STORAGE_KEY, (val || '').trim()); } catch (e) {}
-    }
-
-    var defaultVal = loadSaved();
-  
-  
   accessibleAutocomplete({
-    element: element,
-    id: id,
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
     name: 'condition-name-2',
-    source: customSuggest,
+    source: function (query, populate) {
+      if (!query) {
+        populate([]);
+        return;
+      }
+
+      const results = fuse.search(query).map((i) => i.item);
+      populate(results);
+    },
     minLength: 1,
     confirmOnBlur: false,
-      // 👇 Prefill with the last value the user entered/selected
-      defaultValue: defaultVal, // string is expected/safest (see note below)
-
-      showNoOptionsFound: true, // keep visible (set to false if you want no row at all)
-      tNoResults: function () {
-        return 'No suggestions found. Enter your health condition manually';
-      },
-      tStatusNoResults: function () {
-        // Announced by screen readers (ARIA live region)
-        return 'No suggestions found. Enter your health condition manually';
-      },
-
-        // 👇 Save on selection
-      onConfirm: function (selection) {
-        var inputEl = document.getElementById(id);
-        var val = (selection && selection.name) ? selection.name : (inputEl ? inputEl.value : '');
-        save(val);
-      },
-
-    templates: {
-      inputValue: inputValueTemplate,
-      suggestion: suggestionTemplate
+    defaultValue: "{{ data["condition-name-2"] }}",
+    showNoOptionsFound: false, // keep visible (set to false if you want no row at all)
+    tNoResults: function () {
+      return 'No suggestions found. Enter your health condition manually';
+    },
+    tStatusNoResults: function () {
+      // Announced by screen readers (ARIA live region)
+      return 'No suggestions found. Enter your health condition manually';
     }
   });
-
-   // 👇 Save as the user types and on blur (covers free-text entry)
-    var inputEl = document.getElementById(id);
-    if (inputEl) {
-      inputEl.addEventListener('input', function () { save(inputEl.value); });
-      inputEl.addEventListener('blur', function () { save(inputEl.value); });
-    }
 })();
 </script>
 
 
-      <div class="govuk-grid-row govuk-!-padding-top-6">
+
+      <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
        
-          {% endcall %}
 
                     {{ govukInput({
           id: 'condition-date-2',
