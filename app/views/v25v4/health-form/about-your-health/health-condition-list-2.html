@@ -711,7 +711,7 @@
     },
     minLength: 1,
     confirmOnBlur: false,
-
+    defaultValue: "{{ data["condition-name-2"] }}",
     showNoOptionsFound: false, // keep visible (set to false if you want no row at all)
     tNoResults: function () {
       return 'No suggestions found. Enter your health condition manually';
@@ -728,7 +728,6 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
        
-          {% endcall %}
 
                     {{ govukInput({
           id: 'condition-date-2',
