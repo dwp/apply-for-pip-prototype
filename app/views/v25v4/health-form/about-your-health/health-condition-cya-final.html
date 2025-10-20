@@ -13,15 +13,18 @@
 
     <h1 class="govuk-heading-l">
       {% set conditionCount = 0 %}
-      {% if data["condition-name-1"] %}
+      {% if data["condition-name-4"] %}
         {% set conditionCount = conditionCount + 1 %}
       {% endif %}
-      {% if data["condition-name-2"] %}
+
+      {% if data["condition-name-5"] %}
         {% set conditionCount = conditionCount + 1 %}
       {% endif %}
-      {% if data["condition-name-3"] %}
-        {% set conditionCount = conditionCount + 1 %}
-      {% endif %}
+
+      {% if data["condition-name-6"] %}
+      {% set conditionCount = conditionCount + 1 %}
+       {% endif %}
+      
 
       You have added {{ conditionCount }}
       {{ "conditions" if conditionCount > 1 else "condition"}}
@@ -30,12 +33,12 @@
 
     <div class="govuk-form-group">
 
-      {% if data["condition-name-1"] %}
+      {% if data["condition-name-4"] %}
 
       <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
-            {{ data['condition-name-1'] | capitalize }}
+            {{ data['condition-name-4'] | capitalize }}
           </dt>
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
@@ -48,11 +51,11 @@
         {% else %}
         {% endif %}
 
-        {% if data["condition-name-2"] %}
+        {% if data["condition-name-5"] %}
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
-            {{ data['condition-name-2'] | capitalize }}
+            {{ data['condition-name-5'] | capitalize }}
           </dt>
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
@@ -66,11 +69,11 @@
         {% else %}
         {% endif %}
 
-        {% if data["condition-name-3"] %}
+        {% if data["condition-name-6"] %}
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
-            {{ data['condition-name-3'] | capitalize }}
+            {{ data['condition-name-6'] | capitalize }}
           </dt>
           <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
             <ul class="govuk-summary-list__actions-list">
@@ -91,13 +94,13 @@
 
     <a href="end-of-prototype" class="govuk-button">Confirm and save</a> &nbsp;
 
-    {% if data["condition-name-3"] %}
+    {% if data["condition-name-6"] %}
   
-    {% elif data["condition-name-2"] %}
+    {% elif data["condition-name-5"] %}
     <a href="health-condition-list-3.html" class="govuk-button  govuk-button--secondary">Add another condition or
       disability</a>
 
-    {% elif data["condition-name-1"] %}
+    {% elif data["condition-name-4"] %}
     <a href="health-condition-list-2.html" class="govuk-button  govuk-button--secondary">Add another condition or
       disability</a>
 

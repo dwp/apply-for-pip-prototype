@@ -111,13 +111,13 @@ module.exports = function (router) {
 
 
 router.post('/v25v3/health-form/about-your-health/health-condition-list-1', (req, res, next) => {
-  res.redirect('/v25v3/health-form/about-your-health/health-condition-details-1');
-});
-
-
-router.post('/v25v3/health-form/about-your-health/health-condition-details-1', (req, res, next) => {
   res.redirect('/v25v3/health-form/about-your-health/health-condition-cya-1');
 });
+
+
+// router.post('/v25v3/health-form/about-your-health/health-condition-details-1', (req, res, next) => {
+//   res.redirect('/v25v3/health-form/about-your-health/health-condition-cya-1');
+// });
 
 router.post('/v25v3/health-form/about-your-health/health-condition-cya-1', (req, res, next) => {
 res.redirect('/v25v3/health-form/about-your-health/health-condition-cya-final');
@@ -128,13 +128,13 @@ res.redirect('/v25v3/health-form/about-your-health/health-condition-cya-final');
 // HEALTH CONDITION 2 //
 
 router.post('/v25v3/health-form/about-your-health/health-condition-list-2', (req, res, next) => {
-  res.redirect('/v25v3/health-form/about-your-health/health-condition-details-2');
-});
-
-
-router.post('/v25v3/health-form/about-your-health/health-condition-details-2', (req, res, next) => {
   res.redirect('/v25v3/health-form/about-your-health/health-condition-cya-2');
 });
+
+
+// router.post('/v25v3/health-form/about-your-health/health-condition-details-2', (req, res, next) => {
+//   res.redirect('/v25v3/health-form/about-your-health/health-condition-cya-2');
+// });
 
 
 router.post('/v25v3/health-form/about-your-health/health-condition-cya-2', (req, res, next) => {
@@ -146,13 +146,13 @@ res.redirect('/v25v3/health-form/about-your-health/health-condition-cya-final');
 
 
 router.post('/v25v3/health-form/about-your-health/health-condition-list-3', (req, res, next) => {
-  res.redirect('/v25v3/health-form/about-your-health/health-condition-details-3');
-});
-
-
-router.post('/v25v3/health-form/about-your-health/health-condition-details-3', (req, res, next) => {
   res.redirect('/v25v3/health-form/about-your-health/health-condition-cya-3');
 });
+
+
+// router.post('/v25v3/health-form/about-your-health/health-condition-details-3', (req, res, next) => {
+//   res.redirect('/v25v3/health-form/about-your-health/health-condition-cya-3');
+// });
 
 
 router.post('/v25v3/health-form/about-your-health/health-condition-cya-3', (req, res, next) => {

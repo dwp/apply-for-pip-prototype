@@ -48,6 +48,9 @@
         <label class="govuk-label govuk-fieldset__legend--s" for="my-autocomplete">
           Name of condition or disability
         </label>
+         <div class="govuk-hint">
+          Select from the suggestions listed, or enter your own
+        </div>
         <div id="my-autocomplete-container"></div>
       </div>
 
@@ -699,7 +702,7 @@
   accessibleAutocomplete({
     element: document.querySelector('#my-autocomplete-container'),
     id: 'my-autocomplete', // To match it to the existing <label>.
-    name: 'condition-name-2',
+    name: 'condition-name-5',
     source: function (query, populate) {
       if (!query) {
         populate([]);
@@ -711,7 +714,7 @@
     },
     minLength: 1,
     confirmOnBlur: false,
-    defaultValue: "{{ data["condition-name-2"] }}",
+    defaultValue: "{{ data["condition-name-5"] }}",
     showNoOptionsFound: false, // keep visible (set to false if you want no row at all)
     tNoResults: function () {
       return 'No suggestions found. Enter your health condition manually';
@@ -730,8 +733,8 @@
        
 
                     {{ govukInput({
-          id: 'condition-date-2',
-          name: 'condition-date-2',
+          id: 'condition-date-5',
+          name: 'condition-date-5',
           classes: "govuk-!-width-two-thirds",
           label: {
           html: 'Approximate start date',
@@ -740,7 +743,7 @@
           hint: {
           text: "For example, about 14 months ago."
           },
-          value: data["condition-date-2"]
+          value: data["condition-date-5"]
           }) }}
 
           {{ govukButton({
