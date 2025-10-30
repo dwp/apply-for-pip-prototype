@@ -37,7 +37,7 @@
         Your health condition or disability
       </h1>
 
-      <p class="govuk-body">Let us know about one condition or disability. You can add more later if you need to.
+    <p class="govuk-body">Let us know about one condition or disability. You can add more later if you need to.
       <p class="govuk-body"> By condition or disability, we mean physical, sight, hearing or speech difficulties, learning, developmental or behavioural difficulties or mental health conditions.</p>
       <p class="govuk-body">Your condition does not need to be diagnosed by a health care professional.</p>
 
@@ -49,7 +49,7 @@
          <div class="govuk-hint">
           Select from the suggestions or enter your own.
         </div>
-        <div id="my-autocomplete-container"></div>
+        <div id="my-autocomplete-container" class="app-autocomplete--with-suggestions"></div>
       </div>
 
 
@@ -692,7 +692,9 @@
 "Cancer of the brain and spinal cord"
   ];
 
- const fuse = new Fuse(conditions, {
+
+
+   const fuse = new Fuse(conditions, {
     threshold: 0.3,
     shouldSort: true,
   });
@@ -725,8 +727,12 @@
 })();
 </script>
 
+
+
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+
+  
 
                       {{ govukInput({
           id: 'condition-date-3',
@@ -748,7 +754,7 @@
 
     </form>
 
-    <!-- {% include "./_return-link.html" %} -->
+   <!-- {% include "./_return-link.html" %} -->
 
 
   </div>{# /govuk-grid-column-two-thirds #}

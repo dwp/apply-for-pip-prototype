@@ -713,7 +713,7 @@
     },
     minLength: 1,
     confirmOnBlur: false,
-    defaultValue: "{{ data["condition-name-1"] }}",
+    defaultValue: "{{ data["condition-name-1"] | safe}}",
     showNoOptionsFound: false, // keep visible (set to false if you want no row at all)
     tNoResults: function () {
       return 'No suggestions found. Enter your health condition manually';

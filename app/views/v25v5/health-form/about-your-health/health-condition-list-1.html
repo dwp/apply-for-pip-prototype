@@ -4,13 +4,14 @@
 
 {% block beforeContent %}
 {% include "apply-for-pip/includes/phase-banner.html" %}
-{% include "apply-for-pip/includes/back-link.html" %}
+
+
 {% endblock %}
 
 {% block head %}
 {{super()}}
 
-<link rel="stylesheet" type="text/css" href="/public/images/accessible-autocomplete.min.css" />
+<link rel="stylesheet" type="text/css" href="/public/images/accessible-autocomplete-2.min.css" />
 <script src="/public/javascripts/accessible-autocomplete2.min.js"></script>
 <script src="/public/javascripts/fuse.js"></script>
 
@@ -37,7 +38,7 @@
         Your health condition or disability
       </h1>
 
-      <p class="govuk-body">Let us know about one condition or disability. You can add more later if you need to.
+   <p class="govuk-body">Let us know about one condition or disability. You can add more later if you need to.
       <p class="govuk-body"> By condition or disability, we mean physical, sight, hearing or speech difficulties, learning, developmental or behavioural difficulties or mental health conditions.</p>
       <p class="govuk-body">Your condition does not need to be diagnosed by a health care professional.</p>
 
@@ -49,12 +50,12 @@
          <div class="govuk-hint">
           Select from the suggestions or enter your own.
         </div>
-        <div id="my-autocomplete-container"></div>
+        <div id="my-autocomplete-container" class="app-autocomplete--with-suggestions"></div>
       </div>
 
 
       <!-- Inline autocomplete with embedded conditions and generated misspellings -->
-<script type="text/javascript">
+    <script type="text/javascript">
 (function () {
   // ====== Data: inline conditions (633 items) ======
   var conditions = [
@@ -692,45 +693,49 @@
 "Cancer of the brain and spinal cord"
   ];
 
- const fuse = new Fuse(conditions, {
-    threshold: 0.3,
-    shouldSort: true,
-  });
 
-  accessibleAutocomplete({
-    element: document.querySelector('#my-autocomplete-container'),
-    id: 'my-autocomplete', // To match it to the existing <label>.
-    name: 'condition-name-3',
-    source: function (query, populate) {
-      if (!query) {
-        populate([]);
-        return;
-      }
 
-      const results = fuse.search(query).map((i) => i.item);
-      populate(results);
-    },
-    minLength: 1,
-    confirmOnBlur: false,
-    defaultValue: "{{ data["condition-name-3"] | safe}}",
-    showNoOptionsFound: false, // keep visible (set to false if you want no row at all)
-    tNoResults: function () {
-      return 'No suggestions found. Enter your health condition manually';
-    },
-    tStatusNoResults: function () {
-      // Announced by screen readers (ARIA live region)
-      return 'No suggestions found. Enter your health condition manually';
-    }
+          const fuse = new Fuse(conditions, {
+            threshold: 0.3,
+            shouldSort: true,
+          });
+
+          accessibleAutocomplete({
+            element: document.querySelector('#my-autocomplete-container'),
+            id: 'my-autocomplete', // To match it to the existing <label>.
+            name: 'condition-name-1',
+            source: function (query, populate) {
+              if (!query) {
+                populate([]);
+                return;
+              }
+
+              const results = fuse.search(query).map((i) => i.item);
+              populate(results);
+            },
+            minLength: 1,
+            confirmOnBlur: true,
+            defaultValue: "{{ data["condition-name-1"] | safe}}",
+
+            showNoOptionsFound: false, // keep visible (set to false if you want no row at all)
+            tNoResults: function () {
+              return 'No suggestions found. Enter your health condition manually';
+            },
+            tStatusNoResults: function () {
+              // Announced by screen readers (ARIA live region)
+              return 'No suggestions found. Enter your health condition manually';
+            }
   });
-})();
-</script>
+}) ();
+      </script>
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-                      {{ govukInput({
-          id: 'condition-date-3',
-          name: 'condition-date-3',
+
+          {{ govukInput({
+          id: 'condition-date-1',
+          name: 'condition-date-1',
           classes: "govuk-!-width-two-thirds",
           label: {
           html: 'Approximate start date',
@@ -739,12 +744,13 @@
           hint: {
           text: "For example, about 14 months ago."
           },
-          value: data["condition-date-3"]
+          value: data["condition-date-1"]
           }) }}
 
           {{ govukButton({
           text: 'Save and continue'
           }) }}
+
 
     </form>
 

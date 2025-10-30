@@ -67,6 +67,10 @@ const v25 = require('./routes/v25.js')
 const v25v2 = require('./routes/v25v2.js')
 const v25v3 = require('./routes/v25v3.js')
 const v25v4 = require('./routes/v25v4.js')
+const v25v5 = require('./routes/v25v5.js')
+const v25v6 = require('./routes/v25v6.js')
+
+
 
 const expv11 = require('./routes/expv11.js')
 const mvp = require('./routes/mvp.js')
@@ -143,6 +147,9 @@ v25(router);
 v25v2(router);
 v25v3(router);
 v25v4(router);
+v25v5(router);
+v25v6(router);
+
 
 
 expv11(router);
