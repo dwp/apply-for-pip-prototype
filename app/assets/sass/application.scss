@@ -521,7 +521,7 @@ body.overlay {
   padding: 4px 8px;
   border-bottom: 2px solid govuk-colour("black");
   background-color: govuk-colour("light-grey");
-  @include govuk-font(16, $weight: regular);
+  @include govuk-font(19, $weight: bold);
   box-sizing: border-box;
   position: sticky;
   z-index: 1;
