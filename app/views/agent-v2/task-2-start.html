@@ -1,0 +1,36 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "agent-task/includes/layout-agent.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+          
+      <form action="task-2-contents" method="post" class="form">
+                <div class="govuk-grid-row">
+
+                  <div class="govuk-grid-column-two-thirds">
+                            <br><br>
+                                <h1 class="govuk-heading-l govuk-!-margin-bottom-1">Peter Ward</h1>
+                                <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-8">RN 00 00 02 B</p>
+
+                          <h2 class="govuk-heading-xl">Update the applicant's phone number</h2>
+
+                              <p>The applicant has written to us to tell us their phone number has changed.</p>
+
+                        <button type="submit" class="govuk-button" data-module="govuk-button">
+                          Continue
+                        </button>
+
+                     <p><a href="#">I cannot do this task</a></p>
+
+                    </div>
+                </div>
+    </form>
+     
+
+
+
+{% endblock %}

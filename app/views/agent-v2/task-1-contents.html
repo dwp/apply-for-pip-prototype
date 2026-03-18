@@ -1,0 +1,95 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "agent-task/includes/layout-agent.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+          
+      <form action="task-1-finish" method="post" class="form">
+                <div class="govuk-grid-row">
+
+                  <div class="govuk-grid-column-two-thirds">
+                            <br><br>
+                                <h1 class="govuk-heading-l govuk-!-margin-bottom-1">Jeff Bridges</h1>
+                                <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-8">NA 11 22 33 C</p>
+
+                          <h2 class="govuk-heading-xl">Call the applicant</h2>
+                              <p><a href="#">View their application</a></p>
+                              
+
+
+      <table class="govuk-table">
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width:70%">Mobile number</th>
+                <td class="govuk-table__cell">07961122921</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Additional support (AS)</th>
+                <td class="govuk-table__cell">No</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Unacceptable customer behaviour (UCB)</th>
+                <td class="govuk-table__cell">No</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Appointees or representatives</th>
+                <td class="govuk-table__cell">No</td>
+              </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Accessibility needs</th>
+                <td class="govuk-table__cell">No</td>
+              </tr>
+            </tbody>
+          </table>
+
+          {{ govukDateInput({
+                id: "passport-issued",
+                namePrefix: "passport-issued",
+                fieldset: {
+                  legend: {
+                    text: "What date did they enter hospital?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "For example, 27 9 2025"
+                }
+              }) }}
+
+                 {{ govukDateInput({
+                id: "passport-issued",
+                namePrefix: "passport-issued",
+                fieldset: {
+                  legend: {
+                    text: "What date did they leave hospital?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "For example, 8 10 2025"
+                }
+              }) }}
+
+
+
+                        <button type="submit" class="govuk-button" data-module="govuk-button">
+                          Continue
+                        </button>
+
+                        <p><a href="#">I could not contact the applicant</a></p>
+
+                    </div>
+                </div>
+    </form>
+     
+
+
+
+{% endblock %}

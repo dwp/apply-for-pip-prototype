@@ -1,0 +1,99 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "agent-task/includes/layout-agent.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="govuk-width-container">
+   <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content">
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <section class="dwp-quick-reference govuk-!-margin-bottom-8" aria-label="Case information">
+      <dl class="dwp-quick-reference__block">
+        <dt class="dwp-quick-reference__label govuk-visually-hidden">Name:</dt>
+        <dd class="dwp-quick-reference__primary">Heather Murphy</dd>
+        <dt class="dwp-quick-reference__label dwp-quick-reference__label--primary govuk-visually-hidden">National
+          Insurance number:</dt>
+        <dd class="dwp-quick-reference__secondary">QQ 12 34 56 X</dd>
+      </dl>
+    </section>
+
+  </div>
+
+</div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter govuk-!-margin-bottom-8">
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2"><a href="person-record-overview" class="govuk-link"
+          rel="noreferrer noopener">Overview</a></p>
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2"><a href="person-record-tasks-none" class="govuk-link"
+          rel="noreferrer noopener" target="">Tasks</a></p>
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2"><a href="person-record-applications" class="govuk-link"
+          rel="noreferrer noopener" target="">Applications and decisions</a></p>
+
+    </div>
+
+    <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-8">
+    <h3 class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-36 govuk-!-margin-bottom-6">Overview</h3>
+
+    <!-- <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2">PIP application status: <strong>In payment</strong></p>
+    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2">Daily living: <strong>Enhanced</strong></p>
+    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-6">Mobility: <strong>Enhanced</strong></p> -->
+
+    <!-- <h3 class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-24 govuk-!-margin-bottom-2">PI</h3> -->
+
+    <table class="govuk-table">
+      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Personal Independence status</caption> -->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half"></th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half"></th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+
+        
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Application/claim</th>
+          <td class="govuk-table__cell">Decision made: In payment</td>
+        </tr>
+
+        
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Outcome</th>
+          <td class="govuk-table__cell">
+            <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-1">Daily living: Enhanced rate</p>
+            <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-0">Mobility: Standard rate</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+  </div>
+</div>
+</div>
+</main>
+</div>
+
+
+</div>{# /govuk-grid-column-two-thirds #}
+
+</div>{# /govuk-grid-row #}
+
+{% endblock %}
