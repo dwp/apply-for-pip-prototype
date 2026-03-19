@@ -28,6 +28,7 @@
 {% from "govuk/components/tag/macro.njk"              import govukTag %}
 {% from "govuk/components/textarea/macro.njk"         import govukTextarea %}
 {% from "govuk/components/warning-text/macro.njk"     import govukWarningText %}
+{% from "internal-service-header/macro.njk" import dwpHeader %}
 
 {% block head %}
   {% include "includes/head.html" %}
@@ -38,45 +39,41 @@
 {% endblock %}
 
 
+{% block header %}
+{{
+        dwpHeader({
+            serviceName: "Personal Independance Payment",
+            serviceHref: "/index",
+            action: "My home page",
+            actionHref: "",
+            container: true
+        })
+}}
+
+{% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 
 {% if useAutoStoreData %}
   {% block footer %}
-  {{ govukFooter({
-    meta: {
-      items: [
-      {
-        href: "/research",
-        text: "Research"
-      },
-      {
-        href: "complete-task-list",
-        text: "Complete"
-      },
-      {
-        href: "/mvp/info/accessibility.html",
-        text: "Accessibility"
-      },
-      {
-        href: "/mvp/info/cookies.html",
-        text: "Cookies"
-      },
-      {
-        href: "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter",
-        text: "Privacy"
-      },
-      {
-        href: "clear-status/check",
-        text: "Clear status"
-      },
-        {
-          href: "/manage-prototype/clear-data",
-          text: "Clear data"
-        }
-      ]
-    }
-  }) }}
+  {% from "internal-service-footer/macro.njk" import dwpFooter %}
+  {{
+    dwpFooter({
+      meta: {
+          visuallyHiddenTitle: "About this website",
+          items: [
+          {
+              href: "",
+              text: "Accessibility statement"
+          },
+          {
+              href: "",
+              text: "Privacy"
+          }
+          ]
+      }
+    }) 
+  }}
   {% endblock %}
 {% endif %}
 
