@@ -1,0 +1,315 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "agent-v1/includes/layout-agent.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <section class="dwp-quick-reference govuk-!-margin-bottom-8" aria-label="Case information">
+          <dl class="dwp-quick-reference__block">
+            <dt class="dwp-quick-reference__label govuk-visually-hidden">Name:</dt>
+            <dd class="dwp-quick-reference__primary">Heather Murphy</dd>
+            <dt class="dwp-quick-reference__label dwp-quick-reference__label--primary govuk-visually-hidden">National
+              Insurance number:</dt>
+            <dd class="dwp-quick-reference__secondary">QQ 12 34 56 X</dd>
+          </dl>
+        </section>
+
+      </div>
+
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-quarter govuk-!-margin-bottom-8">
+        <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2"><a href="person-record-overview-nil"
+            class="govuk-link" rel="noreferrer noopener">Overview</a></p>
+        <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2"><a href="person-record-tasks"
+            class="govuk-link" rel="noreferrer noopener" target="">Tasks</a></p>
+        <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2"><a href="person-record-event-history"
+            class="govuk-link" rel="noreferrer noopener" target="">Event history</a></p>
+        <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2"><a href="person-record-applications"
+            class="govuk-link" rel="noreferrer noopener" target="">Applications and decisions</a></p>
+
+      </div>
+
+        <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-8">
+          <h3 class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-36 govuk-!-margin-bottom-6">Event history
+          </h3>
+
+          <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-6"><a class=""
+              href="record-1-event-history-reason" target="">Add a new event</a> to the event history.</p>
+
+
+                                          <div class="govuk-accordion govuk-!-margin-bottom-0" data-module="govuk-accordion" id="accordion-default">
+                                            <div class="govuk-accordion__section">
+                                              <div class="govuk-accordion__section-header">
+                                                <h2 class="govuk-accordion__section-heading">
+                                                  <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                                    Filter by event type
+                                                  </span>
+                                                </h2>
+                                              </div>
+                                              <div id="accordion-default-content-1" class="govuk-accordion__section-content"
+                                                aria-labelledby="accordion-default-heading-1">
+
+                                                <div class="govuk-grid-row">
+                                                  <div class="govuk-grid-column-full govuk-!-margin-bottom-0">
+
+
+
+
+
+
+                                                    <div class="govuk-form-group">
+
+                                                      <fieldset class="govuk-fieldset">
+
+                                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s ">
+
+                                                          <h1 class="govuk-fieldset__heading">
+                                                            Select filter type
+                                                          </h1>
+                                                        </legend>
+
+
+                                                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                                          <div class="govuk-checkboxes__item">
+                                                            <input class="govuk-checkboxes__input" id="record-1-event-history-filter"
+                                                              name="record-1-event-history-filter" type="checkbox" value="1">
+                                                            <label class="govuk-label govuk-checkboxes__label" for="record-1-event-history-filter">
+                                                              Inbound calls
+                                                            </label>
+                                                          </div>
+
+                                                          <div class="govuk-checkboxes__item">
+                                                            <input class="govuk-checkboxes__input" id="record-1-event-history-filter-2"
+                                                              name="record-1-event-history-filter" type="checkbox" value="2">
+                                                            <label class="govuk-label govuk-checkboxes__label" for="record-1-event-history-filter-2">
+                                                              Outbound calls
+                                                            </label>
+                                                          </div>
+
+                                                          <div class="govuk-checkboxes__item">
+                                                            <input class="govuk-checkboxes__input" id="record-1-event-history-filter-3"
+                                                              name="record-1-event-history-filter" type="checkbox" value="3">
+                                                            <label class="govuk-label govuk-checkboxes__label" for="record-1-event-history-filter-3">
+                                                              Letters sent
+                                                            </label>
+                                                          </div>
+
+
+                                                          <div class="govuk-checkboxes__item">
+                                                            <input class="govuk-checkboxes__input" id="record-1-event-history-filter-4"
+                                                              name="record-1-event-history-filter" type="checkbox" value="4">
+                                                            <label class="govuk-label govuk-checkboxes__label" for="record-1-event-history-filter-4">
+                                                              Letters received
+                                                            </label>
+                                                          </div>
+
+                                                          <div class="govuk-checkboxes__item">
+                                                            <input class="govuk-checkboxes__input" id="record-1-event-history-filter-5"
+                                                              name="record-1-event-history-filter" type="checkbox" value="4">
+                                                            <label class="govuk-label govuk-checkboxes__label" for="record-1-event-history-filter-5">
+                                                              Flags and markers (AS, ACS, VCC)
+                                                            </label>
+                                                          </div>
+                                                        </div>
+                                                      </fieldset>
+                                                    </div>
+
+
+                                                    <button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-4"
+                                                      data-module="govuk-button">
+                                                      Apply
+                                                    </button>
+
+
+                                                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible-seperator">
+
+
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+
+
+          <table class="govuk-table govuk-!-margin-top-0">
+
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-33-percent">Date</td>
+                <td class="govuk-table__cell govuk-66-percent">Details</td>
+                <!-- <td class="govuk-table__cell govuk-20-percent">Actions</td> -->
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell table-spacer">18 October 2023</td>
+                <td class="govuk-table__cell table-spacer">
+                  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Inbound call</p>
+                  <p class="govuk-body govuk-!-margin-bottom-2">Actions taken:</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Reissue award letter</li>
+                    <li>Changed landline</li>
+                    <li>Removed helper</li>
+                  </ul>
+                  <p></p>
+                  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Notes</p>
+                  <p class="govuk-body govuk-!-margin-bottom-3">Information taken from the call</p>
+                </td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell table-spacer">16 October 2023</td>
+                <td class="govuk-table__cell table-spacer">
+                  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Letter sent</p>
+                  <p class="govuk-body govuk-!-margin-bottom-3">Citzen asked for another copy of the decsion letter</p>
+                </td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell table-spacer">1 October 2023</td>
+                <td class="govuk-table__cell table-spacer">
+                  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Inbound call</p>
+                  <!-- <p class="govuk-body govuk-!-margin-bottom-3">David Connifey</p> -->
+                  <!-- <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Notes</p> -->
+                  <p class="govuk-body govuk-!-margin-bottom-3">Information taken from the call</p>
+                </td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell table-spacer">29 September 2023</td>
+                <td class="govuk-table__cell table-spacer">
+                  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Outbound call</p>
+                  <!-- <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Notes</p> -->
+                  <p class="govuk-body govuk-!-margin-bottom-3">I have requested a care plan from the citizen</p>
+                </td>
+              </tr>
+
+              
+                         <tr class="govuk-table__row">
+                <td class="govuk-table__cell table-spacer">29 September 2023</td>
+                <td class="govuk-table__cell table-spacer">
+                  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Verified applicant’s identity</p>
+                </td>
+              </tr>
+
+                <tr class="govuk-table__row">
+                <td class="govuk-table__cell table-spacer">29 September 2023</td>
+                <td class="govuk-table__cell table-spacer">
+                  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Completed pre-referral checks</p>
+                </td>
+              </tr>
+
+                <tr class="govuk-table__row">
+                <td class="govuk-table__cell table-spacer">29 September 2023</td>
+                <td class="govuk-table__cell table-spacer">
+                  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Sent applicant reminder to return health information gather</p>
+                </td>
+              </tr>
+
+                <tr class="govuk-table__row">
+                <td class="govuk-table__cell table-spacer">29 September 2023</td>
+                <td class="govuk-table__cell table-spacer">
+                  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Received application in PIP Service</p>
+                </td>
+              </tr>
+
+
+    
+
+            </tbody>
+          </table>
+
+          <nav class="govuk-pagination" aria-label="Pagination">
+  
+  
+    
+  
+  <!-- <div class="govuk-pagination__prev">
+  <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+          
+      <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+      </svg>
+      
+      <span class="govuk-pagination__link-title">
+        Previous<span class="govuk-visually-hidden"> page</span>
+      </span>
+      
+      
+    </a>
+  </div>  -->
+
+  <ul class="govuk-pagination__list">
+
+     <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-link govuk-pagination__link" href="person-record-event-history" aria-label="Page 1" aria-current="page">
+        1
+      </a>
+    </li>
+
+      <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="person-record-event-history-page-2" aria-label="Page 2">
+        2
+      </a>
+    </li>
+  
+      <!-- <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li> -->
+    
+  
+  </ul>
+  
+    
+  
+  <div class="govuk-pagination__next">
+    <a class="govuk-link govuk-pagination__link" href="person-record-event-history-page-2" rel="next">
+      
+      <span class="govuk-pagination__link-title">
+        Next<span class="govuk-visually-hidden"> page</span>
+      </span>
+      
+          
+      <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+      </svg>
+      
+    </a>
+  </div>
+</nav>
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+</div>
+</main>
+</div>
+
+
+</div>{# /govuk-grid-column-two-thirds #}
+
+</div>{# /govuk-grid-row #}
+
+{% endblock %}
