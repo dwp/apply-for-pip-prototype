@@ -7,7 +7,19 @@
 
 {% block content %}
 
-
+<div class="govuk-width-container">
+   <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content">
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    
+    <p class="govuk-body">(This is the success banner to say the task has been completed)</p>
+  </div>
+</div>
 
   <div class="govuk-grid-row">
 
@@ -43,49 +55,40 @@
   </h2>
   <ul class="govuk-tabs__list">
     <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-      <a class="govuk-tabs__tab" href="#past-day">
+      <a class="govuk-tabs__tab" href="#open">
         Open
       </a>
     </li>
-     <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#past-day">
-      On hold
-      </a>
-    </li>
     <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#past-week">
+      <a class="govuk-tabs__tab" href="#closed">
        Closed
       </a>
     </li>  
 
   </ul>
-  <div class="govuk-tabs__panel" id="past-day">
+  <div class="govuk-tabs__panel" id="open">
+        <table class="govuk-table">
 
- 
-<table class="govuk-table">
+             <thead class="govuk-table__head">
+               <tr class="govuk-table__row">
+               <td class="govuk-table__cell" style="width: 20%"><b>Type</b></td>
+               <td class="govuk-table__cell" style="width: 15%"><b>Created</b></td>
+               <td class="govuk-table__cell" style="width: 20%"><b>National Insurance number</b></td>
+               <td class="govuk-table__cell" style="width: 15%"><b>Name</b></td>
+               <td class="govuk-table__cell" style="width: 10%"><b>Status</b></td>
+               <td class="govuk-table__cell" style="width: 10%"><b></b></td>
 
-                                  <thead class="govuk-table__head">
-                                    <tr class="govuk-table__row">
-                                      <td class="govuk-table__cell govuk-15-percent"><b>Type</b></td>
-                                      <td class="govuk-table__cell govuk-20-percent"><b>Created</b></td>
-                                      <td class="govuk-table__cell govuk-15-percent"><b>National Insurance number</b></td>
-                                      <td class="govuk-table__cell govuk-30-percent"><b>Name</b></td>
-                                      <td class="govuk-table__cell govuk-35-percent"><b>Status</b></td>
-                                      <td class="govuk-table__cell govuk-20-percent"><b></b></td>
+             </tr>
+             </thead>
 
-                                    </tr>
-                                  </thead>
-
-
-
-
-                                <tbody><tr class="govuk-table__row">
-                                  <td class="govuk-table__cell table-spacer">Prepare an application for a decision</td>
-                                  <td class="govuk-table__cell table-spacer"> 12 December 2024</td>
-                                  <td class="govuk-table__cell table-spacer"> QQ 12 34 56 X</td>
-                                  <td class="govuk-table__cell table-spacer">Heather Murphy</td>
-                                  <td class="govuk-table__cell table-spacer"><a href=""></a>Allocated</td>
-                                  <td class="govuk-table__cell table-spacer"><a href="task-1-start">Start</a></td>
+             <tbody>
+             <tr class="govuk-table__row">
+                                  <td class="govuk-table__cell table-spacer">Payment details not available</td>
+                                  <td class="govuk-table__cell table-spacer"> 4 January 2025</td>
+                                  <td class="govuk-table__cell table-spacer"> NA 11 22 33 C</td>
+                                  <td class="govuk-table__cell table-spacer">Jeff Bridges</td>
+                                  <td class="govuk-table__cell table-spacer"><a href=""></a>On hold</td>
+                                  <td class="govuk-table__cell table-spacer"><a href="application-payment-detials-available">Start</a></td>
 
 
                                   </tr>

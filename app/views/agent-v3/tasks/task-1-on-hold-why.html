@@ -1,0 +1,65 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "agent-v1/includes/layout-agent.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+          
+      <form action="dwp-task-on-hold" method="post" class="form">
+                <div class="govuk-grid-row">
+
+                  <div class="govuk-grid-column-two-thirds">
+                            <br><br>
+                                <h1 class="govuk-heading-l govuk-!-margin-bottom-1">Jeff Bridges</h1>
+                                <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-8">NA 11 22 33 C</p>                            
+                          
+                       
+                          <div class="govuk-form-group">
+                              <fieldset class="govuk-fieldset">
+                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                                  <h1 class="govuk-fieldset__heading">
+                                    What do you want to do with this task?
+                                  </h1>
+                                </legend>
+                                <br>
+                                <div class="govuk-radios" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+                                    <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                                      Move it to PIPCS
+                                    </label>
+                                  </div>
+                              
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="whereDoYouLive-3" name="whereDoYouLive" type="radio" value="wales">
+                                    <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
+                                      Put it on hold and keep
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
+                                    <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
+                                      Put it on hold and return to the queue
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+
+                 
+
+                          <button type="submit" class="govuk-button" data-module="govuk-button">
+                          Continue
+                        </button>
+
+                    </div>
+                </div>
+    </form>
+     
+
+
+
+{% endblock %}
