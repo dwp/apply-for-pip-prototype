@@ -1,0 +1,928 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "agent-v1/includes/layout-agent.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<form action="person-record-tasks-none-banner" method="post" class="form">
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+          <section class="dwp-quick-reference govuk-!-margin-bottom-8" aria-label="Case information">
+            <dl class="dwp-quick-reference__block">
+              <dt class="dwp-quick-reference__label govuk-visually-hidden">Name:</dt>
+              <dd class="dwp-quick-reference__primary">Heather Murphy</dd>
+              <dt class="dwp-quick-reference__label dwp-quick-reference__label--primary govuk-visually-hidden">National
+                Insurance number:</dt>
+              <dd class="dwp-quick-reference__secondary">QQ 12 34 56 X</dd>
+            </dl>
+          </section>
+
+     
+
+            {% include "apply-for-pip/includes/back-link.html" %}
+<br><br>
+
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-8">Decision details</h1>
+
+
+          <h3 class="govuk-heading-m govuk-!-padding-top-2 govuk-!-margin-bottom-6">Outcome</h3>
+
+          <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2"></p>
+          <!-- <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+
+    <li>[XX] points for the daily living part - this means the applicant has been given the [standard/enhanced] rate</li>
+    <li>[XX] points for the daily living part - this means the applicant has not been given this part</li>
+    <li>[XX] points for the mobility part - this means the applicant has been given the [standard/enhanced] rate</li>
+    <li>[XX] points for the mobility part - this means the applicant has not been given this part</li>
+  </ul> -->
+
+          <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2">6 points for the daily living part -
+            this means the applicant has been given the nil rate</p>
+          <!-- <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2">[XX] points for the daily living part - this means the applicant has not been given this part</p> -->
+          <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2">0 points for the mobility part - this
+            means the applicant has been given the nil rate</p>
+          <!-- <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2">[XX] points for the mobility part - this means the applicant has not been given this part</p> -->
+
+
+
+
+          <!------------OUTCOME LEGEND------------>
+
+          <h3 class="govuk-heading-m govuk-!-padding-top-6 govuk-!-margin-bottom-6">Qualifying period and prospective
+            test</h3>
+
+
+
+
+
+
+
+
+
+
+
+          <dl class="govuk-summary-list">
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Daily living qualifying period met
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="qppt-dl-3m-check">-.<span class="govuk-visually-hidden"> XXX</span></a>
+
+              </dd>
+
+            </div>
+
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Likely to still have daily living restrictions
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="qppt-dl-9m-check">-.<span class="govuk-visually-hidden"> XXX</span></a>
+
+              </dd>
+
+            </div>
+
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Mobility qualifying period met
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="qppt-m-3m-check">-.<span class="govuk-visually-hidden"> XXX</span></a>
+
+              </dd>
+
+            </div>
+
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Likely to still have moblity restrictions
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="qppt-m-9m-check">-.<span class="govuk-visually-hidden"> XXX</span></a>
+
+              </dd>
+
+            </div>
+
+
+          </dl>
+
+
+
+
+          <!------------Q2 LEGEND------------>
+
+
+          <!------------Legend--------------->
+
+          <!-- <h3 class="govuk-heading-m govuk-!-padding-top-6 govuk-!-margin-bottom-6">Review dates</h3>
+
+          <dl class="govuk-summary-list">
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Award start date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                X
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="award-dates-playback">-.<span class="govuk-visually-hidden"> XXX</span></a>
+
+              </dd>
+
+            </div>
+
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Agree with assessment provider's recommendation
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="award-dates-playback">-.<span class="govuk-visually-hidden"> XXX</span></a>
+
+              </dd>
+
+            </div>
+
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Award review period
+              </dt>
+              <dd class="govuk-summary-list__value">
+                3 years
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="award-dates-playback">-.<span class="govuk-visually-hidden"> XXX</span></a>
+
+              </dd>
+
+            </div>
+
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Award review period justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Standard 3 year award
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="award-dates-playback">-.<span class="govuk-visually-hidden"> XX</span></a>
+
+              </dd>
+
+            </div>
+
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Award end date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                1 March 2027
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="award-dates-playback">-.<span class="govuk-visually-hidden"> XXX</span></a>
+
+              </dd>
+
+            </div>
+
+
+          </dl>
+ -->
+
+
+
+
+
+          <h3 class="govuk-heading-m govuk-!-padding-top-6 govuk-!-margin-bottom-6">Documents used when reconsidering
+            the decision </h3>
+
+
+
+
+
+
+          <dl class="govuk-summary-list govuk-summary-list--no-border">
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Selected documents
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0 ">
+                  <li>Information provided by care home</li>
+                  <li>Care plan</li>
+                  <li>Certificate of Vision Impairment (CVI)</li>
+                  <li>Information provided by community mental health team</li>
+                </ul>
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-evidence-used-b"><span class="govuk-visually-hidden">
+                    name</span></a>
+
+              </dd>
+
+            </div>
+
+
+          </dl>
+
+
+
+          <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+          <h3 class="govuk-heading-m govuk-!-padding-top-6 govuk-!-margin-bottom-6">Health conditions or disabilities
+          </h3>
+
+
+
+
+
+
+
+
+          <dl class="govuk-summary-list govuk-summary-list--no-border">
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Primary condition
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0 ">
+                  <li>Health conditions or disabilities name #1</li>
+                </ul>
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-evidence-used-b"><span class="govuk-visually-hidden">
+                    name</span></a>
+
+              </dd>
+
+            </div>
+
+
+          </dl>
+
+
+
+
+
+          <dl class="govuk-summary-list govuk-summary-list--no-border">
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Other conditions
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0 ">
+                  <li>Health conditions or disabilities name #1</li>
+                  <li>Health conditions or disabilities name #2</li>
+                  <li>Health conditions or disabilities name #3</li>
+                  <li>Health conditions or disabilities name #4</li>
+                  <li>Health conditions or disabilities name #5</li>
+                </ul>
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-evidence-used-b"><span class="govuk-visually-hidden">
+                    name</span></a>
+
+              </dd>
+
+            </div>
+
+
+          </dl>
+
+
+          <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+
+          <h3 class="govuk-heading-m govuk-!-padding-top-6 govuk-!-margin-bottom-6">Daily living scoring</h3>
+
+          <!-- 1 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Preparing food
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 8
+                </strong>
+                <br>
+
+                Blank
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a1-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a1-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+          <!-- 2 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Taking nutrition
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 10
+                </strong>
+                <br>
+
+                Blank
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a2-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a2-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+          <!-- 3 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Managing therapy or monitoring a health condition
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 8
+                </strong>
+                <br>
+
+                Blank
+
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a3-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a3-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+          <!-- 4 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Washing and bathing
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 8
+                </strong>
+                <br>
+
+                Blank
+
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a4-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a4-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+          <!-- 5 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Managing toilet needs or incontinence
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 8
+                </strong>
+                <br>
+
+                Blank
+
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a5-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a5-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+          <!-- 6 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Dressing and undressing
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 8
+                </strong>
+                <br>
+
+                Blank
+
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a6-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a6-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+
+          <!-- 7 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Communicating verbally
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 12
+                </strong>
+                <br>
+
+                Blank
+
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a7-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a7-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+          <!-- 8 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Reading and understanding signs, symbols and words
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 8
+                </strong>
+                <br>
+
+                Blank
+
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a8-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a8-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+          <!-- 9 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Engaging with other people face to face
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 8
+                </strong>
+                <br>
+
+                Blank
+
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a9-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a9-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+          <!-- 10 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Making budgeting decisions
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 6
+                </strong>
+                <br>
+
+                Blank
+
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a10-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a10-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+
+          <h3 class="govuk-heading-m govuk-!-padding-top-8 govuk-!-margin-bottom-6">Mobility scoring</h3>
+
+          <!-- 11 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Planning and following journeys
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 12
+                </strong>
+                <br>
+
+                Blank
+
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a11-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a11-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+
+          <!-- 12 -->
+          <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Moving around
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                <strong>
+
+                  [X]
+
+                  out of 12
+                </strong>
+                <br>
+
+                Blank
+
+
+
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a12-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Justification
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="application-6-about-a12-score">
+                  -.<span class="govuk-visually-hidden"> XXX justification</span>
+                </a>
+              </dd>
+            </div>
+
+          </dl>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+    </main>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+</div>{# /govuk-grid-column-two-thirds #}
+
+</div>{# /govuk-grid-row #}
+
+{% endblock %}

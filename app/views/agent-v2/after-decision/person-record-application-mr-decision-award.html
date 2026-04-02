@@ -1,0 +1,184 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "agent-v1/includes/layout-agent.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<form action="person-record-tasks-none-banner" method="post" class="form">
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+          <section class="dwp-quick-reference govuk-!-margin-bottom-8" aria-label="Case information">
+            <dl class="dwp-quick-reference__block">
+              <dt class="dwp-quick-reference__label govuk-visually-hidden">Name:</dt>
+              <dd class="dwp-quick-reference__primary">Heather Murphy</dd>
+              <dt class="dwp-quick-reference__label dwp-quick-reference__label--primary govuk-visually-hidden">National
+                Insurance number:</dt>
+              <dd class="dwp-quick-reference__secondary">QQ 12 34 56 X</dd>
+            </dl>
+          </section>
+
+     
+
+            {% include "apply-for-pip/includes/back-link.html" %}
+<br><br>
+
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-8">Award and scheduled payments</h1>
+
+
+         <h1 class="govuk-heading-m govuk-!-margin-bottom-4">Arrears payment</h1>
+
+
+                      <table class="govuk-table govuk-!-margin-bottom-0">
+
+                        <thead class="govuk-table__head">
+
+                          <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header" style="width: 20%">Start</th>
+                            <th scope="col" class="govuk-table__header" style="width: 20%">End</th>
+                            <th scope="col" class="govuk-table__header" style="width: 20%">Days</th>
+                            <th scope="col" class="govuk-table__header" style="width: 20%">Rate</th>
+                            <th scope="col" class="govuk-table__header" style="width: 20%">Amount</th>
+                          </tr>
+
+                        </thead>
+
+
+                        <tbody class="govuk-table__body noborder">
+                          
+                          <tr class="govuk-table__row govuk-table__cell-noborder">
+                            <td class="govuk-table__cell govuk-table__cell-noborder">[DATE] </td>
+                            <td class="govuk-table__cell">[DATE] </td>
+                            <td class="govuk-table__cell">29</td>
+
+                            <td class="govuk-table__cell">
+                              <p class="govuk-body govuk-!-margin-bottom-2">Daily living:<br>standard</p>
+                              <p class="govuk-body govuk-!-margin-bottom-1">Mobility: <br>nil</p>
+                            </td>
+
+                            <td class="govuk-table__cell">
+                              <p class="govuk-body govuk-!-margin-bottom-2">£[X]<br><br></p>
+                              <p class="govuk-body govuk-!-margin-bottom-1">£[X]</p>
+                            </td>
+                          
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                      <hr class="govuk-section-break govuk-section-break--visible-seperator">
+
+
+                      <table class="govuk-table govuk-!-padding-top-0">
+
+                        <tbody class="govuk-table__body">
+
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell" style="width: 20%">Total days</td>
+                            <td class="govuk-table__cell" style="width: 20%"></td>
+                            <td class="govuk-table__cell" style="width: 20%"><strong>29</strong></td>
+                            <td class="govuk-table__cell" style="width: 20%"></td>
+                            <td class="govuk-table__cell" style="width: 20%"></td>
+                          </tr>
+
+
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell" style="width: 20%"><strong>Total arrears owed</strong></td>
+                            <td class="govuk-table__cell" style="width: 20%"></td>
+                            <td class="govuk-table__cell" style="width: 20%"></td>
+                            <td class="govuk-table__cell" style="width: 20%"></td>
+
+                              <td class="govuk-table__cell" style="width: 20%"><strong>£[X]</strong></td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+
+    <br><br>
+
+
+    <h1 class="govuk-heading-m govuk-!-margin-bottom-2">Regular payment</h1>
+    <!-- <p class="govuk-body govuk-!-margin-bottom-2">Every four weeks</p> -->
+
+
+                      <table class="govuk-table govuk-!-margin-bottom-0">
+                        <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+                        <thead class="govuk-table__head">
+                          <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header" style="width: 30%">Award start date</th>
+                            <th scope="col" class="govuk-table__header" style="width: 30%">Award end date</th>
+                            <th scope="col" class="govuk-table__header"></th>
+                            <th scope="col" class="govuk-table__header" style="width: 25%">Rate</th>
+                            <th scope="col" class="govuk-table__header" style="width: 30%">Amount</th>
+
+
+                          </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell" style="width: 30%">[DATE]</td>
+                            <td class="govuk-table__cell" style="width: 30%">[DATE]</td>
+                            <td class="govuk-table__cell"></td>
+
+                            <td class="govuk-table__cell" style="width: 25%">
+                              <p class="govuk-body govuk-!-margin-bottom-2">Daily living:<br>standard</p>
+                              <p class="govuk-body govuk-!-margin-bottom-1">Mobility: <br>nil</p>
+                            </td>
+
+                            <td class="govuk-table__cell" style="width: 30%">
+                              <p class="govuk-body govuk-!-margin-bottom-2">£[X]<br><br></p>
+                              <p class="govuk-body govuk-!-margin-bottom-1">£[X]</p>
+                            </td>
+
+                          </tr>
+
+                        </tbody>
+                      </table>
+
+                      <hr class="govuk-section-break govuk-section-break--visible-seperator"><table class="govuk-table ">
+                        <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+                        <tbody class="govuk-table__body">
+
+                          
+
+                          <tr class="govuk-table__row">
+                            <td class="govuk-table__cell" style="width: 30%"><strong>Total to be paid every 4 weeks</strong></td>
+                            <td class="govuk-table__cell" style="width: 30%"></td>
+                            <td class="govuk-table__cell" style="width: 25%"></td>
+                            <td class="govuk-table__cell" style="width: 30%"><strong>£[X]</strong></td>
+                            </tr>
+
+                        </tbody>
+                      </table>
+
+
+
+
+
+
+
+
+
+
+    </main>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+</div>{# /govuk-grid-column-two-thirds #}
+
+</div>{# /govuk-grid-row #}
+
+{% endblock %}
