@@ -1,0 +1,155 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "agent-v1/includes/layout-agent.html" %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<form action="person-record-tasks-on-hold-banner" method="post" class="form">
+<div class="govuk-width-container">
+   <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content">
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <section class="dwp-quick-reference govuk-!-margin-bottom-8" govuk-!-margin-top-0 aria-label="Case information">
+      <dl class="dwp-quick-reference__block">
+        <dt class="dwp-quick-reference__label govuk-visually-hidden">Name:</dt>
+        <dd class="dwp-quick-reference__primary"><a href="person-record-overview-nil.html">Heather Murphy</a></dd>
+        <dt class="dwp-quick-reference__label dwp-quick-reference__label--primary govuk-visually-hidden">National
+          Insurance number:</dt>
+        <dd class="dwp-quick-reference__secondary">QQ 12 34 56 X</dd>
+      </dl>
+    </section>
+
+   {% include "agent-v2/includes/back-link.html" %}
+<br><br>
+
+
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+      How long do you want to put this task on hold for?
+      </h1>
+    </legend>
+    <br>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          1 day
+        </label>
+      </div>
+       <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          1 week
+        </label>
+      </div>
+       <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          2 weeks
+        </label>
+      </div>
+       <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          1 month
+        </label>
+      </div>
+      
+
+
+
+
+
+
+      <div class="govuk-radios__divider">or</div>
+    <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          Other
+        </label>
+      </div>
+
+              <div class="govuk-form-group" style="margin-left: 9%;">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        Enter an end date
+      </h1>
+    </legend>
+   
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+     
+    
+    </div>
+  </fieldset>
+</div>
+
+
+
+
+
+         
+       
+<button type="submit" class="govuk-button" data-module="govuk-button">
+ Continue
+</button>
+
+
+</div>
+
+
+
+ 
+</main>
+</form>
+</div>
+
+ </div>
+</div>
+</div>
+
+
+</div>{# /govuk-grid-column-two-thirds #}
+
+</div>{# /govuk-grid-row #}
+
+{% endblock %}

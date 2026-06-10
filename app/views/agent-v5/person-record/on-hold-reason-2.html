@@ -1,0 +1,114 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "agent-v1/includes/layout-agent.html" %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<form action="on-hold-date" method="post" class="form">
+<div class="govuk-width-container">
+   <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content">
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <section class="dwp-quick-reference govuk-!-margin-bottom-8" govuk-!-margin-top-0 aria-label="Case information">
+      <dl class="dwp-quick-reference__block">
+        <dt class="dwp-quick-reference__label govuk-visually-hidden">Name:</dt>
+        <dd class="dwp-quick-reference__primary"><a href="person-record-overview-nil.html">Heather Murphy</a></dd>
+        <dt class="dwp-quick-reference__label dwp-quick-reference__label--primary govuk-visually-hidden">National
+          Insurance number:</dt>
+        <dd class="dwp-quick-reference__secondary">QQ 12 34 56 X</dd>
+      </dl>
+    </section>
+
+   {% include "agent-v2/includes/back-link.html" %}
+<br><br>
+
+
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Why do you need to put this task on hold?
+      </h1>
+    </legend>
+    <br>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          I need more information from someone
+        </label>
+      </div>
+     
+    
+   
+        <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          *I'm going on leave*
+        </label>
+      </div>
+   
+        <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          *It's the end of the day*
+        </label>
+      </div>
+   
+   
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+        <label class="govuk-label govuk-radios__label" for="contact-2">
+          *Other*
+        </label>
+      </div>
+     
+     
+    
+    </div>
+  </fieldset>
+</div>
+
+<!-- <div class="govuk-form-group" style="margin-left: 10%; margin-top: -5% ;">
+  <label class="govuk-label" for="more-detail"><b>
+    Explain why you are putting this task on hold</b>
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+</div> -->
+
+
+
+         
+       
+<button type="submit" class="govuk-button" data-module="govuk-button">
+ Continue
+</button>
+
+
+</div>
+
+
+
+ 
+</main>
+</form>
+</div>
+
+ </div>
+</div>
+</div>
+
+
+</div>{# /govuk-grid-column-two-thirds #}
+
+</div>{# /govuk-grid-row #}
+
+{% endblock %}
