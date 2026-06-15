@@ -267,4 +267,74 @@ const amendCondition = (conditions, condition) => {
 
   // Add another condition end
 
+
+  //pulling through details to event history
+
+
+
+
+
+router.post('/agent-v6/person-record/add-an-event-outbound-call-details', function (req, res) {
+
+  const today = new Date()
+
+  req.session.data.moreDetail = req.body.moreDetail
+
+  req.session.data.eventDate = today.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })
+
+  res.redirect('/agent-v6/person-record/person-record-event-history-outbound-call')
+})
+
+
+
+router.get('/agent-v6/dwp-task-all-tasks-on-hold', function (req, res) {
+
+  const today = new Date()
+
+  const tomorrow = new Date()
+  tomorrow.setDate(today.getDate() + 1)
+
+  const todayFormatted = today.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })
+
+  const tomorrowFormatted = tomorrow.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  })
+
+  res.render('/agent-v6/dwp-task-all-tasks-on-hold', {
+    today: todayFormatted,
+    tomorrow: tomorrowFormatted
+  })
+})
+
+
+router.get('/agent-v7/dwp-task-all-tasks', function (req, res) {
+
+  const today = new Date()
+
+  const todayFormatted = today.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })
+
+  res.render('/agent-v7/dwp-task-all-tasks', {
+    today: todayFormatted
+  })
+})
+
+
+
+
+
+
 module.exports = router

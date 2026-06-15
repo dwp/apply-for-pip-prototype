@@ -1,0 +1,159 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "agent-v1/includes/layout-agent.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<form action="#" method="post" class="form">
+<div class="govuk-width-container">
+   <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content">
+
+  <div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+
+    <section class="dwp-quick-reference govuk-!-margin-bottom-8" aria-label="Case information">
+      <dl class="dwp-quick-reference__block">
+        <dt class="dwp-quick-reference__label govuk-visually-hidden">Name:</dt>
+        <dd class="dwp-quick-reference__primary"><a href="person-record-overview-nil">Charlie Murphy</a></dd>
+        <dt class="dwp-quick-reference__label dwp-quick-reference__label--primary govuk-visually-hidden">National
+          Insurance number:</dt>
+        <dd class="dwp-quick-reference__secondary">QQ 12 34 56 X</dd>
+      </dl>
+    </section>
+
+                    <nav class="govuk-breadcrumbs govuk-!-padding-top-0 govuk-!-margin-bottom-6" aria-label="Breadcrumb">
+                      <ol class="govuk-breadcrumbs__list">
+                        <li class="govuk-breadcrumbs__list-item">
+                          <a class="govuk-breadcrumbs__link" href="person-record-overview-nil">Overview</a>
+                        </li>
+                        <li class="govuk-breadcrumbs__list-item">
+                          <a class="govuk-breadcrumbs__link" href="person-record-applications">Applications and decisions</a>
+                        </li>
+                       
+                      </ol>
+                    </nav>
+<br>
+     
+
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Register a mandatory reconsideration</h1>
+
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2">Make sure the person who has asked for their decision to be reconsidered understands that:</p>
+      <ul class="govuk-list govuk-!-font-size-19 govuk-list--bullet govuk-!-margin-bottom-6">
+
+        <li>PIP is assessed on how their condition affects them, not the condition itself
+        </li><li>they have been given points for each activity based on the information that they submitted</li>
+        <li>the rate of PIP awarded depends on the total points for all of the activities</li>
+      </ul>
+
+      <p class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-19 govuk-!-margin-bottom-2">Explain what will happen next</p>
+      <ul class="govuk-list govuk-!-font-size-19 govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>We'll record the details of which parts of the decision they disagree with.</li>
+        <li>There'll be an opportunity to send additional evidence to support the application.</li>
+        <li>Someone will look at all the information again and make another decision.</li>
+        <li>Their points could go up, down or remain the same.</li>
+      </ul>
+
+
+<div class="govuk-form-group">
+
+  <fieldset class="govuk-fieldset" aria-describedby="an-de-overview-hint">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+    <h1 class="govuk-fieldset__heading">
+      How would they like to tell us about why they disagree with their decision?
+    </h1>
+  </legend>
+  
+
+  <div class="govuk-radios govuk-radios govuk-!-margin-bottom-4" data-module="govuk-radios" data-govuk-radios-init="">
+    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="an-de-overview" name="an-de-overview" type="radio" value="Yes" aria-describedby="an-de-overview-item-hint">
+      <label class="govuk-label govuk-radios__label" for="an-de-overview">
+        Over the phone now
+      </label>
+      
+      <div id="an-de-overview-item-hint" class="govuk-hint govuk-radios__hint">
+        The call will take around 30 minutes
+      </div>
+      
+    </div>
+    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="an-de-overview-2" name="an-de-overview" type="radio" value="NoTime" aria-describedby="an-de-overview-2-item-hint">
+      <label class="govuk-label govuk-radios__label" for="an-de-overview-2">
+        Over the phone later
+      </label>
+      
+      <div id="an-de-overview-2-item-hint" class="govuk-hint govuk-radios__hint">
+        They can call us back at a more suitable time
+      </div>
+      
+    </div>
+    
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="an-de-overview-3" name="an-de-overview" type="radio" value="NoPaper" aria-describedby="an-de-overview-3-item-hint">
+      <label class="govuk-label govuk-radios__label" for="an-de-overview-3">
+        On a paper form
+      </label>
+      <div id="an-de-overview-3-item-hint" class="govuk-hint govuk-radios__hint">
+        They can download this from the GOV.UK website
+      </div>
+      
+    </div>
+  
+  </div>
+
+</fieldset>
+
+</div>
+
+
+        <!-- {
+          value: "NoPaper",
+          text: "On a paper form",
+          hint: {
+            text: "We can either send this to them or they can download from the GOV.UK website"},
+          checked: (data["an-de-overview"] == "NoPaper")
+        } -->
+
+
+      
+  
+
+  
+    
+  
+
+<button type="submit" class="govuk-button govuk-!-margin-bottom-8" data-module="govuk-button" data-govuk-button-init="">
+  Continue
+</button>
+
+
+
+
+        </div>
+
+
+
+
+ 
+</main>
+</form>
+</div>
+
+ </div>
+</div>
+</div>
+
+
+</div>{# /govuk-grid-column-two-thirds #}
+
+</div>{# /govuk-grid-row #}
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% set pageTitle = "Tell us how your health condition or disability affects you" %}
+
+{% extends "agent-v1/includes/layout-dwp-task.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+
+
+      <!-- <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            Submit your application by 3 December 2021
+
+          </p>
+        </div>
+      </div> -->
+
+<div class="govuk-width-container">
+        
+
+
+          
+
+<br>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+      <form action="person-record/find-someone" method="post" class="form">
+
+          <section class="dwp-quick-reference govuk-!-margin-bottom-8" govuk-!-margin-top-0 aria-label="Case information">
+      <dl class="dwp-quick-reference__block">
+        <dt class="dwp-quick-reference__label govuk-visually-hidden">Name:</dt>
+        <dd class="dwp-quick-reference__primary">Heather Murphy</dd>
+        <dt class="dwp-quick-reference__label dwp-quick-reference__label--primary govuk-visually-hidden">National
+          Insurance number:</dt>
+        <dd class="dwp-quick-reference__secondary">QQ 12 34 56 X</dd>
+      </dl>
+    </section>
+
+        <p class="govuk-heading-l govuk-!-margin-bottom-8">Call the applicant</p>
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Event history notes
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Customer called to register an MR, call dropped part way through. Attempted call back - no answer. Manual task created for call back.
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Mobile phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              07987266388
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          
+        </dl>
+  
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Open Person Record
+  </button>
+
+  <p><a href="..">I couldn't complete this task</a></p>
+
+
+
+
+        </div></div></form></div></div></main>
+      </div>
+
+    </div>{# /govuk-grid-column-two-thirds #}
+
+  </div>{# /govuk-grid-row #}
+
+{% endblock %}
