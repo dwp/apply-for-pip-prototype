@@ -333,6 +333,23 @@ router.get('/agent-v7/dwp-task-all-tasks', function (req, res) {
 })
 
 
+router.post('/agent-v6/on-hold-reason-explain', function (req, res) {
+
+  const today = new Date()
+
+  // ✅ store the reason
+  req.session.data.reasonExplain = req.body.reasonExplain
+
+  // ✅ ALSO set the date here
+  req.session.data.eventDate = today.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })
+
+  res.redirect('/agent-v6/dwp-task-all-tasks-on-hold')
+})
+
 
 
 
